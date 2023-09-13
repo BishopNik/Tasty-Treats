@@ -8,7 +8,6 @@
  */
 
 @import url('./reset.css');
-@import url('./vite-promo.css');
 @import url('./header.css');
 
 :root {
@@ -46,4 +45,21 @@
   rgba(206, 205, 205, 1)
   rgba(248, 248, 248, 0.6)
   rgba(248, 248, 248, 0.2) */
+}
+
+.container {
+	@media screen and (max-width: 767px) {
+		width: 375px;
+		padding: 0 20px;
+	}
+
+	@media screen and (min-width: 768px) {
+		width: 768px;
+		padding: 0 32px;
+	}
+
+	@media screen and (min-width: 1280px) {
+		width: 1280px;
+		padding: 0 100px;
+	}
 }
