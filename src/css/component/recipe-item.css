@@ -86,7 +86,7 @@
 	right: 16px;
 }
 
-.recipe-item-see {
+/* .recipe-item-see {
 	display: flex;
 	flex-wrap: nowrap;
 	justify-content: center;
@@ -100,7 +100,7 @@
 	font-style: normal;
 	font-weight: 500;
 	line-height: normal;
-}
+} */
 
 @media screen and (max-width: 767px) {
 	.recipe-item.mainblock,
