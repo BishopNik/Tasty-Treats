@@ -80,21 +80,15 @@ img {
   max-width: 100%;
   height: auto;
 }
-*/ .header {
+.header {
   padding: 20px 0;
 }
 
 .nav-list {
-  display: none;
-}
-
-@media screen and (min-width: 767px) {
-  .nav-list {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 40px;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 40px;
 }
 
 .nav-link {
@@ -130,7 +124,7 @@ img {
 }
 @media screen and (min-width: 1280px) {
   .container-header {
-    max-width: 1400px;
+    max-width: 12800px;
     padding-left: 100px;
     padding-right: 100px;
   }
@@ -148,14 +142,7 @@ img {
   font-weight: 600;
   line-height: 1.12;
   letter-spacing: -0.64px;
-  padding: 10px 0;
   color: var(--color-green-button);
-}
-
-@media screen and (max-width: 375px) {
-  .logo-header {
-    padding: 0;
-  }
 }
 
 .logo-color {
@@ -332,11 +319,23 @@ img {
   left: 20px;
 }
 
-Медіа запити @media screen and (max-width: 767px) {
+@media screen and (min-width: 375px) {
+  .logo-header {
+    padding: 10px 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .nav-list {
+    display: none;
+  }
+
   .theme-switcher.main {
     display: none;
   }
 }
+
+/*
 
 @media screen and (min-width: 768px) {
   .burger-menu {
@@ -365,7 +364,7 @@ img {
     color: var(--color-green-button);
   }
 
-  .stars-svg {
+  .shopping-icon {
     transition: stroke 250ms ease-in-out;
   }
 
@@ -378,7 +377,7 @@ img {
 }
 
 @media screen and (min-width: 1280px) {
-  .container-header {
+  .container {
     width: 1280px;
   }
   .logo-header {
@@ -387,4 +386,4 @@ img {
   .nav-link {
     padding: 20px 0;
   }
-}
+} */
