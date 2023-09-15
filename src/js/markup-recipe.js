@@ -84,4 +84,5 @@ export async function markupRecipe(id) {
 		</div>
 	</div>
     `;
+	return modWindow;
 }
