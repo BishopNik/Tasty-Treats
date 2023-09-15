@@ -12,6 +12,7 @@
 @import url('./component/recipe-item.css');
 @import url('./component/button.css');
 @import url('./recipe-full.css');
+@import url('./categories.css');
 
 :root {
 	font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
