@@ -130,7 +130,7 @@
 .burger-menu-icon {
   width: 32px;
   height: 32px;
-  fill: var(--color-font-popular-recipe);
+  fill: var(--color-black-font);
 }
 .burger-menu-icon:hover,
 .burger-menu-icon:focus {
@@ -205,6 +205,12 @@
   border: none;
   border-radius: 50%;
   outline: none;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
 }
 
 .menu-toggle:hover,

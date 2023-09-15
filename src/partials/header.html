@@ -3,6 +3,7 @@
   <link rel="stylesheet" href="../css/header.css" />
   <link rel="stylesheet" href="../css/reset.css" />
   <link rel="stylesheet" href="../css/styles.css" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <div class="container-header">
     <nav class="nav">
       <ul class="nav-list">
@@ -23,14 +24,15 @@
           </svg>
         </button>
         <!-- Burger mobile -->
+
         <button
-          class="burger-menu js-open-menu"
           type="button"
+          class="menu-toggle js-open-menu"
           aria-expanded="false"
           aria-controls="mobile-menu"
         >
-          <svg class="burger-menu-icon" width="32" height="32">
-            <use href="./images/sprite.svg#icon-menu"></use>
+          <svg width="32" height="32">
+            <use href="../img/icon/icon.svg#burger-menu"></use>
           </svg>
         </button>
 
@@ -52,7 +54,7 @@
   <div class="menu-container js-menu-container" id="mobile-menu">
     <button class="menu-toggle js-close-menu">
       <svg width="32" height="32">
-        <use href="./images/sprite.svg#icon-close"></use>
+        <use href="../img/icon/icon.svg#icon-close"></use>
       </svg>
     </button>
 
@@ -74,4 +76,11 @@
       </li>
     </ul>
   </div>
+  <script
+    defer
+    src="https://cdnjs.cloudflare.com/ajax/libs/body-scroll-lock/3.1.5/bodyScrollLock.min.js"
+    integrity="sha512-HowizSDbQl7UPEAsPnvJHlQsnBmU2YMrv7KkTBulTLEGz9chfBoWYyZJL+MUO6p/yBuuMO/8jI7O29YRZ2uBlA=="
+    crossorigin="anonymous"
+  ></script>
+  <script defer src="js/mobile-menu.js"></script>
 </header>
