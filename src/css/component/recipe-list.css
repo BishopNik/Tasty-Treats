@@ -3,39 +3,39 @@
   --btn-stroke: rgba(5, 5, 5, 0.3);
 }
 
-.recipe-cards {
-  outline: 4px solid black;
-  height: calc(287px * 2 + 40px);
-  width: calc(250px * 3 + 32px);
-  margin-top: 32px;
-  margin-left: 60px;
-  margin-bottom: 64px;
-}
 .pagination-btns {
   display: flex;
-  gap: 12px;
+  gap: 24px;
+  justify-content: center;
 }
 
-.btn {
+.pagination-btn {
+  font-size: 18px;
   width: 44px;
   height: 44px;
   border-radius: 50%;
   border: none;
-}
-.arrow-btn:disabled {
-  background-color: black;
-  color: white;
 }
 
 .arrow-btn {
   background-color: var(--green);
   color: black;
 }
-.pagination-btn {
+.arrow-btn:disabled {
+  background-color: black;
+  color: white;
+}
+.forward-btns,
+.back-btns,
+.range-btns {
+  display: flex;
+  gap: 8px;
+}
+.number-btn {
   border: 1px solid var(--btn-stroke);
   background-color: transparent;
 }
-.current-pagination-btn {
+.current-number-btn {
   background-color: var(--green);
   color: black;
 }
