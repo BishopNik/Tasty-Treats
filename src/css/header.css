@@ -184,11 +184,11 @@ img {
   cursor: pointer;
 }
 
-.stars-svg {
+.shopping-icon {
   fill: #050505;
 }
-.stars-svg:hover,
-.stars-svg:focus {
+.shopping-icon:hover,
+.shopping-icon:focus {
   fill: var(--color-green-button);
 }
 
