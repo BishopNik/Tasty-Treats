@@ -1,0 +1,32 @@
+/**
+  |============================
+  | Hero section
+  |============================
+*/
+
+.hero-container {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hero-section {
+    max-width: 428px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #F8F8F8;
+    padding-top: 91.5px;
+    /* margin-bottom: 80px; */
+}
+
+.hero-title {
+    color: #050505;
+    font-family: Inter;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.2;
+    text-transform: uppercase;
+    padding-bottom: 100px;
+}
