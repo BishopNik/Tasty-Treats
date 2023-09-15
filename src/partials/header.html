@@ -1,11 +1,11 @@
 <!-- @format -->
-<link rel="stylesheet" href="../css/header.css" />
 <header class="header">
+  <link rel="stylesheet" href="../css/header.css" />
   <div class="container-header">
     <nav class="nav">
       <ul class="nav-list">
         <li class="nav-item">
-          <a class="nav-link current link" href="./index.html">Home</a>
+          <a class="nav-link current link" href="../index.html">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link link" href="../favorites.html">Favorites</a>
@@ -16,26 +16,25 @@
       >
       <div class="header-btn-box">
         <button type="button openModal" id="openModal" class="shopping-link">
-          <svg class="stars-svg" width="24" height="24">
+          <svg class="shopping-icon" width="24" height="24">
             <use href="../img/icon/icon.svg#icon-shopping-cart"></use>
           </svg>
         </button>
         <!-- Burger mobile -->
         <button
-          class="burger-menu"
+          class="burger-menu js-open-menu"
           type="button"
           aria-expanded="false"
           aria-controls="mobile-menu"
         >
           <svg class="burger-menu-icon" width="32" height="32">
-            <use href="../img/icon/icon.svg#icon-menu"></use>
+            <use href="./images/sprite.svg#icon-menu"></use>
           </svg>
         </button>
 
         <!-- Toggle -->
         <!-- <script src="./js/utils/switcher.js"></script> -->
-
-        <!-- <div class="theme-switcher main js-switcher">
+        <div class="theme-switcher main js-switcher">
           <input type="checkbox" class="input-switcher" id="switch" /><label
             class="input-label"
             for="switch"
@@ -48,8 +47,8 @@
 
   <!-- Mobile window -->
 
-  <div class="menu-container" id="mobile-menu">
-    <button class="menu-toggle">
+  <div class="menu-container js-menu-container" id="mobile-menu">
+    <button class="menu-toggle js-close-menu">
       <svg width="32" height="32">
         <use href="./images/sprite.svg#icon-close"></use>
       </svg>
@@ -64,13 +63,13 @@
       </li>
 
       <!-- Toggle-switch-burger -->
-      <!-- <li class="theme-switcher burger">
+      <li class="theme-switcher burger">
         <input
           type="checkbox"
           class="input-switcher"
           id="mobile-switch"
         /><label class="input-label" for="mobile-switch"></label>
-      </li> -->
+      </li>
     </ul>
   </div>
 </header>
