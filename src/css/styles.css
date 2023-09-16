@@ -21,6 +21,7 @@
 @import url('./main.css');
 @import url('./filters.css');
 @import url('./main-slider.css');
+@import url('./component/scroll-to-top.css');
 
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
