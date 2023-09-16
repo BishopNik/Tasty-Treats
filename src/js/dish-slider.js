@@ -6,14 +6,17 @@ import 'swiper/css/pagination';
 const swiper = new Swiper('.dish-slider', {
   slidesPerView: 1,
   spaceBetween: 16,
+  loop: false,
   breakpoints: {
     768: {
       slidesPerView: 1,
       spaceBetween: 16,
+      loop: false,
     },
-    1200: {
-      slidesPerView: 3,
+    1280: {
+      slidesPerView: 2.3,
       spaceBetween: 16,
+      loop: false,
     },
   },
   pagination: {
@@ -52,7 +55,6 @@ function createMarkup(arr) {
               <p>${area}</p>
             </div>
             <div style="background-image: url(${imgWebpUrl})" class="swiper-slide slider-dish-fullscreen"></div>
-
       `
     )
     .join('');

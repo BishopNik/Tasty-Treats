@@ -1,5 +1,5 @@
 .slide-container {
-  margin-left: auto;
+  /* margin-left: auto; */
   max-width: 700px;
   overflow: hidden;
 }
@@ -15,22 +15,23 @@
 
 .slider-dish-fullscreen {
   width: 350px;
-  /* height: 442px; */
+  height: 442px;
   border-radius: 15px;
-
-  background-size: cover;
+  background-color: black;
+  background-size: auto;
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
 
 .slider-dish-container {
-  min-width: 351px;
+  max-width: 351px;
   height: 442px;
   background-color: black;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background: radial-gradient(circle at center, #9bb537 0, 5%, #000000);
 
   /* background-size: contain;
   background-repeat: no-repeat;
@@ -49,6 +50,7 @@
   color: rgba(248, 248, 248, 0.6);
   text-align: center;
   font-family: Inter;
+  margin-bottom: 8px;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
