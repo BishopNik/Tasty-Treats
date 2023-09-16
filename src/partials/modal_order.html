@@ -32,14 +32,52 @@
             <use href="../img/icon/icon.svg#icon-close"></use>
           </svg>
         </div>
-        <h2 class="modal-rating-title">Rating</h2>
+        <h1 class="modal-order-title">Order now</h1>
 
         <form class="modal-order-form">
-          <div class="input-wrap">
-            <input class="modal-order-input" type="text" placeholder="Enter email" />
-          </div>
+          <label class="modal-order-label" for="modal-order-name"
+            >Name
+            <div class="input-wrap">
+              <input
+                class="modal-order-input"
+                type="text"
+                id="modal-order-name"
+              />
+            </div>
+          </label>
+          <label class="modal-order-label" for="modal-order-tel"
+            >Phone number
+            <div class="input-wrap">
+              <input
+                class="modal-order-input"
+                type="tel"
+                id="modal-order-tel"
+              />
+            </div>
+          </label>
+
+          <label class="modal-order-label" for="modal-order-mail"
+            >Email
+            <div class="input-wrap">
+              <input
+                class="modal-order-input"
+                type="mail"
+                id="modal-order-mail"
+              />
+            </div>
+          </label>
+          <label class="modal-order-label" for="modal-order-comment"
+            >Comment
+            <div class="modal-order-textarea">
+              <textarea
+                class="modal-order-input"
+                id="modal-order-comment"
+              ></textarea>
+            </div>
+          </label>
           <button class="modal-button" type="submit">Send</button>
         </form>
+      </div>
     </div>
   </body>
 </html>
