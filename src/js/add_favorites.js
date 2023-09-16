@@ -1,3 +1,6 @@
+/* draft
+
+
 // get favorites from local storage or empty array
 let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
@@ -21,4 +24,7 @@ document.querySelector('.list').addEventListener('click', function(e) {
   localStorage.setItem('favorites', JSON.stringify(favorites));
 });
 
-// local storage stores strings so we use JSON to stringify for storage and parse to get out of storage
+// local storage stores strings so we use JSON to stringify for storage and parse to get out of storage  
+
+
+*/
