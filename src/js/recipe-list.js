@@ -135,19 +135,14 @@ const rangeButtonsElm = document.querySelector('.range-btns')
 		elm.addEventListener('click', (evn) => {
 			if (elm.classList.contains('number-btn')||elm.classList.contains('current-number-btn')) {
 				option.params.page = Number(elm.textContent)
-				console.log(option)
 			} else if (elm.firstElementChild.classList.contains('left-arrow-icon') && elm.firstElementChild.classList.contains('double-arrow')) {
 				option.params.page = 1;
-				console.log(option)
 			} else if (elm.firstElementChild.classList.contains('left-arrow-icon')) {
 				option.params.page -= 1;
-				console.log(option)
 			} else if (elm.firstElementChild.classList.contains('right-arrow-icon') && elm.firstElementChild.classList.contains('double-arrow')) {
 				option.params.page = total;
-				console.log(option)
 			} else if (elm.firstElementChild.classList.contains('right-arrow-icon')) {
 				option.params.page += 1;
-				console.log(option)
 			} else {
 			}
 		renderMain(renderCardsOptions)
