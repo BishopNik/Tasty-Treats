@@ -1,45 +1,45 @@
-<!-- @format -->
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Tasty Treats</title>
-    <meta name="description" content="Goit-command project" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
-      integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="../css/modal-order.css" />
-  </head>
-  <body>
-    <div class="backdrop">
-      <div class="modal-order-container">
-        <div class="modal-button-close" data-modal-close>
-          <svg class="modal-icon-close">
-            <use href="../img/icon/icon.svg#icon-close"></use>
-          </svg>
-        </div>
-        <h2 class="modal-rating-title">Rating</h2>
-
-        <form class="modal-order-form">
-          <div class="input-wrap">
-            <input class="modal-order-input" type="text" placeholder="Enter email" />
-          </div>
-          <button class="modal-button" type="submit">Send</button>
-        </form>
+<div class="backdrop-modal is-hidden" id="modal-rating-js">
+  <div class="modal-order-container">
+    <div class="modal-button-close" id="modal-rating-closer">
+      <svg class="modal-icon-close">
+        <use href="../img/icon/icon.svg#icon-close"></use>
+      </svg>
     </div>
-  </body>
-</html>
+    <h2 class="modal-rating-title">Rating</h2>
+
+    <form class="modal-order-form">
+      <div class="modal-rating-icon">
+        <span class="count-rating">0.0</span>
+        <svg class="modal-icon-star" width="24" height="24">
+          <use href="../img/icon/icon.svg#icon-star"></use>
+        </svg>
+        <svg class="modal-icon-star" width="24" height="24">
+          <use href="../img/icon/icon.svg#icon-star"></use>
+        </svg>
+        <svg class="modal-icon-star" width="24" height="24">
+          <use href="../img/icon/icon.svg#icon-star"></use>
+        </svg>
+        <svg class="modal-icon-star" width="24" height="24">
+          <use href="../img/icon/icon.svg#icon-star"></use>
+        </svg>
+        <svg class="modal-icon-star" width="24" height="24">
+          <use href="../img/icon/icon.svg#icon-star"></use>
+        </svg>
+      </div>
+
+      <div class="input-wrap">
+        <input
+          class="modal-order-input"
+          type="text"
+          placeholder="Enter email"
+        />
+      </div>
+      <load
+        ="./component/button.html"
+        class="recipe-button-el modal-submit-button"
+        type="submit"
+        name-button="Send"
+      />
+    </form>
+  </div>
+</div>

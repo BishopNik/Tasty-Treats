@@ -1,40 +1,53 @@
 /** @format */
 
+
+
+
 @media screen and (max-width: 767px) {
   .modal-order-container {
     width: 335px;
-    padding: 0 20px;
+    padding: 28px 20px;
   }
-  .modal-icon-close{
-width: 20px;
-height: 20px;
-
+  .modal-icon-close {
+    width: 20px;
+    height: 20px;
+  }
+  .modal-rating-icon{
+    margin-bottom: 14px;
+  }
+  .modal-order-form{
+    gap: 14px;
   }
 }
 
 @media screen and (min-width: 768px) {
   .modal-order-container {
     width: 440px;
-    padding: 0 32px;
+    padding: 40px 40px;
   }
-  .modal-icon-close{
+  .modal-icon-close {
     width: 24px;
     height: 24px;
     top: 16px;
     right: 16px;
-      }
-  
+  }
+  .modal-rating-icon{
+    margin-bottom: 10px;
+  }
+  .modal-order-form{
+    gap: 18px;
+  }
 }
 
 .modal-order-title {
-  margin-bottom: 40px; 
+  margin-bottom: 40px;
   text-transform: uppercase;
   line-height: 22px;
   font-weight: 600;
   font-size: 18px;
 }
-.modal-rating-title{
-  margin-bottom: 40px; 
+.modal-rating-title {
+  margin-bottom: 4px;
   line-height: 18px;
   font-weight: 600;
   font-size: 14px;
@@ -60,19 +73,24 @@ height: 20px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  
 }
-.modal-button {
+.modal-submit-button {
   border-radius: 15px;
   background-color: rgba(155, 181, 55, 1);
   border-color: rgba(155, 181, 55, 1);
   color: rgba(248, 248, 248, 1);
   width: 100%;
   padding: 14px 0;
-  
+  font-size: 14px;
+  font-weight: 500;
+}
+.modal-submit-button:hover {
+  color: #000;
+  cursor: pointer;
 }
 
-.modal-icon-close{
+.modal-icon-close {
   position: absolute;
   display: flex;
   align-items: center;
@@ -81,13 +99,42 @@ height: 20px;
   cursor: pointer;
   top: 14px;
   right: 14px;
-
 }
 
-.modal-order-container{
+.modal-order-container {
   position: relative;
   border-radius: 15px;
   background: #fff;
   cursor: pointer;
 }
+.backdrop-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(158, 156, 156, 0.3);
+  z-index: 200;
+}
+.modal-icon-star {
+  fill: rgba(217, 217, 217, 1);
+}
+.modal-rating-icon {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
 
+.count-rating{
+  font-size: 16px;
+  font-weight: 500;
+  margin-right: 8px;
+}
+
+
+.is-hidden {
+  display: none;
+}
