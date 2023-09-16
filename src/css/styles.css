@@ -10,6 +10,7 @@
 @import url('./reset.css');
 @import url('./header.css');
 @import url('./component/recipe-item.css');
+@import url('./favorites.css');
 @import url('./component/button.css');
 @import url('./recipe-full.css');
 @import url('./component/recipe-list.css');
@@ -25,8 +26,13 @@
   line-height: 14px;
   font-weight: 400;
 
+
+  /* color: #050505;*/
+  /* background-color: rgba(255, 255, 255, 0.87); */
+
   color: var(--color-black-font);
   background-color: var(--color-font-background);
+
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
