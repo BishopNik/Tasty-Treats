@@ -4,7 +4,9 @@
   |============================
 */
 
-.hero-section {}
+.hero-section {
+    /* padding-top: 84.5px; */
+}
 
 .hero-container {
     min-width: 320px;
@@ -13,7 +15,23 @@
     margin: 0 auto;
 }
 
-@media screen {}
+@media only screen and (min-width: 375px) {
+    .hero-container {
+        max-width: 375px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .hero-container {
+        display: flex;
+        flex-direction: row;
+        max-width: 768px;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+}
 
 
 .hero-title {
@@ -74,19 +92,6 @@
         background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@media (hover:hover) {
-
-    .hero-btn:hover,
-    .hero-btn:focus {
-        /* color: white; */
-    }
-}
-
-@media not (hover:hover) {
-    .hero-btn:active {
-        /* color: black; */
-    }
-}
 
 
 .right-container {
