@@ -1,4 +1,4 @@
-import { finallInitPage } from '../recipt';
+import { finallInitPage } from '../recipe';
 import { fetchPopular } from '../API_requests/fetchPopular';
 const refs = {
   list: document.querySelector('.popular-list'),
