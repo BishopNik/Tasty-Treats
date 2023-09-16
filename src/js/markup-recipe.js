@@ -31,12 +31,13 @@ export async function markupRecipe(id) {
 		</svg>
 		<h2 class="recipe-adv-name">${title}</h2>
 		<div
-			class="recipe-adv-img"			
+			class="recipe-adv-img" style="background: linear-gradient(0deg, rgba(5, 5, 5, 0.4) 0%, rgba(5, 5, 5, 0.4) 100%),
+		lightgray -34.64px -20px / 109.993% 120% no-repeat url(${thumb}) center;"		
 		>
 		<svg class="recipe-youtube">
 			<use href="../img/icon/icon.svg#icon-close"></use>
 		</svg>
-		<img class="recipe-adv-img" src =${thumb} alt='${title}'/>
+		
 		</div>
 		<div class="recipe-block">
 			<ul class="recipe-tags">
@@ -101,3 +102,7 @@ export async function markupRecipe(id) {
 // 		allowfullscreen
 // 	></iframe>;
 // }
+
+{
+	/* <img class="recipe-adv-img" src =${thumb} alt='${title}'/> */
+}

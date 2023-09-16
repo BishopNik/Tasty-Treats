@@ -51,12 +51,11 @@
 
 .recipe-adv-img {
 	position: relative;
-	/* background-size: contain; */
+	background-size: contain;
 	background-repeat: no-repeat;
 	border-radius: 8px;
-	background: linear-gradient(0deg, rgba(5, 5, 5, 0.4) 0%, rgba(5, 5, 5, 0.4) 100%),
-		lightgray -34.64px -20px / 109.993% 120% no-repeat;
-	background-size: cover;
+
+	/* background-size: cover; */
 	background-position: center;
 }
 
