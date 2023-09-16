@@ -29,6 +29,7 @@ function renderPopular(arrayResp) {
   refs.list.insertAdjacentHTML('beforeend', markup);
   refs.list_mobile.insertAdjacentHTML('beforeend', markup);
 }
+
 async function popularFetchAndRender() {
   const data = await fetchPopular();
   renderPopular(data);
