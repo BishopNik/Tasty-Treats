@@ -51,12 +51,8 @@
 
 .recipe-adv-img {
 	position: relative;
-	background-size: contain;
 	background-repeat: no-repeat;
 	border-radius: 8px;
-
-	/* background-size: cover; */
-	background-position: center;
 }
 
 .recipe-youtube {
@@ -157,6 +153,14 @@
 .recipe-button-el {
 	border-radius: 15px;
 	border: 1px solid #9bb537;
+}
+
+::-webkit-scrollbar,
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-track {
+	width: 0;
+	color: transparent;
+	background-color: transparent;
 }
 
 @media screen and (max-width: 768px) {
