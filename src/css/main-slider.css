@@ -6,7 +6,8 @@
 
 .slider-cook-img {
   max-width: 137px;
-  height: 442px;
+  min-height: 442px;
+  background-color: black;
 
   background-size: cover;
   background-position: 50% 50%;
@@ -24,12 +25,12 @@
 }
 
 .slider-dish-container {
-  max-width: 351px;
-  height: 442px;
+  min-width: 351px;
+  min-height: 442px;
   background-color: black;
-
+  padding-top: 67px;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   justify-content: center;
   background: radial-gradient(circle at center, #9bb537 0, 5%, #000000);
 
@@ -70,7 +71,7 @@
 
 .slider-dish-fullscreen {
   min-width: 350px;
-  height: 442px;
+  min-height: 442px;
   /* background-color: black; */
 
   background-size: cover;
@@ -84,5 +85,5 @@
 }
 
 .swiper-pagination-bullet-active {
-  background-color: #9bb537;
+  --swiper-theme-color: #9bb537;
 }
