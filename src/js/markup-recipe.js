@@ -31,7 +31,7 @@ export async function markupRecipe(id) {
 		<h2 class="recipe-adv-name">${title}</h2>
 		<div
 			class="recipe-adv-img" style="background: linear-gradient(0deg, rgba(5, 5, 5, 0.4) 0%, rgba(5, 5, 5, 0.4) 100%),
-		lightgray -34.64px -20px / 109.993% 120% no-repeat url(${thumb});"		
+		lightgray -34.64px -20px / 109.993% 120% no-repeat url(${thumb}); background-size: cover; background-position: center;"		
 		>
 		<svg class="recipe-youtube">
 			<use href="../img/icon/icon.svg#icon-close"></use>
@@ -84,7 +84,7 @@ export async function markupRecipe(id) {
 			<button class="main-button recipe-button-el" type="{button}">
 				Add to favorite
 			</button>
-			<button class="main-button recipe-button-el" type="{button}">
+			<button class="main-button recipe-button-el" type="{button}" id="modal-rating-opener">
 				Give a rating
 			</button>
 		</div>

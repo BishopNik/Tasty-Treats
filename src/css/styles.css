@@ -9,6 +9,7 @@
 
 @import url('./reset.css');
 @import url('./header.css');
+@import url('./modal-order.css');
 @import url('./component/recipe-item.css');
 @import url('./favorites.css');
 @import url('./component/button.css');
@@ -19,6 +20,7 @@
 @import url('./categories.css');
 @import url('./main.css');
 @import url('./filters.css');
+@import url('./main-slider.css');
 
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
@@ -26,13 +28,20 @@
   line-height: 14px;
   font-weight: 400;
 
+  color: var(--color-black-font);
+  background-color: var(--color-font-background);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 
   /* color: #050505;*/
   /* background-color: rgba(255, 255, 255, 0.87); */
 
   color: var(--color-black-font);
   background-color: var(--color-font-background);
-
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -80,8 +89,8 @@
 }
 
 .container {
-	margin-left: auto;
-	margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media screen and (max-width: 767px) {
@@ -92,15 +101,15 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-	.container {
-		width: 768px;
-		padding: 0 32px;
-	}
+  .container {
+    width: 768px;
+    padding: 0 32px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
-	.container {
-		width: 1280px;
-		padding: 0 100px;
-	}
+  .container {
+    width: 1280px;
+    padding: 0 100px;
+  }
 }
