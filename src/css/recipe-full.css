@@ -1,0 +1,287 @@
+/** @format */
+
+.backdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.2);
+	overflow: scroll;
+	opacity: 1;
+	transform: scale(1);
+}
+
+.recipe-adv {
+	position: relative;
+	border-radius: 15px;
+	background: #fff;
+	cursor: pointer;
+}
+
+.backdrop.is-hidden {
+	transform: scale(0);
+	opacity: 0;
+	pointer-events: none;
+	visibility: hidden;
+}
+
+.backdrop .recipe-adv {
+	transform: translate(-50%);
+}
+
+.recipe-close {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	stroke: rgba(5, 5, 5, 1);
+	cursor: pointer;
+}
+
+.recipe-adv-name {
+	color: #050505;
+	font-family: Inter;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 1.22;
+	text-transform: uppercase;
+}
+
+.recipe-adv-img {
+	position: relative;
+	background-size: contain;
+	background-repeat: no-repeat;
+	border-radius: 8px;
+
+	/* background-size: cover; */
+	background-position: center;
+}
+
+.recipe-youtube {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 38px;
+	height: 38px;
+	z-index: 2;
+}
+
+.recipe-block {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 22px;
+}
+
+.recipe-adv-item-time {
+	color: rgba(5, 5, 5, 0.5);
+	font-family: Inter;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.28;
+}
+
+.recipe-tags {
+	display: flex;
+	gap: 4px;
+}
+
+.recipe-tag {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 9px 16px;
+	border-radius: 35px;
+	border: 1px solid rgba(5, 5, 5, 0.2);
+	color: #050505;
+	font-family: Inter;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.16;
+}
+
+.recipe-ingradient {
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: 8px;
+	border-bottom: 1px solid rgba(5, 5, 5, 0.1);
+}
+
+.recipe-ingradient-text {
+	color: rgba(5, 5, 5, 0.5);
+	font-family: Inter;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.28;
+}
+
+.recipe-ingradient-block {
+	overflow: scroll;
+}
+
+.recipe-text {
+	color: rgba(5, 5, 5, 0.8);
+	font-family: Inter;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.28;
+	overflow: scroll;
+}
+
+.recipe-button {
+	display: flex;
+}
+
+.recipe-adv-item-rating {
+	display: flex;
+	align-items: center;
+	justify-content: end;
+}
+
+.recipe-adv-item-rating-num {
+	color: rgba(5, 5, 5, 0.5);
+	font-family: Inter;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.28;
+	margin-right: 6px;
+}
+
+.recipe-button-el {
+	border-radius: 15px;
+	border: 1px solid #9bb537;
+}
+
+@media screen and (max-width: 768px) {
+	.recipe-adv {
+		top: 1%;
+		left: 50%;
+		width: 335px;
+		min-height: 1171px;
+		padding: 40px 20px;
+	}
+
+	.recipe-close {
+		top: 14px;
+		right: 14px;
+		width: 20px;
+		height: 20px;
+	}
+
+	.recipe-adv-name {
+		position: absolute;
+		top: 355px;
+	}
+
+	.recipe-adv-img {
+		width: 295px;
+		height: 295px;
+	}
+
+	.recipe-tags {
+		position: absolute;
+		top: 708px;
+	}
+
+	.recipe-adv-item-rating {
+		position: absolute;
+		top: 393px;
+		left: 20px;
+	}
+
+	.recipe-adv-item-time {
+		margin-left: 16px;
+	}
+
+	.recipe-ingradient-block {
+		position: absolute;
+		top: 444px;
+		left: 20px;
+		width: 295px;
+		height: 224px;
+	}
+
+	.recipe-ingradient:not(:first-child) {
+		padding-top: 16px;
+	}
+
+	.recipe-text {
+		position: absolute;
+		top: 762px;
+		left: 20px;
+		width: 295px;
+		white-space: pre-line;
+		max-height: 288px;
+	}
+
+	.recipe-button {
+		position: absolute;
+		bottom: 40px;
+		left: 20px;
+		gap: 14px;
+	}
+
+	.recipe-button-el {
+		padding: 12px 24px;
+	}
+}
+
+@media screen and (min-width: 769px) {
+	.recipe-adv {
+		top: 3%;
+		left: 50%;
+		width: 531px;
+		min-height: 905px;
+		padding: 32px;
+	}
+
+	.recipe-close {
+		top: 16px;
+		right: 16px;
+		width: 24px;
+		height: 24px;
+	}
+
+	.recipe-adv-name {
+		margin-bottom: 16px;
+	}
+
+	.recipe-adv-img {
+		width: 467px;
+		height: 250px;
+		margin-bottom: 16px;
+	}
+
+	.recipe-adv-item-time {
+		margin-left: 8px;
+	}
+
+	.recipe-ingradient-block {
+		margin-bottom: 32px;
+		height: 204px;
+	}
+
+	.recipe-ingradient:not(:first-child) {
+		padding-top: 10px;
+	}
+
+	.recipe-text {
+		margin-bottom: 32px;
+		max-height: 162px;
+	}
+
+	.recipe-button {
+		gap: 16px;
+	}
+
+	.recipe-button-el {
+		padding: 14px 28px;
+	}
+}

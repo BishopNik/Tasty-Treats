@@ -2,7 +2,10 @@
 
 <li
 	class="recipe-item {=$class}"
-	style="background-image: url('../../img/Spinach_quinoa_patties_01.jpg')"
+	style="
+		background: linear-gradient(1deg, rgba(5, 5, 5, 0.6) 4.82%, rgba(5, 5, 5, 0) 108.72%),
+			url('../../img/Spinach_quinoa_patties_01.jpg'), lightgray 50%;
+	"
 >
 	<svg class="like" width="22" height="22">
 		<use href="{=$like-status}"></use>
@@ -40,7 +43,6 @@
 				</li>
 			</ul>
 		</div>
-
-		<button class="recipe-item-see" type="button">See recipe</button>
+		<load ="./button.html" class="recipe-item-see" type="button" name-button="See recipe" />
 	</div>
 </li>
