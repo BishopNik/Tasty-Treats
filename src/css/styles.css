@@ -38,9 +38,6 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  /* color: #050505;*/
-  /* background-color: rgba(255, 255, 255, 0.87); */
-
   color: var(--color-black-font);
   background-color: var(--color-font-background);
 
@@ -53,6 +50,7 @@
   --color-font-background: rgba(248, 248, 248, 1);
   --color-like: rgba(238, 161, 12, 1);
   --color-black-font: rgba(5, 5, 5, 1);
+  --color-light-font: rgb(248, 248, 248);
   --color-font-select: rgba(5, 5, 5, 0.3);
   --color-green-button: rgba(155, 181, 55, 1);
   --color-font-select-text: rgba(5, 5, 5, 0.5);
@@ -87,6 +85,10 @@
   --color-switch-tema: rgba(243, 243, 243, 1);
   --color-font-hero-img: rgba(255, 255, 255, 0.6);
   --color-font-hero-location: rgba(255, 255, 255, 0.18);
+}
+
+body {
+  user-select: none;
 }
 
 .container {
