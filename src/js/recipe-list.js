@@ -1,21 +1,31 @@
+import axios from "axios";
 
-const rangeButtons = document.querySelector('.range-btns')
-const forwardButtons = document.querySelectorAll('.forward-arrow-btn-js');
-const backButtons = document.querySelectorAll('.back-arrow-btn-js');
+const pagination = document.querySelector('.pagination-btns')
 const recipeCards = document.querySelector('.recipe-cards');
+const recipesApi = 'https://tasty-treats-backend.p.goit.global/api/recipes'
 
 
-async function renderCards() {
-    let responseData;
-    await fetch('https://tasty-treats-backend.p.goit.global/api/recipes?category=Beef&page=1&limit=9')
-        .then(resp => { return resp.json() })
-        .then(data => {responseData = data})
-    console.log(responseData)
-    const recipesInfo = responseData.results;
-    let htmlCards = '';
-    recipesInfo.forEach(elm => {
-        htmlCards += `<li
-	class="recipe-item mainblock "
+ 
+
+async function fetchRecipeCards(api, options) {
+	let fetchResult = {}
+	await axios.get(api, options)
+	.then(resp => {	
+		
+			fetchResult.results = resp.data.results,
+			fetchResult.currentPage = resp.data.page,
+			fetchResult.totalPages = resp.data.totalPages
+		
+	})
+	.catch(err => console.log(err))
+	return fetchResult
+}
+
+function renderCards(results,div,cardStyle) {
+	let htmlCards = '';
+    results.forEach(elm => {
+		htmlCards += `<li
+		class="recipe-item ${cardStyle}"
 	style="
 		background: linear-gradient(1deg, rgba(5, 5, 5, 0.6) 4.82%, rgba(5, 5, 5, 0) 108.72%),
 			url(${elm.thumb}), lightgray 50%; background-size: cover;
@@ -57,31 +67,106 @@ async function renderCards() {
 				</li>
 			</ul>
 		</div>
-		<load ="./button.html" class="recipe-item-see" type="button" name-button="See recipe" />
+		<button class="main-button green-button recipe-item-see" type="button">See recipe</button>
 	</div>
     </li>`
-    })
-    recipeCards.innerHTML = htmlCards;
-    forwardButtons.forEach((elm) => elm.disabled = false)
-    backButtons.forEach((elm) => elm.disabled = false)
-    const pageValue = Number(responseData.page);
-    const totalValue = Number(responseData.totalPages);
-    let rangeButtonsArray = '';
-    if (pageValue === 1) {
-        backButtons.forEach((elm) => elm.disabled = true)
-        rangeButtonsArray = `<button class="pagination-btn current-number-btn">1</button>`;
-    } else if (pageValue === 2) {
-        rangeButtonsArray = `<button class="pagination-btn number-btn">1</button><button class="pagination-btn current-number-btn">2</button>`;
-    } else if (pageValue >= 3) {
-        rangeButtonsArray = `<button class="pagination-btn number-btn">...</button><button class="pagination-btn number-btn">${pageValue - 1}</button><button class="pagination-btn current-number-btn">${pageValue}</button>`;
-    } if ((totalValue - pageValue) === 0) {
-        forwardButtons.forEach((elm) => elm.disabled = true)
-    } else if ((totalValue - pageValue) === 1) {
-        rangeButtonsArray += `<button class="pagination-btn number-btn">${pageValue + 1}</button>`
-    } else if ((totalValue - pageValue) >= 2) {
-        rangeButtonsArray += `<button class="pagination-btn number-btn">${pageValue + 1}</button><button class="pagination-btn number-btn">...</button>`
-    }
-    rangeButtons.innerHTML = rangeButtonsArray;
+	})
+	div.innerHTML = htmlCards;
 }
 
-renderCards();
+function setPaginationButtons(div,page,total,option) {
+  let arrowButtons = ` <div class="back-btns">
+      <button class="pagination-btn arrow-btn back-arrow-btn-js">
+         <div class="left-arrow-icon double-arrow">
+           <svg class="icon-double-arrow-one" width="24" height="24">
+          <use href="../../img/icon/icon.svg#icon-small-left"></use>
+        </svg>
+        <svg class="icon-double-arrow-two" width="24" height="24">
+          <use href="../../img/icon/icon.svg#icon-small-left"></use>
+        </svg>
+         </div>
+        </svg></button
+      ><button class="pagination-btn arrow-btn back-arrow-btn-js">
+        <svg class="left-arrow-icon" width="24" height="24">
+          <use href="../../img/icon/icon.svg#icon-small-left"></use>
+        </svg>
+      </button>
+    </div>
+    <div class="range-btns"></div>
+    <div class="forward-btns">
+      <button class="pagination-btn arrow-btn forward-arrow-btn-js">
+       <svg class="right-arrow-icon" width="24" height="24">
+          <use href="../../img/icon/icon.svg#icon-small-right"></use>
+        </svg>
+       </button
+      ><button class="pagination-btn arrow-btn forward-arrow-btn-js">
+        <div class="right-arrow-icon double-arrow">
+          <svg class="icon-double-arrow-one" width="24" height="24">
+            <use href="../../img/icon/icon.svg#icon-small-right"></use></svg
+          ><svg class="icon-double-arrow-two" width="24" height="24">
+            <use href="../../img/icon/icon.svg#icon-small-right"></use>
+          </svg>
+        </div>
+      </button>
+    </div>`;
+	div.innerHTML = arrowButtons;
+	let rangeButtons = ''
+const forwardButtons = document.querySelectorAll('.forward-arrow-btn-js');
+const backButtons = document.querySelectorAll('.back-arrow-btn-js');
+const rangeButtonsElm = document.querySelector('.range-btns')
+	if (page === 1) {
+        backButtons.forEach((elm) => elm.disabled = true)
+        rangeButtons += `<button class="pagination-btn current-number-btn">1</button>`;
+    } else if (page === 2) {
+        rangeButtons += `<button class="pagination-btn number-btn">1</button><button class="pagination-btn current-number-btn">2</button>`;
+    } else if (page >= 3) {
+        rangeButtons += `<button class="pagination-btn dot-btn number-btn" disabled>...</button><button class="pagination-btn number-btn">${page - 1}</button><button class="pagination-btn current-number-btn">${page}</button>`;
+    } if ((total - page) === 0) {
+        forwardButtons.forEach((elm) => elm.disabled = true)
+    } else if ((total - page) === 1) {
+        rangeButtons += `<button class="pagination-btn number-btn">${page + 1}</button>`
+    } else if ((total - page) >= 2) {
+        rangeButtons += `<button class="pagination-btn number-btn">${page + 1}</button><button class="pagination-btn dot-btn number-btn" disabled>...</button>`
+	}
+	
+	rangeButtonsElm.innerHTML = rangeButtons;
+	const pagButtons = document.querySelectorAll('.pagination-btn')
+	pagButtons.forEach(elm => {
+		elm.addEventListener('click', (evn) => {
+			if (elm.classList.contains('number-btn')||elm.classList.contains('current-number-btn')) {
+				option.params.page = Number(elm.textContent)
+				console.log(option)
+			} else if (elm.firstElementChild.classList.contains('left-arrow-icon') && elm.firstElementChild.classList.contains('double-arrow')) {
+				option.params.page = 1;
+				console.log(option)
+			} else if (elm.firstElementChild.classList.contains('left-arrow-icon')) {
+				option.params.page -= 1;
+				console.log(option)
+			} else if (elm.firstElementChild.classList.contains('right-arrow-icon') && elm.firstElementChild.classList.contains('double-arrow')) {
+				option.params.page = total;
+				console.log(option)
+			} else if (elm.firstElementChild.classList.contains('right-arrow-icon')) {
+				option.params.page += 1;
+				console.log(option)
+			} else {
+			}
+		renderMain(renderCardsOptions)
+		})
+	})
+}
+
+async function renderMain(options) {
+    let responseData;
+	await fetchRecipeCards(recipesApi, options).then(data => { responseData = data })
+	renderCards(responseData.results, recipeCards, 'mainblock')
+	setPaginationButtons(pagination,Number(responseData.currentPage),Number(responseData.totalPages),options)
+}
+
+const renderCardsOptions = {
+	params: {
+		page: 1,
+		limit: 9
+	}
+}
+
+renderMain(renderCardsOptions);

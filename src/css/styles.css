@@ -26,13 +26,11 @@
   line-height: 14px;
   font-weight: 400;
 
-
   /* color: #050505;*/
   /* background-color: rgba(255, 255, 255, 0.87); */
 
   color: var(--color-black-font);
   background-color: var(--color-font-background);
-
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -43,6 +41,7 @@
   --color-font-background: rgba(248, 248, 248, 1);
   --color-like: rgba(238, 161, 12, 1);
   --color-black-font: rgba(5, 5, 5, 1);
+  --color-light-font: rgb(248, 248, 248);
   --color-font-select: rgba(5, 5, 5, 0.3);
   --color-green-button: rgba(155, 181, 55, 1);
   --color-font-select-text: rgba(5, 5, 5, 0.5);
@@ -79,9 +78,13 @@
   --color-font-hero-location: rgba(255, 255, 255, 0.18);
 }
 
+body {
+  user-select: none;
+}
+
 .container {
-	margin-left: auto;
-	margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media screen and (max-width: 767px) {
@@ -92,15 +95,15 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-	.container {
-		width: 768px;
-		padding: 0 32px;
-	}
+  .container {
+    width: 768px;
+    padding: 0 32px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
-	.container {
-		width: 1280px;
-		padding: 0 100px;
-	}
+  .container {
+    width: 1280px;
+    padding: 0 100px;
+  }
 }

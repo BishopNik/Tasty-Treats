@@ -1,24 +1,30 @@
 /** @format */
 
 .main-button {
-	display: flex;
-	flex-wrap: nowrap;
-	justify-content: center;
-	align-items: center;
-	color: var(--color-black-font);
-	background-color: transparent;
-	border-radius: 8px;
-	border: solid 1px var(--color-green-button);
-	font-size: 12px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: normal;
-
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-black-font);
+  background-color: transparent;
+  border-radius: 8px;
+  border: solid 1px var(--color-green-button);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 .main-button:hover {
-	background-color: var(--color-green-button);
-	color: var(--color-font-background);
-	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-		background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: var(--color-green-button);
+  color: var(--color-font-background);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.green-button {
+  color: var(--color-light-font);
+  background-color: var(--color-green-button);
+}
+.green-button:hover {
+	color: var(--color-black-font);
 }
