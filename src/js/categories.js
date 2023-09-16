@@ -48,7 +48,7 @@ function onAllCategoriesBtnClick() {
     
     .then(data => {
         let arrCalegories = [...data]
-        console.dir(arrCalegories);
+        // console.dir(arrCalegories);
         return arrCalegories
     }) 
             
@@ -64,7 +64,7 @@ function onListClick(evt) {
     
     evt.target.classList.add("curent-category")
     let currentCategory = evt.target.textContent;
-    console.dir(currentCategory);
+    // console.dir(currentCategory);
 
     return currentCategory;
 }
