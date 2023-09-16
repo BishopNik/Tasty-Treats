@@ -10,7 +10,6 @@ export async function markupRecipe(id) {
 	if (index !== -1) {
 		youtubeLink = youtube.substring(index);
 	}
-
 	const tagsRecipe = tags
 		? tags.map(item => `<li class="recipe-tag">#${item}</li>`).join('')
 		: null;
@@ -32,7 +31,7 @@ export async function markupRecipe(id) {
 		<h2 class="recipe-adv-name">${title}</h2>
 		<div
 			class="recipe-adv-img" style="background: linear-gradient(0deg, rgba(5, 5, 5, 0.4) 0%, rgba(5, 5, 5, 0.4) 100%),
-		lightgray -34.64px -20px / 109.993% 120% no-repeat url(${thumb}) center;"		
+		lightgray -34.64px -20px / 109.993% 120% no-repeat url(${thumb});"		
 		>
 		<svg class="recipe-youtube">
 			<use href="../img/icon/icon.svg#icon-close"></use>
