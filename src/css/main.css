@@ -1,6 +1,10 @@
 /** @format */
 
-.sidebar {
+.main-recipe {
+	display: flex;
+}
+
+.main-recipe-sidebar {
 	display: flex;
 	flex-direction: column;
 }
