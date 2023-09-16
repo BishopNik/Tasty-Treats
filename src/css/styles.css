@@ -16,6 +16,7 @@
 @import url('./popular.css');
 @import url('./categories.css');
 @import url('./main.css');
+@import url('./filters.css');
 
 :root {
 	font-family: Inter, Avenir, Helvetica, Arial, sans-serif;

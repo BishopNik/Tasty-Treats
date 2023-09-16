@@ -8,3 +8,8 @@
 	display: flex;
 	flex-direction: column;
 }
+
+.main-recipe-filters-recipe {
+	display: flex;
+	flex-direction: column;
+}
