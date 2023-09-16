@@ -67,12 +67,15 @@ function renderCards(results,div,cardStyle) {
 				</li>
 			</ul>
 		</div>
-		<button class="main-button green-button recipe-item-see" type="button">See recipe</button>
+		<button class="main-button green-button recipe-item-see" type="button" data-id="${elm._id}">See recipe</button>
 	</div>
     </li>`
 	})
 	div.innerHTML = htmlCards;
+	const seeButtons = document.querySelectorAll('.recipe-item-see')
+	seeButtons.forEach(elm => elm.addEventListener('click', evt => console.log(evt.target.dataset.id)))
 }
+
 
 function setPaginationButtons(div,page,total,option) {
   let arrowButtons = ` <div class="back-btns">
