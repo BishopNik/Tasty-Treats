@@ -1,0 +1,48 @@
+<!-- @format -->
+
+<li
+	class="recipe-item {=$class}"
+	style="
+		background: linear-gradient(1deg, rgba(5, 5, 5, 0.6) 4.82%, rgba(5, 5, 5, 0) 108.72%),
+			url('../../img/Spinach_quinoa_patties_01.jpg'), lightgray 50%;
+	"
+>
+	<svg class="like" width="22" height="22">
+		<use href="{=$like-status}"></use>
+	</svg>
+	<h3 class="recipe-item-name">{=$name-recipe}</h3>
+	<p class="recipe-item-about">{=$text}</p>
+	<div class="recipe-item-option">
+		<div class="recipe-item-rating">
+			<span class="recipe-item-rating-num">{=$rating}</span>
+			<ul class="recipe-item-rating-stars">
+				<li class="recipe-item-rating-star">
+					<svg class="stars-full">
+						<use href="../img/icon/icon.svg#icon-star"></use>
+					</svg>
+				</li>
+				<li class="recipe-item-rating-star">
+					<svg class="stars-full">
+						<use href="../img/icon/icon.svg#icon-star"></use>
+					</svg>
+				</li>
+				<li class="recipe-item-rating-star">
+					<svg class="stars-full">
+						<use href="../img/icon/icon.svg#icon-star"></use>
+					</svg>
+				</li>
+				<li class="recipe-item-rating-star">
+					<svg class="stars-full">
+						<use href="../img/icon/icon.svg#icon-star"></use>
+					</svg>
+				</li>
+				<li class="recipe-item-rating-star">
+					<svg class="stars">
+						<use href="../img/icon/icon.svg#icon-star"></use>
+					</svg>
+				</li>
+			</ul>
+		</div>
+		<load ="./button.html" class="recipe-item-see" type="button" name-button="See recipe" />
+	</div>
+</li>
