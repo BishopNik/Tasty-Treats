@@ -98,7 +98,7 @@ button {
 
 /* ползунок скроллбара */
 .categories-container::-webkit-scrollbar-thumb {
-    height: 201px;
+    height: 116px;
     background-color: var(--color-scroll-categories);
     border-radius: 12px;
     box-shadow: inset 1px 1px 10px var(--color-font-background);
