@@ -16,7 +16,6 @@
 	position: relative;
 	border-radius: 15px;
 	background: #fff;
-	cursor: pointer;
 }
 
 .backdrop.is-hidden {
@@ -53,6 +52,7 @@
 	position: relative;
 	background-repeat: no-repeat;
 	border-radius: 8px;
+	cursor: pointer;
 }
 
 .recipe-youtube {
@@ -62,7 +62,13 @@
 	transform: translate(-50%, -50%);
 	width: 38px;
 	height: 38px;
-	z-index: 2;
+	z-index: 100;
+}
+
+.recipe-adv-youtube {
+	display: none;
+	width: 100%;
+	height: 100%;
 }
 
 .recipe-block {
@@ -159,6 +165,7 @@
 ::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-track {
 	width: 0;
+	height: 0;
 	color: transparent;
 	background-color: transparent;
 }
