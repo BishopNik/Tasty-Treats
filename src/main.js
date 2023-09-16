@@ -6,4 +6,5 @@ import './js/filters';
 import './js/recipe-list';
 import './js/rating';
 import './js/order';
+import './js/mobile-menu';
 
