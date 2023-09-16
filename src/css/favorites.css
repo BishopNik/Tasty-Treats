@@ -1,7 +1,9 @@
+@import url('./categories.css');
+
 @media only screen and (min-width: 375px) {
   .favorites {
     margin-bottom: 80px;
-    background-color: rgba(248, 248, 248, 1);
+    background-color: var(--color-font-background);
   }
 }
 @media only screen and (min-width: 768px) {
@@ -51,6 +53,15 @@
     /* padding-top: 100px; */
   }
 }
+.hide {
+  display: none !important;
+}
+
+@media (max-width: 767px) {
+  .hide_in_mobile {
+    display: none !important;
+  }
+}
 .not_favorites {
   display: flex;
   flex-direction: column;
@@ -93,6 +104,18 @@
     font-size: 16px;
     line-height: 24px;
   }
+}
+.favorites_btn {
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.favorites_categories {
+  display: flex;
 }
 @media only screen and (max-width: 767px) {
   .list_cards_favorites {
