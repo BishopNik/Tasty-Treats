@@ -1,3 +1,4 @@
+import './js/dish-slider';
 /** @format */
 
 import './js/recipe';
