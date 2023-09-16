@@ -1,0 +1,130 @@
+@media only screen and (min-width: 375px) {
+  .favorites {
+    margin-bottom: 80px;
+    background-color: rgba(248, 248, 248, 1);
+  }
+}
+@media only screen and (min-width: 768px) {
+  .favorites {
+    margin-bottom: 100px;
+  }
+}
+.favorites_container {
+  margin: auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .favorites_container {
+    max-width: 768px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .favorites_container {
+    max-width: 1280px;
+  }
+}
+
+.favorites_img {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  max-width: 100%;
+  /* padding-top: 97px; */
+  height: auto;
+  display: flex;
+  margin-bottom: 40px;
+
+  /* display: none; */
+}
+@media only screen and (min-width: 768px) {
+  .favorites_img {
+    width: 704px;
+    height: 356px;
+    margin-bottom: 64px;
+    /* padding-top: 98px; */
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .favorites_img {
+    width: 1080px;
+    /* padding-top: 100px; */
+  }
+}
+.not_favorites {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 329px auto 249px;
+  /* display: none; */
+}
+@media only screen and (min-width: 768px) {
+  .not_favorites {
+    margin-top: 0;
+  }
+}
+
+.favorites_elem_svg {
+  margin: auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .favorites_elem_svg {
+    width: 97px;
+    height: 83px;
+  }
+}
+
+.favorites_text {
+  margin-top: 24px;
+  max-width: 335px;
+  text-align: center;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0em;
+}
+@media only screen and (min-width: 768px) {
+  .favorites_text {
+    margin-top: 32px;
+    max-width: 481px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .list_cards_favorites {
+    display: flex;
+    /* display: none; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .list_cards_favorites li {
+    margin-top: 24px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .list_cards_favorites {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 0;
+    max-width: 768px;
+    margin: 32px auto 0;
+  }
+  .list_cards_favorites li {
+    min-width: calc(33.33% - 16px);
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .list_cards_favorites {
+    row-gap: 32px;
+    max-width: 1280px;
+  }
+  .list_cards_favorites li {
+    min-width: calc(25% - 16px);
+  }
+}
