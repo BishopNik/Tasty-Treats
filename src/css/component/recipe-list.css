@@ -26,6 +26,7 @@
   background-color: black;
   color: white;
   fill: beige;
+  cursor: default;
 }
 
 .right-arrow-icon,
@@ -67,11 +68,23 @@
 .current-number-btn {
   background-color: var(--green);
   color: black;
+  cursor: default;
+}
+
+.dot-btn {
+  cursor: default;
 }
 .recipe-cards {
   display: flex;
   flex-wrap: wrap;
+  align-content: start;
   row-gap: 20px;
   column-gap: 16px;
   margin-bottom: 64px;
+}
+
+@media screen and (min-width: 1280px) {
+  .recipe-cards {
+    min-height: 901px;
+  }
 }
