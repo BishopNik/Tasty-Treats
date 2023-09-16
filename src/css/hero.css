@@ -39,6 +39,8 @@
 
 @media only screen and (min-width: 1280px) {
   .hero-container {
+    display: flex;
+    flex-direction: row;
     min-width: 1280px;
     gap: 32px;
   }
@@ -46,7 +48,7 @@
 
 .hero-title {
   color: #050505;
-  font-family: Inter;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 36px;
   font-style: normal;
   font-weight: 600;
@@ -54,14 +56,16 @@
   text-transform: uppercase;
   margin-bottom: 16px;
   text-align: left;
-  /* max-width: 335px; */
 }
 
 .hero-title-highlight {
-  color: #9bb537;
+  color: #9BB537;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 36px;
   font-style: italic;
   font-weight: 400;
   line-height: 1.2;
+  text-transform: uppercase;
 }
 
 .hero-desc {
