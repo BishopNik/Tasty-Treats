@@ -53,9 +53,6 @@
 	background-size: contain;
 	background-repeat: no-repeat;
 	border-radius: 8px;
-	background: linear-gradient(0deg, rgba(5, 5, 5, 0.4) 0%, rgba(5, 5, 5, 0.4) 100%),
-		url('../img/Spinach_quinoa_patties_01.jpg'),
-		lightgray -34.64px -20px / 109.993% 120% no-repeat;
 }
 
 .recipe-block {
@@ -189,6 +186,7 @@
 		top: 444px;
 		left: 20px;
 		width: 295px;
+		height: 224px;
 	}
 
 	.recipe-ingradient:not(:first-child) {
@@ -201,6 +199,7 @@
 		left: 20px;
 		width: 295px;
 		white-space: pre-line;
+		max-height: 288px;
 	}
 
 	.recipe-button {
@@ -247,6 +246,7 @@
 
 	.recipe-ingradient-block {
 		margin-bottom: 32px;
+		height: 204px;
 	}
 
 	.recipe-ingradient:not(:first-child) {
@@ -255,6 +255,7 @@
 
 	.recipe-text {
 		margin-bottom: 32px;
+		max-height: 162px;
 	}
 
 	.recipe-button {
