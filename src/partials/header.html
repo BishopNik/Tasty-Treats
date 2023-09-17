@@ -1,95 +1,100 @@
 <!-- @format -->
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	</head>
-	<body>
-		<header class="header">
-			<meta name="viewport" content="width=device-width,initial-scale=1" />
-			<div class="container-header">
-				<nav class="nav">
-					<ul class="nav-list">
-						<li class="nav-item">
-							<a class="nav-link current link" href="./index.html">Home</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link link" href="./favorites.html">Favorites</a>
-						</li>
-					</ul>
-					<a class="logo-header link" href="./index.html"
-						>tasty<span class="logo-color">treats.</span></a
-					>
-					<div class="header-btn-box">
-						<button
-							type="button openModal"
-							id="modal-order-opener-cart"
-							class="shopping-link"
-						>
-							<svg class="shopping-icon" width="24" height="24">
-								<use href="./img/icon/icon.svg#icon-shopping-cart"></use>
-							</svg>
-						</button>
-						<!-- Burger mobile -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <header class="header">
+      <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <div class="container-header">
+        <nav class="nav">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a class="nav-link current link" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link" href="./favorites.html">Favorites</a>
+            </li>
+          </ul>
+          <a class="logo-header link" href="./index.html"
+            >tasty<span class="logo-color">treats.</span></a
+          >
+          <div class="header-btn-box">
+            <button
+              type="button openModal"
+              id="modal-order-opener-cart"
+              class="shopping-link"
+            >
+              <svg class="shopping-icon" width="24" height="24">
+                <use href="./img/icon/icon.svg#icon-shopping-cart"></use>
+              </svg>
+            </button>
+            <!-- Burger mobile -->
 
-						<button
-							type="button"
-							class="menu-toggle js-open-menu"
-							aria-expanded="false"
-							aria-controls="mobile-menu"
-						>
-							<svg class="burger-menu-icon" width="32" height="32">
-								<use href="./img/icon/icon.svg#burger-menu"></use>
-							</svg>
-						</button>
+            <button
+              type="button"
+              class="menu-toggle js-open-menu"
+              aria-expanded="false"
+              aria-controls="mobile-menu"
+            >
+              <svg class="burger-menu-icon" width="32" height="32">
+                <use href="./img/icon/icon.svg#burger-menu"></use>
+              </svg>
+            </button>
 
-						<!-- Toggle -->
-						<!-- <script src="./js/utils/switcher.js"></script> -->
-						<div class="theme-switcher main js-switcher">
-							<input type="checkbox" class="input-switcher" id="switch" /><label
-								class="input-label"
-								for="switch"
-								>Toggle</label
-							>
-						</div>
-					</div>
-				</nav>
-			</div>
+            <!-- Toggle -->
+            <!-- <script src="./js/utils/switcher.js"></script> -->
+            <div class="theme-switcher main js-switcher">
+              <label for="pill" class="switch">
+                <input
+                  type="checkbox"
+                  class="switch-input"
+                  id="pill"
+                  name="check"
+                />
+                <span class="switch-slider"></span>
+              </label>
+            </div>
+          </div>
+        </nav>
+      </div>
 
-			<!-- Mobile window -->
+      <!-- Mobile window -->
 
-			<div class="menu-container js-menu-container" id="mobile-menu">
-				<button class="menu-toggle js-close-menu">
-					<svg width="32" height="32">
-						<use href="./img/icon/icon.svg#closed-icon"></use>
-					</svg>
-				</button>
+      <div class="menu-container js-menu-container" id="mobile-menu">
+        <button class="menu-toggle js-close-menu">
+          <svg width="32" height="32">
+            <use href="./img/icon/icon.svg#closed-icon"></use>
+          </svg>
+        </button>
 
-				<ul class="mobile-menu">
-					<li class="nav-item-burger">
-						<a class="nav-link current-mob link" href="./index.html">Home</a>
-					</li>
-					<li class="nav-item-burger">
-						<a href="./favorites.html" class="nav-link link">Favorites</a>
-					</li>
+        <ul class="mobile-menu">
+          <li class="nav-item-burger">
+            <a class="nav-link current-mob link" href="./index.html">Home</a>
+          </li>
+          <li class="nav-item-burger">
+            <a href="./favorites.html" class="nav-link link">Favorites</a>
+          </li>
 
-					<!-- Toggle-switch-burger -->
-					<li class="theme-switcher burger">
-						<input type="checkbox" class="input-switcher" id="mobile-switch" /><label
-							class="input-label"
-							for="mobile-switch"
-						></label>
-					</li>
-				</ul>
-			</div>
-		</header>
-		<script
-			defer
-			src="https://cdnjs.cloudflare.com/ajax/libs/body-scroll-lock/3.1.5/bodyScrollLock.min.js"
-			integrity="sha512-HowizSDbQl7UPEAsPnvJHlQsnBmU2YMrv7KkTBulTLEGz9chfBoWYyZJL+MUO6p/yBuuMO/8jI7O29YRZ2uBlA=="
-			crossorigin="anonymous"
-		></script>
-		<script defer src="./js/mobile-menu.js"></script>
-	</body>
+          <!-- Toggle-switch-burger -->
+          <li class="theme-switcher burger">
+            <label class="burger-switch">
+              <input type="checkbox" class="burger-switch-input" />
+              <span class="burger-switch-slider"></span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/body-scroll-lock/3.1.5/bodyScrollLock.min.js"
+      integrity="sha512-HowizSDbQl7UPEAsPnvJHlQsnBmU2YMrv7KkTBulTLEGz9chfBoWYyZJL+MUO6p/yBuuMO/8jI7O29YRZ2uBlA=="
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="./js/mobile-menu.js"></script>
+    <script defer src="./js/theme.js"></script>
+  </body>
 </html>
