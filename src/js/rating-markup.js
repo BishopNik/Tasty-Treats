@@ -6,13 +6,13 @@ export function ratingRecipe(rating) {
 		if (index <= Math.round(rating)) {
 			markupRating += `<li class="recipe-item-rating-star">
 						<svg class="stars-full">
-							<use href="../img/icon/icon.svg#icon-star"></use>
+							<use href="./img/icon/icon.svg#icon-star"></use>
 						</svg>
 					</li>`;
 		} else {
 			markupRating += `<li class="recipe-item-rating-star">
 						<svg class="stars">
-							<use href="../img/icon/icon.svg#icon-star"></use>
+							<use href="./img/icon/icon.svg#icon-star"></use>
 						</svg>
 					</li>`;
 		}

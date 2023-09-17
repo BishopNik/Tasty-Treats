@@ -10,7 +10,7 @@
 	overflow: scroll;
 	opacity: 1;
 	transform: scale(1);
-	z-index: 500;
+	z-index: 900;
 }
 
 .recipe-adv {
