@@ -24,95 +24,87 @@
 @import url('./component/scroll-to-top.css');
 
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 14px;
-  font-weight: 400;
+	--color-font-background: rgba(248, 248, 248, 1);
+	--color-like: rgba(238, 161, 12, 1);
+	--color-black-font: rgba(5, 5, 5, 1);
+	--color-font-select: rgba(5, 5, 5, 0.3);
+	--color-green-button: rgba(155, 181, 55, 1);
+	--color-font-select-text: rgba(5, 5, 5, 0.5);
+	--gradient-recipe-item: rgba(5, 5, 5, 1), rgba(5, 5, 5, 0);
+	--color-like-noact: rgba(248, 248, 248, 0.1);
+	--color-border-select: rgba(5, 5, 5, 0.2);
+	--color-font-popular-recipe: rgba(5, 5, 5, 0.8);
+	--color-in-favorits: rgba(255, 255, 255, 1);
+	--color-scrol-filter: rgba(5, 5, 5, 0.1);
+	--color-pagintion: rgba(248, 248, 248, 0.5);
+	--color-scroll-categories: rgba(5, 5, 5, 0.18);
+	--color-gradient-hero-img: rgba(155, 181, 55, 0.3);
+	--color-switch-background: rgba(206, 205, 205, 1);
+	--color-font-hero-img: rgba(248, 248, 248, 0.6);
+	--color-font-hero-location: rgba(248, 248, 248, 0.2);
+	--color-scroll-filters: rgba(5, 5, 5, 0.1);
+	--color-scroll-shadow: rgba(0, 0, 0, 0.02);
 
-  color: var(--color-black-font);
-  background-color: var(--color-font-background);
+	font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	line-height: 14px;
+	font-weight: 400;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+	color: var(--color-black-font);
+	background-color: var(--color-font-background);
 
-  color: var(--color-black-font);
-  background-color: var(--color-font-background);
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-
-  --color-font-background: rgba(248, 248, 248, 1);
-  --color-like: rgba(238, 161, 12, 1);
-  --color-black-font: rgba(5, 5, 5, 1);
-  --color-light-font: rgb(248, 248, 248);
-  --color-font-select: rgba(5, 5, 5, 0.3);
-  --color-green-button: rgba(155, 181, 55, 1);
-  --color-font-select-text: rgba(5, 5, 5, 0.5);
-  --gradient-recipe-item: rgba(5, 5, 5, 1), rgba(5, 5, 5, 0);
-  --color-like-noact: rgba(248, 248, 248, 0.1);
-  --color-border-select: rgba(5, 5, 5, 0.2);
-  --color-font-popular-recipe: rgba(5, 5, 5, 0.8);
-  --color-in-favorits: rgba(255, 255, 255, 1);
-  --color-scrol-filter: rgba(5, 5, 5, 0.1);
-  --color-pagintion: rgba(248, 248, 248, 0.5);
-  --color-scroll-categories: rgba(5, 5, 5, 0.18);
-  --color-gradient-hero-img: rgba(155, 181, 55, 0.3);
-  --color-switch-background: rgba(206, 205, 205, 1);
-  --color-font-hero-img: rgba(248, 248, 248, 0.6);
-  --color-font-hero-location: rgba(248, 248, 248, 0.2);
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
 }
 
 .xxx {
-  --color-font: rgba(255, 255, 255, 1);
-  --color-like: rgba(238, 161, 12, 1);
-  --color-font-select: rgba(255, 255, 255, 0.3);
-  --color-font-select-text: rgba(255, 255, 255, 0.5);
-  --color-background-menu: rgba(5, 5, 5, 1);
-  --green-button: rgba(155, 181, 55, 1);
-  --color-font-popular-recipe: rgba(255, 255, 255, 0.8);
-  --color-scrol-filter: rgba(255, 255, 255, 0.1);
-  --gradient-recipe-item: rgba(5, 5, 5, 1), rgba(5, 5, 5, 0);
-  --color-border-select: rgba(255, 255, 255, 0.2);
-  --color-background: rgba(22, 22, 22, 1);
-  --color-switch-background: rgba(155, 181, 55, 1), rgba(155, 181, 55, 0.69);
-  --color-gradient-hero-img: rgba(155, 181, 55, 0.3);
-  --color-switch-tema: rgba(243, 243, 243, 1);
-  --color-font-hero-img: rgba(255, 255, 255, 0.6);
-  --color-font-hero-location: rgba(255, 255, 255, 0.18);
+	--color-font: rgba(255, 255, 255, 1);
+	--color-like: rgba(238, 161, 12, 1);
+	--color-font-select: rgba(255, 255, 255, 0.3);
+	--color-font-select-text: rgba(255, 255, 255, 0.5);
+	--color-background-menu: rgba(5, 5, 5, 1);
+	--green-button: rgba(155, 181, 55, 1);
+	--color-font-popular-recipe: rgba(255, 255, 255, 0.8);
+	--color-scrol-filter: rgba(255, 255, 255, 0.1);
+	--gradient-recipe-item: rgba(5, 5, 5, 1), rgba(5, 5, 5, 0);
+	--color-border-select: rgba(255, 255, 255, 0.2);
+	--color-background: rgba(22, 22, 22, 1);
+	--color-switch-background: rgba(155, 181, 55, 1), rgba(155, 181, 55, 0.69);
+	--color-gradient-hero-img: rgba(155, 181, 55, 0.3);
+	--color-switch-tema: rgba(243, 243, 243, 1);
+	--color-font-hero-img: rgba(255, 255, 255, 0.6);
+	--color-font-hero-location: rgba(255, 255, 255, 0.18);
 }
 
 body {
-  user-select: none;
+	user-select: none;
 }
 
 .container {
-  margin-left: auto;
-  margin-right: auto;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 @media screen and (max-width: 767px) {
-  .container {
-    width: 375px;
-    padding: 0 20px;
-  }
+	.container {
+		width: 375px;
+		padding: 0 20px;
+	}
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-  .container {
-    width: 768px;
-    padding: 0 32px;
-  }
+	.container {
+		width: 768px;
+		padding: 0 32px;
+	}
 }
 
 @media screen and (min-width: 1280px) {
-  .container {
-    width: 1280px;
-    padding: 0 100px;
-  }
+	.container {
+		width: 1280px;
+		padding: 0 100px;
+	}
 }
