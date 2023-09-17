@@ -127,7 +127,7 @@
   padding: 0;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 767px) {
   .burger-menu {
     display: none;
   }
@@ -186,11 +186,11 @@
   transition: 0.3s;
 }
 
-.input-switcher:checked+.input-label {
+.input-switcher:checked + .input-label {
   background: var(--color-green-button);
 }
 
-.input-switcher:checked+.input-label:after {
+.input-switcher:checked + .input-label:after {
   left: calc(100% - 1px);
   transform: translateX(-100%);
 }
@@ -311,7 +311,7 @@
   }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 768px) {
   .container-header {
     width: 1280px;
   }
@@ -320,7 +320,86 @@
     padding: 20px 0;
   }
 
-.switch {
+  .switch {
+    display: block;
+    padding-top: -25px;
+    position: relative;
+    width: 46px;
+    height: 20px;
+  }
+
+  @media screen and (max-width: 767px) {
+    .switch {
+      display: none;
+    }
+  }
+
+  .switch-input {
+    height: 0;
+    width: 0;
+    opacity: 0;
+    border-radius: 35px;
+  }
+
+  .switch-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 46px;
+    height: 20px;
+    border-radius: 60px;
+    box-shadow: 7px 5px 15px 0px rgba(160, 158, 160, 0.4);
+    background-color: #cecdcd;
+    transition: 0.4s;
+  }
+
+  .switch-slider::before,
+  .burger-switch-slider::before {
+    content: '';
+    position: absolute;
+    cursor: pointer;
+    right: 0.6px;
+    left: 0.6px;
+    bottom: 0.6px;
+    height: 18.8px;
+    width: 18.8px;
+    border-radius: 50%;
+    background-color: rgb(243, 243, 243);
+    box-shadow: 7px 5px 15px 0px rgba(160, 158, 160, 0.4);
+    transition: 0.4s;
+  }
+
+  .switch-input:focus + .switch-slider {
+    box-shadow: 0 0 1px rgb(177, 177, 174);
+  }
+
+  .switch-input:checked + .switch-slider {
+    background-color: var(--color-green-button);
+  }
+
+  .switch-input:checked + .switch-slider::before {
+    transform: translateX(26px);
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+  }
+}
+@media screen and (max-width: 320px) {
+  .js-swither.left-bottom-align {
+    display: block;
+    /* Показываем переключатель для мобильного бургер-меню */
+  }
+}
+
+.left-bottom-align {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.burger-switch {
   display: block;
   padding-top: -25px;
   position: relative;
@@ -328,20 +407,22 @@
   height: 20px;
 }
 
-@media screen and (max-width: 767px) {
-  .switch {
-    display: none;
-  }
-}
-
-.switch-input {
+.burger-switch-input {
   height: 0;
   width: 0;
   opacity: 0;
   border-radius: 35px;
 }
 
-.switch-slider {
+.burger-switch-input {
+  height: 0;
+  width: 0;
+  opacity: 0;
+  border-radius: 35px;
+}
+
+/* Стили для слайдера переключателя бургера */
+.burger-switch-slider {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -351,42 +432,24 @@
   width: 46px;
   height: 20px;
   border-radius: 60px;
-  box-shadow: 7px 5px 15px 0px rgba(160, 158, 160, 0.4);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* винести в змінну */
   background-color: #cecdcd;
   transition: 0.4s;
 }
 
-.switch-slider::before,
-.burger-switch-slider::before {
-  content: '';
-  position: absolute;
-  cursor: pointer;
-  right: 0.6px;
-  left: 0.6px;
-  bottom: 0.6px;
-  height: 18.8px;
-  width: 18.8px;
-  border-radius: 50%;
-  background-color: rgb(243, 243, 243);
-  box-shadow: 7px 5px 15px 0px rgba(160, 158, 160, 0.4);
-  transition: 0.4s;
-}
-
 /* Стили при фокусе */
-.switch-input:focus + .switch-slider {
+.burger-switch-input:focus + .burger-switch-slider {
   box-shadow: 0 0 1px rgb(177, 177, 174);
 }
 
-/* Стили при включенном переключателе */
-.switch-input:checked + .switch-slider {
-  background-color: var(--color-green-button);
+/* Стили при включенном переключателе бургера */
+.burger-switch-input:checked + .burger-switch-slider {
+  background-color: var(--accent-color);
 }
 
-.switch-input:checked + .switch-slider::before {
+.burger-switch-input:checked + .burger-switch-slider::before {
   transform: translateX(26px);
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
 }
-
-}
-
