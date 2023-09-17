@@ -78,15 +78,13 @@
 	align-content: start;
 	row-gap: 20px;
 	column-gap: 16px;
-	margin-bottom: 64px;  
-  justify-content: space-between;
-  
+	margin-bottom: 64px;
+}
 
 @media screen and (min-width: 1280px) {
 	.recipe-cards {
+		width: 782px;
+		margin-left: 64px;
 		min-height: 901px;
 	}
-}
-.recipe-list {
-	margin-left: 64px;
 }
