@@ -1,4 +1,5 @@
 /** @format */
+
 .recipe-item {
 	position: relative;
 	display: inline-flex;
@@ -16,7 +17,7 @@
 
 .recipe-item-name {
 	margin-bottom: -8px;
-	color: #f8f8f8;
+	color: var(--color-font-background);
 	font-family: Inter;
 	font-size: 14px;
 	font-style: normal;
@@ -31,7 +32,7 @@
 	-webkit-line-clamp: 2;
 	width: 100%;
 	overflow: hidden;
-	color: #f8f8f8;
+	color: var(--color-font-background);
 	text-overflow: ellipsis;
 	font-family: Inter;
 	font-size: 12px;
@@ -53,7 +54,7 @@
 }
 
 .recipe-item-rating-num {
-	color: #f8f8f8;
+	color: var(--color-font-background);
 	font-family: Inter;
 	font-size: 14px;
 	font-style: normal;
@@ -72,11 +73,11 @@
 }
 
 .stars {
-	fill: rgba(5, 5, 5, 0.1);
+	fill: var(--color-scrol-filter);
 }
 
 .stars-full {
-	fill: rgba(238, 161, 12, 1);
+	fill: var(--color-like);
 }
 
 .like {
@@ -93,7 +94,7 @@
 	height: 31px;
 	border-radius: 8px;
 	background: #9bb537;
-	color: #f8f8f8;
+	color: var(--color-font-background);
 	font-family: Inter;
 	font-size: 12px;
 	font-style: normal;

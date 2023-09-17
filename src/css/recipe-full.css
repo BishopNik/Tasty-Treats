@@ -15,7 +15,7 @@
 .recipe-adv {
 	position: relative;
 	border-radius: 15px;
-	background: #fff;
+	background: var(--color-font-background);
 }
 
 .backdrop.is-hidden {
@@ -34,12 +34,12 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	stroke: rgba(5, 5, 5, 1);
+	stroke: var(--color-black-font);
 	cursor: pointer;
 }
 
 .recipe-adv-name {
-	color: #050505;
+	color: var(--color-black-font);
 	font-family: Inter;
 	font-size: 18px;
 	font-style: normal;
@@ -78,7 +78,7 @@
 }
 
 .recipe-adv-item-time {
-	color: rgba(5, 5, 5, 0.5);
+	color: var(--color-font-select-text);
 	font-family: Inter;
 	font-size: 14px;
 	font-style: normal;
@@ -97,8 +97,8 @@
 	align-items: center;
 	padding: 9px 16px;
 	border-radius: 35px;
-	border: 1px solid rgba(5, 5, 5, 0.2);
-	color: #050505;
+	border: 1px solid var(-color-border-select);
+	color: var(--color-black-font);
 	font-family: Inter;
 	font-size: 12px;
 	font-style: normal;
@@ -110,11 +110,11 @@
 	display: flex;
 	justify-content: space-between;
 	padding-bottom: 8px;
-	border-bottom: 1px solid rgba(5, 5, 5, 0.1);
+	border-bottom: 1px solid var(--color-scroll-filters);
 }
 
 .recipe-ingradient-text {
-	color: rgba(5, 5, 5, 0.5);
+	color: var(--color-font-select-text);
 	font-family: Inter;
 	font-size: 14px;
 	font-style: normal;
@@ -127,7 +127,7 @@
 }
 
 .recipe-text {
-	color: rgba(5, 5, 5, 0.8);
+	color: var(--color-font-popular-recipe);
 	font-family: Inter;
 	font-size: 14px;
 	font-style: normal;
@@ -147,7 +147,7 @@
 }
 
 .recipe-adv-item-rating-num {
-	color: rgba(5, 5, 5, 0.5);
+	color: var(--color-font-select-text);
 	font-family: Inter;
 	font-size: 14px;
 	font-style: normal;
@@ -158,7 +158,7 @@
 
 .recipe-button-el {
 	border-radius: 15px;
-	border: 1px solid #9bb537;
+	border: 1px solid var(--color-green-button);
 }
 
 ::-webkit-scrollbar,
