@@ -90,7 +90,7 @@
 	display: flex;
 	gap: 8px;
 	overflow: scroll;
-	width: 266px;
+	width: 268px;
 }
 
 .recipe-tag {
@@ -172,7 +172,7 @@
 	background-color: transparent;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
 	.recipe-adv {
 		top: 1%;
 		left: 50%;
@@ -246,7 +246,7 @@
 	}
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 768px) {
 	.recipe-adv {
 		top: 3%;
 		left: 50%;
@@ -273,7 +273,7 @@
 	}
 
 	.recipe-tags {
-		width: 258px;
+		width: 260px;
 		gap: 4px;
 	}
 
