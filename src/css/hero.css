@@ -1,10 +1,8 @@
 /**
- * |============================
- *   | Hero section
- *   |============================
- *
- * @format
- */
+  |============================
+  | Hero section
+  |============================
+*/
 
 .left-container {
   max-width: 446px;
@@ -47,6 +45,7 @@
 }
 
 .hero-title {
+
   color: var(--color-font-background);
   font-family: Inter;
   font-size: 36px;
@@ -56,6 +55,7 @@
   text-transform: uppercase;
   margin-bottom: 16px;
   text-align: left;
+
   /* max-width: 335px; */
 }
 
@@ -68,6 +68,7 @@
 
 .hero-desc {
   color: var(--color-font-background);
+
   font-family: Inter;
   font-size: 16px;
   font-style: normal;
@@ -89,10 +90,10 @@
   min-width: 111px;
   min-height: 37px;
   margin-bottom: 47px;
-
   border-radius: 15px;
   border: 1px solid var(--color-green-button);
   cursor: pointer;
+
 }
 
 .hero-btn:hover,
@@ -115,3 +116,4 @@
   display: flex;
   flex-direction: row;
 }
+

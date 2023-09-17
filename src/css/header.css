@@ -10,6 +10,7 @@
   padding-right: 5px;
   margin: 0 auto;
 }
+
 @media screen and (min-width: 375px) {
   .container-header {
     max-width: 375px;
@@ -17,6 +18,7 @@
     padding-right: 20px;
   }
 }
+
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .container-header {
     max-width: 768px;
@@ -24,6 +26,7 @@
     padding-right: 32px;
   }
 }
+
 @media screen and (min-width: 1280px) {
   .container-header {
     max-width: 1280px;
@@ -105,11 +108,14 @@
 }
 
 .shopping-icon {
-  fill: var(--color-black-font);
+  fill: none;
+  stroke: var(--color-black-font);
 }
+
 .shopping-icon:hover,
 .shopping-icon:focus {
-  fill: var(--color-green-button);
+  fill: none;
+  stroke: var(--color-green-button);
 }
 
 .burger-menu {
@@ -132,6 +138,7 @@
   height: 32px;
   fill: var(--color-black-font);
 }
+
 .burger-menu-icon:hover,
 .burger-menu-icon:focus {
   fill: var(--color-green-button);
@@ -179,11 +186,11 @@
   transition: 0.3s;
 }
 
-.input-switcher:checked + .input-label {
+.input-switcher:checked+.input-label {
   background: var(--color-green-button);
 }
 
-.input-switcher:checked + .input-label:after {
+.input-switcher:checked+.input-label:after {
   left: calc(100% - 1px);
   transform: translateX(-100%);
 }
@@ -294,6 +301,7 @@
   .theme-switcher {
     height: 20px;
   }
+
   .current {
     color: var(--color-green-button);
   }
@@ -307,7 +315,78 @@
   .container-header {
     width: 1280px;
   }
+
   .logo-header {
     padding: 20px 0;
   }
+
+.switch {
+  display: block;
+  padding-top: -25px;
+  position: relative;
+  width: 46px;
+  height: 20px;
 }
+
+@media screen and (max-width: 767px) {
+  .switch {
+    display: none;
+  }
+}
+
+.switch-input {
+  height: 0;
+  width: 0;
+  opacity: 0;
+  border-radius: 35px;
+}
+
+.switch-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 46px;
+  height: 20px;
+  border-radius: 60px;
+  box-shadow: 7px 5px 15px 0px rgba(160, 158, 160, 0.4);
+  background-color: #cecdcd;
+  transition: 0.4s;
+}
+
+.switch-slider::before,
+.burger-switch-slider::before {
+  content: '';
+  position: absolute;
+  cursor: pointer;
+  right: 0.6px;
+  left: 0.6px;
+  bottom: 0.6px;
+  height: 18.8px;
+  width: 18.8px;
+  border-radius: 50%;
+  background-color: rgb(243, 243, 243);
+  box-shadow: 7px 5px 15px 0px rgba(160, 158, 160, 0.4);
+  transition: 0.4s;
+}
+
+/* Стили при фокусе */
+.switch-input:focus + .switch-slider {
+  box-shadow: 0 0 1px rgb(177, 177, 174);
+}
+
+/* Стили при включенном переключателе */
+.switch-input:checked + .switch-slider {
+  background-color: var(--color-green-button);
+}
+
+.switch-input:checked + .switch-slider::before {
+  transform: translateX(26px);
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+}
+
+}
+

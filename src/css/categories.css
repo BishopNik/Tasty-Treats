@@ -31,7 +31,6 @@ button {
     
     font-family: Inter;
     font-size: 18px;
-    font-style: normal;
     font-weight: 500;
     line-height: normal;
     display: flex;
@@ -45,7 +44,7 @@ button {
     height: 50px;
     background-color: var(--color-font-background);
     color: var(--color-font-select-text);
-    border-color: var(--color-scroll-categories);
+    border-color: var(--color-border-select);
 }
 
 
@@ -83,7 +82,6 @@ button {
     color:  var(--color-font-select);
     font-family: Inter;
     font-size: 14px;
-    font-style: normal;
     font-weight: 500;
     line-height: 1.25;
 }
