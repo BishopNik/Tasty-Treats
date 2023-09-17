@@ -66,7 +66,7 @@ export async function markupRecipe(id) {
 			${instructions}
 		</p>
 		<div class="recipe-button">
-			<button class="main-button recipe-button-el" type="{button}">
+			<button class="main-button recipe-button-el green-button" type="{button}">
 				Add to favorite
 			</button>
 			<button class="main-button recipe-button-el" type="{button}" id="modal-rating-opener">

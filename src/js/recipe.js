@@ -1,12 +1,11 @@
 /** @format */
 
 import { markupRecipe } from './markup-recipe';
-import { createListeners } from './rating'
+import { createListeners } from './rating';
 
 const id = '6462a8f74c3d0ddd28897fb8';
 
 const ref = {
-	buttonRecipe: document.querySelector('.recipe-item-see'),
 	modalWindowRecipe: document.querySelector('.backdrop'),
 	iconPlay: null,
 	closeModalWindowRecipe: null,
@@ -14,18 +13,12 @@ const ref = {
 	youtubeFrame: null,
 };
 
-ref.buttonRecipe.addEventListener('click', open);
-
-function open() {
-	onOpenWindow(id);
-}
-
 export async function onOpenWindow(id) {
 	ref.modalWindowRecipe.innerHTML = await markupRecipe(id);
 	ref.modalWindowRecipe.classList.remove('is-hidden');
 
 	// Added event listener for modal-rating-opener
-	createListeners(id)
+	createListeners(id);
 
 	ref.closeModalWindowRecipe = document.querySelector('.recipe-close');
 	ref.closeModalWindowRecipe.addEventListener('click', onCloseWindow);
