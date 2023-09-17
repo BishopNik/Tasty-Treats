@@ -3,6 +3,7 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
 import { onOpenWindow } from './recipe';
+import { ratingRecipe } from "./rating-markup"
 
 const pagination = document.querySelector('.pagination-btns');
 const recipeCards = document.querySelector('.recipe-cards');
@@ -40,31 +41,7 @@ function renderCards(results, div, cardStyle) {
 		<div class="recipe-item-rating">
 			<span class="recipe-item-rating-num">${elm.rating}</span>
 			<ul class="recipe-item-rating-stars">
-				<li class="recipe-item-rating-star">
-					<svg class="stars-full">
-						<use href="./img/icon/icon.svg#icon-star"></use>
-					</svg>
-				</li>
-				<li class="recipe-item-rating-star">
-					<svg class="stars-full">
-						<use href="./img/icon/icon.svg#icon-star"></use>
-					</svg>
-				</li>
-				<li class="recipe-item-rating-star">
-					<svg class="stars-full">
-						<use href="./img/icon/icon.svg#icon-star"></use>
-					</svg>
-				</li>
-				<li class="recipe-item-rating-star">
-					<svg class="stars-full">
-						<use href="./img/icon/icon.svg#icon-star"></use>
-					</svg>
-				</li>
-				<li class="recipe-item-rating-star">
-					<svg class="stars">
-						<use href="./img/icon/icon.svg#icon-star"></use>
-					</svg>
-				</li>
+				${ratingRecipe(elm.rating)}
 			</ul>
 		</div>
 		<button class="main-button green-button recipe-item-see" type="button" data-id="${elm._id}">See recipe</button>
