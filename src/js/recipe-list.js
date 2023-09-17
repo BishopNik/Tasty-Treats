@@ -1,4 +1,5 @@
 import axios from "axios";
+import { handleLikeBtn } from './add_favorites';
 
 const pagination = document.querySelector('.pagination-btns')
 const recipeCards = document.querySelector('.recipe-cards');
@@ -23,17 +24,28 @@ async function fetchRecipeCards(api, options) {
 
 function renderCards(results,div,cardStyle) {
 	let htmlCards = '';
-    results.forEach(elm => {
-		htmlCards += `<li
-		class="recipe-item ${cardStyle}"
+	let likeIconUrl = '../img/icon/icon.svg#icon-like';
+	const favorites = JSON.parse(localStorage.getItem('favorites')) ?? [];
+
+
+	results.forEach(elm => {
+		if (favorites.indexOf(elm._id) === -1) {
+			likeIconUrl = '../img/icon/icon.svg#icon-like';
+		} else {
+			likeIconUrl = '../img/icon/icon.svg#icon-like-full';
+		}
+		
+		htmlCards += `<li 
+		data-id="${elm._id}"
+		class="recipe-item ${cardStyle} js-recipe"
 	style="
 		background: linear-gradient(1deg, rgba(5, 5, 5, 0.6) 4.82%, rgba(5, 5, 5, 0) 108.72%),
 			url(${elm.thumb}), lightgray 50%; background-size: cover;
 	"
 >
-        <svg class="like" width="22" height="22">
-		<use href="../img/icon/icon.svg#icon-like-full"></use>
-	</svg>
+			<svg class="like js-like" width="22" height="22">
+				<use class="js-like" href="${likeIconUrl}"></use> 
+			</svg>
 	<h3 class="recipe-item-name">${elm.title}</h3>
 	<p class="recipe-item-about">${elm.instructions}</p>
 	<div class="recipe-item-option">
@@ -75,6 +87,13 @@ function renderCards(results,div,cardStyle) {
 	const seeButtons = document.querySelectorAll('.recipe-item-see')
 	seeButtons.forEach(elm => elm.addEventListener('click', evt => console.log(evt.target.dataset.id)))
 }
+
+const selectors = {
+  list: document.querySelector('.recipe-cards')
+};
+
+selectors.list.addEventListener('click', handleLikeBtn);
+
 
 
 function setPaginationButtons(div,page,total,option) {
