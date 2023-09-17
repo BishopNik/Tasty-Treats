@@ -1,4 +1,6 @@
 /** @format */
+import { renderMain } from './recipe-list';
+import { renderCardsOptions } from './recipe-list';
 
 // Подключаю axios, notiflix
 import axios from 'axios';
@@ -6,7 +8,10 @@ import Notiflix from 'notiflix';
 
 const list = document.querySelector('.categories-list');
 const allCategoriesBtn = document.querySelector('.all-categories-btn');
+allCategoriesBtn.classList.add('all-categories-btn-aktiv')
 let itemArr;
+
+renderMain(renderCardsOptions);
 
 // Делаю запрос на получение данных
 async function fetchCategories() {
@@ -17,17 +22,17 @@ async function fetchCategories() {
 
 // Обработка данных, создание списка категорий в HTML
 fetchCategories()
-    .then(data => {
-        
-		let arrCategories = [...data];
-		list.insertAdjacentHTML('beforeend', createCategoriesList(arrCategories));
-		itemArr = [...list.children];
-		return itemArr;
-	})
+.then(data => {
+	
+	let arrCategories = [...data];
+	list.insertAdjacentHTML('beforeend', createCategoriesList(arrCategories));
+	itemArr = [...list.children];
+	return itemArr;
+})
 
-	.catch(() => {
-		Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page!')
-	});
+.catch(() => {
+	Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page!')
+});
 
 
 // // Функция для создания списка
@@ -44,7 +49,14 @@ list.addEventListener('click', onListClick);
 // Функция для передачи данных всех категорий
 
 function onAllCategoriesBtnClick() {
-    clearCurrentCategory(itemArr);
+	clearCurrentCategory(itemArr);
+	allCategoriesBtn.classList.add('all-categories-btn-aktiv')
+	
+	renderCardsOptions.params.category = "";
+	renderCardsOptions.params.time = "";
+	renderCardsOptions.params.area = "";
+	renderCardsOptions.params.ingredient = "";
+	renderMain(renderCardsOptions);
     
     fetchCategories()
         
@@ -63,11 +75,15 @@ function onAllCategoriesBtnClick() {
 // Функция для передачи данных одной категории
 
 function onListClick(evt) {
+	allCategoriesBtn.classList.remove('all-categories-btn-aktiv')
     clearCurrentCategory(itemArr);
 
     evt.target.classList.add("curent-category")
-    let currentCategory = {id: evt.target.id, name: evt.target.textContent}
-    // console.dir(currentCategory);
+	let currentCategory = { id: evt.target.id, name: evt.target.textContent }
+	
+	renderCardsOptions.params.category = evt.target.textContent;
+	console.dir(renderCardsOptions);
+	renderMain(renderCardsOptions)
 
 	return currentCategory;
 }

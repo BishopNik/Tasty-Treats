@@ -155,18 +155,19 @@ const rangeButtonsElm = document.querySelector('.range-btns')
 	})
 }
 
-async function renderMain(options) {
+export async function renderMain(options) {
     let responseData;
 	await fetchRecipeCards(recipesApi, options).then(data => { responseData = data })
 	renderCards(responseData.results, recipeCards, 'mainblock')
 	setPaginationButtons(pagination,Number(responseData.currentPage),Number(responseData.totalPages),options)
 }
 
-const renderCardsOptions = {
+export let renderCardsOptions = {
 	params: {
 		page: 1,
 		limit: 9
 	}
 }
 
-renderMain(renderCardsOptions);
+// renderMain(renderCardsOptions);
+
