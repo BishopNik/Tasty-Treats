@@ -1,6 +1,7 @@
 /** @format */
 
 import { fetchGetId } from './fetch-api';
+import { ratingRecipe } from './rating-markup';
 
 export async function markupRecipe(id) {
 	const recipeData = await fetchGetId(id);
@@ -33,7 +34,7 @@ export async function markupRecipe(id) {
 				)
 				.join('')
 		: null;
-
+	const ratingBlock = ratingRecipe(rating);
 	const modWindow = `
     <div class="recipe-adv">
 		<svg class="recipe-close">
@@ -53,31 +54,7 @@ export async function markupRecipe(id) {
 			<div class="recipe-adv-item-rating">
 				<span class="recipe-adv-item-rating-num">${rating}</span>
 				<ul class="recipe-item-rating-stars">
-					<li class="recipe-item-rating-star">
-						<svg class="stars-full">
-							<use href="../img/icon/icon.svg#icon-star"></use>
-						</svg>
-					</li>
-					<li class="recipe-item-rating-star">
-						<svg class="stars-full">
-							<use href="../img/icon/icon.svg#icon-star"></use>
-						</svg>
-					</li>
-					<li class="recipe-item-rating-star">
-						<svg class="stars-full">
-							<use href="../img/icon/icon.svg#icon-star"></use>
-						</svg>
-					</li>
-					<li class="recipe-item-rating-star">
-						<svg class="stars-full">
-							<use href="../img/icon/icon.svg#icon-star"></use>
-						</svg>
-					</li>
-					<li class="recipe-item-rating-star">
-						<svg class="stars-full">
-							<use href="../img/icon/icon.svg#icon-star"></use>
-						</svg>
-					</li>
+					${ratingBlock}
 				</ul>
 				<span class="recipe-adv-item-time">${time} min</span>
 			</div>
