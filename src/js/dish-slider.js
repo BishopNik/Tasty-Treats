@@ -4,7 +4,6 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 const swiper = new Swiper('.dish-slider', {
-  slidesPerView: 0.8,
   pagination: {
     el: '.swiper-pagination',
     clickable: true,
