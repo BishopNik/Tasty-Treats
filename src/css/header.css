@@ -10,6 +10,7 @@
   padding-right: 5px;
   margin: 0 auto;
 }
+
 @media screen and (min-width: 375px) {
   .container-header {
     max-width: 375px;
@@ -17,6 +18,7 @@
     padding-right: 20px;
   }
 }
+
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .container-header {
     max-width: 768px;
@@ -24,6 +26,7 @@
     padding-right: 32px;
   }
 }
+
 @media screen and (min-width: 1280px) {
   .container-header {
     max-width: 1280px;
@@ -107,6 +110,7 @@
 .shopping-icon {
   fill: var(--color-black-font);
 }
+
 .shopping-icon:hover,
 .shopping-icon:focus {
   fill: var(--color-green-button);
@@ -132,6 +136,7 @@
   height: 32px;
   fill: var(--color-black-font);
 }
+
 .burger-menu-icon:hover,
 .burger-menu-icon:focus {
   fill: var(--color-green-button);
@@ -179,11 +184,11 @@
   transition: 0.3s;
 }
 
-.input-switcher:checked + .input-label {
+.input-switcher:checked+.input-label {
   background: var(--color-green-button);
 }
 
-.input-switcher:checked + .input-label:after {
+.input-switcher:checked+.input-label:after {
   left: calc(100% - 1px);
   transform: translateX(-100%);
 }
@@ -294,6 +299,7 @@
   .theme-switcher {
     height: 20px;
   }
+
   .current {
     color: var(--color-green-button);
   }
@@ -307,6 +313,7 @@
   .container-header {
     width: 1280px;
   }
+
   .logo-header {
     padding: 20px 0;
   }
