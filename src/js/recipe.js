@@ -19,7 +19,7 @@ function open() {
 	onOpenWindow(id);
 }
 
-async function onOpenWindow(id) {
+export async function onOpenWindow(id) {
 	ref.modalWindowRecipe.innerHTML = await markupRecipe(id);
 	ref.modalWindowRecipe.classList.remove('is-hidden');
 
