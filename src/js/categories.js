@@ -76,7 +76,11 @@ function onAllCategoriesBtnClick() {
 
 function onListClick(evt) {
 	allCategoriesBtn.classList.remove('all-categories-btn-aktiv')
-    clearCurrentCategory(itemArr);
+	clearCurrentCategory(itemArr);
+	console.log();
+	if (!evt.target.classList.contains("categories-btn")) {
+        return;
+    }
 
     evt.target.classList.add("curent-category")
 	let currentCategory = { id: evt.target.id, name: evt.target.textContent }
