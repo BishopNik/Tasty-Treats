@@ -1,6 +1,7 @@
 /** @format */
 
 import { markupRecipe } from './markup-recipe';
+import { createListeners } from './rating'
 
 const id = '6462a8f74c3d0ddd28897fb8';
 
@@ -22,6 +23,9 @@ function open() {
 export async function onOpenWindow(id) {
 	ref.modalWindowRecipe.innerHTML = await markupRecipe(id);
 	ref.modalWindowRecipe.classList.remove('is-hidden');
+
+	// Added event listener for modal-rating-opener
+	createListeners(id)
 
 	ref.closeModalWindowRecipe = document.querySelector('.recipe-close');
 	ref.closeModalWindowRecipe.addEventListener('click', onCloseWindow);
