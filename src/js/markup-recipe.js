@@ -5,9 +5,21 @@ import { ratingRecipe } from './rating-markup';
 
 export async function markupRecipe(id) {
 	const recipeData = await fetchGetId(id);
-	const { title, instructions, thumb, youtube, time, tags, ingredients, rating } = recipeData;
+	const { _id, title, instructions, thumb, youtube, time, tags, ingredients, rating } = recipeData;
 	const index = youtube.indexOf('?v=');
 	let youtubeLink = null;
+	
+	// added by IR //
+	const favorites = JSON.parse(localStorage.getItem('favorites')) ?? [];
+	let btnFavName = 'Add to favorite';
+	
+	if (favorites.indexOf(_id) === -1) {
+		btnFavName = 'Add to favorite';
+	} else {
+		btnFavName = 'Remove favorite';
+	}
+	// --- //
+
 	if (index !== -1) {
 		const idVideo = youtube.substring(index + 3);
 		youtubeLink = `<svg class="recipe-youtube">
@@ -66,8 +78,8 @@ export async function markupRecipe(id) {
 			${instructions}
 		</p>
 		<div class="recipe-button">
-			<button class="main-button recipe-button-el green-button" type="{button}">
-				Add to favorite
+			<button class="main-button recipe-button-el green-button js-add-fav-btn" data-id="${_id}" type="{button}">
+				${btnFavName}
 			</button>
 			<button class="main-button recipe-button-el" type="{button}" id="modal-rating-opener">
 				Give a rating
