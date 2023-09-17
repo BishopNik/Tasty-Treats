@@ -88,7 +88,9 @@
 
 .recipe-tags {
 	display: flex;
-	gap: 4px;
+	gap: 8px;
+	overflow: scroll;
+	width: 266px;
 }
 
 .recipe-tag {
@@ -97,7 +99,7 @@
 	align-items: center;
 	padding: 9px 16px;
 	border-radius: 35px;
-	border: 1px solid var(-color-border-select);
+	border: 1px solid var(--color-border-select);
 	color: var(--color-black-font);
 	font-family: Inter;
 	font-size: 12px;
@@ -229,7 +231,7 @@
 		left: 20px;
 		width: 295px;
 		white-space: pre-line;
-		max-height: 288px;
+		height: 288px;
 	}
 
 	.recipe-button {
@@ -270,6 +272,11 @@
 		margin-bottom: 16px;
 	}
 
+	.recipe-tags {
+		width: 258px;
+		gap: 4px;
+	}
+
 	.recipe-adv-item-time {
 		margin-left: 8px;
 	}
@@ -285,7 +292,7 @@
 
 	.recipe-text {
 		margin-bottom: 32px;
-		max-height: 162px;
+		height: 162px;
 	}
 
 	.recipe-button {
