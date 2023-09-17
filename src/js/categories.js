@@ -46,38 +46,27 @@ allCategoriesBtn.addEventListener('click', onAllCategoriesBtnClick);
 list.addEventListener('click', onListClick);
 
 
-// Функция для передачи данных всех категорий
+// Функция для отображения всех категорий
 
 function onAllCategoriesBtnClick() {
 	clearCurrentCategory(itemArr);
 	allCategoriesBtn.classList.add('all-categories-btn-aktiv')
 	
+	renderCardsOptions.params.page = 1;
 	renderCardsOptions.params.category = "";
 	renderCardsOptions.params.time = "";
 	renderCardsOptions.params.area = "";
 	renderCardsOptions.params.ingredient = "";
 	renderMain(renderCardsOptions);
-    
-    fetchCategories()
-        
-    .then(data => {
-        let arrCategories = [...data];
-        // console.dir(arrCategories);
-        return arrCategories;
-    })
-
-    .catch(() => {
-        Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page!')
-    });
 }
 
 
-// Функция для передачи данных одной категории
+// Функция для отображения одной категории
 
 function onListClick(evt) {
 	allCategoriesBtn.classList.remove('all-categories-btn-aktiv')
 	clearCurrentCategory(itemArr);
-	console.log();
+	
 	if (!evt.target.classList.contains("categories-btn")) {
         return;
     }
@@ -85,8 +74,8 @@ function onListClick(evt) {
     evt.target.classList.add("curent-category")
 	let currentCategory = { id: evt.target.id, name: evt.target.textContent }
 	
+	renderCardsOptions.params.page = 1;
 	renderCardsOptions.params.category = evt.target.textContent;
-	console.dir(renderCardsOptions);
 	renderMain(renderCardsOptions)
 
 	return currentCategory;
