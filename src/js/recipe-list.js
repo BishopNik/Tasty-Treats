@@ -1,4 +1,6 @@
 import axios from "axios";
+import Notiflix from "notiflix";
+import { onOpenWindow } from "./recipe"
 
 const pagination = document.querySelector('.pagination-btns')
 const recipeCards = document.querySelector('.recipe-cards');
@@ -73,7 +75,7 @@ function renderCards(results,div,cardStyle) {
 	})
 	div.innerHTML = htmlCards;
 	const seeButtons = document.querySelectorAll('.recipe-item-see')
-	seeButtons.forEach(elm => elm.addEventListener('click', evt => console.log(evt.target.dataset.id)))
+	seeButtons.forEach(elm => elm.addEventListener('click', evt => onOpenWindow(evt.target.dataset.id)))
 }
 
 
