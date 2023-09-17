@@ -28,7 +28,7 @@ button {
 }
 
 .all-categories-btn {
-    color: var(--color-font-select-text);
+    
     font-family: Inter;
     font-size: 18px;
     font-style: normal;
@@ -38,19 +38,25 @@ button {
     justify-content: center;
     align-items: center;
     border-radius: 15px;
-    border: 1px solid var(--color-scroll-categories);
-    background-color: var(--color-font-background);
+    border: 1px solid;
     margin-left: 15px;
     margin-bottom: 24px;
     width: 176px;
     height: 50px;
+    background-color: var(--color-font-background);
+    color: var(--color-font-select-text);
+    border-color: var(--color-scroll-categories);
 }
 
+
+.all-categories-btn-aktiv,
 .all-categories-btn:hover,
 .all-categories-btn:focus {
     background-color: var(--color-green-button);
     color: var(--color-font-background);
     border-color: var(--color-green-button);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .categories-container {
@@ -82,14 +88,14 @@ button {
     line-height: 1.25;
 }
 
+.curent-category,
 .categories-btn:hover,
 .categories-btn:focus {
     color: var(--color-green-button);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.curent-category {
-    color: var(--color-green-button);
-}
+
 
 /* полоса прокрутки (скроллбар) */
 .categories-container::-webkit-scrollbar {
