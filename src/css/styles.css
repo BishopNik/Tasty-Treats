@@ -69,8 +69,8 @@
   --color-scroll-categories: rgba(255, 255, 255, 0.18);
   --color-green-button: rgba(155, 181, 55, 1);
   --color-font-popular-recipe: rgba(255, 255, 255, 0.8);
-  --color-border-select: rgba(255, 255, 255, 0.2);
   --color-black-btn: rgba(5, 5, 5, 1);
+  --color-border-select: rgba(255, 255, 255, 0.2);
 }
 
 body {
