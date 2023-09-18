@@ -1,59 +1,71 @@
 /** @format */
 
 .filter-container {
-	padding-top: 15px;
-	margin-left: 64px;
+  padding-top: 15px;
 }
 
 .filters-search-form {
-	display: flex;
-	gap: 16px;
+  display: flex;
+}
+
+@media screen and (max-width: 767px) {
+  .filters-search-form {
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .filters-search-form {
+    gap: 14px;
+    flex-wrap: wrap;
+  }
 }
 
 .filters-lable {
-	color: var(--color-font-select-text);
-	font-family: Inter;
-	font-size: 14px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 1.3;
-	margin-bottom: 10px;
+  color: var(--color-font-select-text);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.3;
+  margin-bottom: 10px;
 }
 
 /* search container */
 
 .filter-search-container {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .filter-serarch-thumb {
-	position: relative;
+  position: relative;
 }
 
 .filter-search-field {
-	width: 278px;
-	padding: 14px 14px 14px 48px;
-	border-radius: 15px;
-	border: 1px solid var(--color-border-select);
+  width: 278px;
+  padding: 14px 14px 14px 48px;
+  border-radius: 15px;
+  border: 1px solid var(--color-border-select);
 }
 
 .search-btn {
-	cursor: pointer;
-	display: block;
-	top: 15px;
-	left: 18px;
-	position: absolute;
-	background-color: transparent;
-	border: none;
-	padding: 0;
-	line-height: 0;
+  cursor: pointer;
+  display: block;
+  top: 15px;
+  left: 18px;
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  line-height: 0;
 }
 
 .filter-icon-search {
-	width: 18px;
-	height: 18px;
-	fill: --color-font-select-text;
+  width: 18px;
+  height: 18px;
+  fill: --color-font-select-text;
 }
 
 /* time conteiner, country container, ingr container */
@@ -61,231 +73,246 @@
 .filter-time-container,
 .filter-country-container,
 .filter-ingr-container {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .time-dropdown {
-	position: relative;
-	width: 125px;
-	height: 74px;
+  position: relative;
+  width: 125px;
+  height: 74px;
+  border: none;
 }
 .country-dropdown {
-	position: relative;
-	width: 141px;
-	height: 74px;
+  position: relative;
+  width: 141px;
+  height: 74px;
 }
 
 .ingr-dropdown {
-	position: relative;
-	width: 188px;
-	height: 74px;
-	border: transparent;
+  position: relative;
+  width: 188px;
+  height: 74px;
+  border: transparent;
 }
 
 .time-dropdown::before {
-	content: '';
-	position: absolute;
-	top: 15px;
-	right: 18px;
-	z-index: 1000;
-	width: 8px;
-	height: 8px;
-	border: 2px solid #333;
-	border-top: 2px solid var(--color-in-favorits);
-	border-right: 2px solid var(--color-in-favorits);
-	transform: rotate(-45deg);
-	transition: 0.5s;
-	pointer-events: none;
+  content: '';
+  position: absolute;
+  top: 15px;
+  right: 18px;
+  z-index: 200;
+  width: 8px;
+  height: 8px;
+  border: 2px solid #333;
+  border-top: 2px solid var(--color-in-favorits);
+  border-right: 2px solid var(--color-in-favorits);
+  transform: rotate(-45deg);
+  transition: 0.5s;
+  pointer-events: none;
 }
 
 .country-dropdown::before {
-	content: '';
-	position: absolute;
-	top: 15px;
-	right: 18px;
-	z-index: 1000;
-	width: 8px;
-	height: 8px;
-	border: 2px solid #333;
-	border-top: 2px solid var(--color-in-favorits);
-	border-right: 2px solid var(--color-in-favorits);
-	transform: rotate(-45deg);
-	transition: 0.5s;
-	pointer-events: none;
+  content: '';
+  position: absolute;
+  top: 15px;
+  right: 18px;
+  z-index: 200;
+  width: 8px;
+  height: 8px;
+  border: 2px solid #333;
+  border-top: 2px solid var(--color-in-favorits);
+  border-right: 2px solid var(--color-in-favorits);
+  transform: rotate(-45deg);
+  transition: 0.5s;
+  pointer-events: none;
 }
 
 .ingr-dropdown::before {
-	content: '';
-	position: absolute;
-	top: 15px;
-	right: 18px;
-	z-index: 1000;
-	width: 8px;
-	height: 8px;
-	border: 2px solid #333;
-	border-top: 2px solid var(--color-in-favorits);
-	border-right: 2px solid var(--color-in-favorits);
-	transform: rotate(-45deg);
-	transition: 0.5s;
-	pointer-events: none;
+  content: '';
+  position: absolute;
+  top: 15px;
+  right: 18px;
+  z-index: 200;
+  width: 8px;
+  height: 8px;
+  border: 2px solid #333;
+  border-top: 2px solid var(--color-in-favorits);
+  border-right: 2px solid var(--color-in-favorits);
+  transform: rotate(-45deg);
+  transition: 0.5s;
+  pointer-events: none;
 }
 
 .time-dropdown.active::before {
-	top: 22px;
-	transform: rotate(-225deg);
+  top: 22px;
+  transform: rotate(-225deg);
 }
 
 .country-dropdown.active::before {
-	top: 22px;
-	transform: rotate(-225deg);
+  top: 22px;
+  transform: rotate(-225deg);
 }
 
 .ingr-dropdown.active::before {
-	top: 22px;
-	transform: rotate(-225deg);
+  top: 22px;
+  transform: rotate(-225deg);
 }
 
 .time-text-box,
 .country-text-box,
 .ingr-text-box {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	cursor: pointer;
-	background: var(--color-in-favorits);
-	font-size: 16px;
-	outline: none;
-	padding: 14px 36px 14px 18px;
-	border-radius: 15px;
-	border: 1px solid --color-border-select;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  cursor: pointer;
+  background: var(--color-in-favorits);
+  font-size: 16px;
+  outline: none;
+  padding: 14px 36px 14px 18px;
+  border-radius: 15px;
+  border: 1px solid var(--color-border-select);
 
-	color: var(--color-font-select-text);
-	font-family: Inter;
-	font-size: 16px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 1.25;
+  color: var(--color-font-select-text);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.25;
 }
 
 .filter-time-dropbox,
 .filter-country-dropbox,
 .filter-ingr-dropbox {
-	position: absolute;
-	top: 65%;
-	width: 100%;
-	height: 128px;
-	overflow: hidden;
-	border-radius: 15px;
+  position: absolute;
+  top: 67%;
+  width: 100%;
+  height: 128px;
+  overflow: hidden;
+  border-radius: 15px;
+  z-index: 1000;
+}
+
+.filter-country-dropbox,
+.filter-ingr-dropbox {
+  height: 188px;
 }
 
 .filter-time-list,
 .filter-country-list,
 .filter-ingr-list {
-	padding-left: 18px;
+  width: 100%;
+  height: 125px;
 
-	width: 100%;
-	height: 125px;
+  background: var(--color-in-favorits);
+  box-shadow: 0 5px 20px var(--color-scroll-shadow);
+  border-radius: 15px;
+  border: 1px solid var(--color-scroll-shadow);
+  display: none;
+  overflow: auto;
+  margin: 0;
 
-	background: var(--color-in-favorits);
-	box-shadow: 0 5px 20px var(--color-scroll-shadow);
-	border-radius: 15px;
-	border: 1px solid var(--color-scroll-shadow);
-	display: none;
-	overflow: auto;
-	margin: 0;
+  color: var(--color-font-select);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.25;
+}
 
-	color: var(--color-font-select);
-	font-family: Inter;
-	font-size: 16px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 1.25;
+.list-item {
+  padding-left: 18px;
+  padding-bottom: 8px;
+}
+
+.filter-country-list,
+.filter-ingr-list {
+  height: 188px;
 }
 
 .filter-time-list li:hover,
 .filter-time-list li:focus {
-	color: #050505;
-	font-family: Inter;
-	font-size: 16px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 1.25;
+  color: #050505;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.25;
 }
 
 .filter-country-list li:hover,
 .filter-country-list li:focus {
-	color: #050505;
-	font-family: Inter;
-	font-size: 16px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 1.25;
+  color: #050505;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.25;
 }
 
 .filter-ingr-list li:hover,
 .filter-ingr-list li:focus {
-	color: #050505;
-	font-family: Inter;
-	font-size: 16px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 1.25;
+  color: #050505;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.25;
 }
 
 .filter-time-list::-webkit-scrollbar {
-	width: 6px;
-	border-radius: 12px;
-	background: transparent;
-	height: 69px;
+  width: 6px;
+  border-radius: 12px;
+  background: transparent;
+  height: 69px;
 }
 
 .filter-country-list::-webkit-scrollbar {
-	width: 6px;
-	border-radius: 12px;
-	background: transparent;
-	height: 69px;
+  width: 6px;
+  border-radius: 12px;
+  background: transparent;
+  height: 69px;
 }
 
 .filter-ingr-list::-webkit-scrollbar {
-	width: 6px;
-	border-radius: 12px;
-	background: transparent;
-	height: 69px;
+  width: 6px;
+  border-radius: 12px;
+  background: transparent;
+  height: 69px;
 }
 
 .filter-time-list::-webkit-scrollbar-thumb {
-	background-color: var(--color-scroll-filters);
+  background-color: var(--color-scroll-filters);
 }
 
 .filter-country-list::-webkit-scrollbar-thumb {
-	background-color: var(--color-scroll-filters);
+  background-color: var(--color-scroll-filters);
 }
 
 .filter-ingr-list::-webkit-scrollbar-thumb {
-	background-color: var(--color-scroll-filters);
+  background-color: var(--color-scroll-filters);
 }
 
 .time-dropdown.active .filter-time-list {
-	display: block;
+  display: block;
 }
 
 .country-dropdown.active .filter-country-list {
-	display: block;
+  display: block;
 }
 
 .ingr-dropdown.active .filter-ingr-list {
-	display: block;
+  display: block;
 }
 
 .time-dropdown .filter-time-list li {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .country-dropdown .filter-country-list li {
-	cursor: pointer;
+  cursor: pointer;
 }
 .ingr-dropdown .filter-ingr-list li {
-	cursor: pointer;
+  cursor: pointer;
 }
