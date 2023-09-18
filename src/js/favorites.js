@@ -2,6 +2,9 @@
 
 import { Notify } from 'notiflix';
 import { fetchGetId } from './fetch-api';
+import { markupButtons, markupCards, createCard } from './markup-favorites';
+import { handleLikeBtn } from './add_favorites';
+
 import { ratingRecipe } from './rating-markup';
 
 // const favoritesImg = document.querySelector('.favorites_img');
@@ -63,7 +66,14 @@ function markupCardArray() {
           })
         : null;
       markupButtons(Array.from(markupButtonsArray));
-      markupCards(markupCardsArray);
+		markupCards(markupCardsArray);
+
+	
+		// handle like buttons
+			const allRecipes = document.querySelectorAll('.js-recipe');
+			allRecipes.forEach(elm => {
+				elm.addEventListener('click', handleLikeBtn);				
+			});
     })
     .catch(error =>
       Notify.failure('Unable to load favorites. ' + error.message)
@@ -127,3 +137,10 @@ function markupCards(cards) {
 }
 
 markupCardArray();
+
+// export { markupCardArray };
+	
+	
+	
+
+
