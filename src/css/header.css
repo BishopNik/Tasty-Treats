@@ -236,7 +236,7 @@
   overflow-y: auto;
   opacity: 0;
   visibility: hidden;
-  background-color: var(--color-green-button);
+  background-color: var(--color-body-modal);
   z-index: 999;
   transition: opacity 250ms ease-in-out, visibility 250ms ease-in-out,
     transform 250ms ease-in-out;
@@ -386,10 +386,10 @@
     -ms-transform: translateX(26px);
   }
 }
+
 @media screen and (max-width: 320px) {
   .js-swither.left-bottom-align {
     display: block;
-    /* Показываем переключатель для мобильного бургер-меню */
   }
 }
 
@@ -433,23 +433,29 @@
   height: 20px;
   border-radius: 60px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  /* винести в змінну */
-  background-color: #cecdcd;
+  background-color: var(--color-switch-modal);
   transition: 0.4s;
 }
 
-/* Стили при фокусе */
 .burger-switch-input:focus + .burger-switch-slider {
   box-shadow: 0 0 1px rgb(177, 177, 174);
 }
 
 /* Стили при включенном переключателе бургера */
 .burger-switch-input:checked + .burger-switch-slider {
-  background-color: var(--accent-color);
+  background-color: var(--color-green-button);
 }
 
 .burger-switch-input:checked + .burger-switch-slider::before {
   transform: translateX(26px);
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
+}
+
+/* Стили для белых иконок в темной теме */
+.dark-theme .header-burger.white,
+.dark-theme .header-svg header-img.white,
+.dark-theme .header-logo-treats.white,
+.dark-theme .header-link-favorites.white {
+  filter: invert(1);
 }
