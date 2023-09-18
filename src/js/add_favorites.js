@@ -1,3 +1,5 @@
+// import { markupCardArray } from "./favorites";
+
 function handleLikeBtn(evt) {
   const favorites = JSON.parse(localStorage.getItem('favorites')) ?? [];
 
@@ -21,7 +23,14 @@ function handleLikeBtn(evt) {
   }
  
   localStorage.setItem('favorites', JSON.stringify(favorites));
+  
+
 }
+
+// function handleLikeBtnOnFavorites(evt) {
+//   handleLikeBtn(evt);
+//   markupCardArray();
+// }
 
 
 function handleAddFavouriteBtn(evt) {
@@ -69,4 +78,5 @@ function handleAddFavouriteBtn(evt) {
 
 export { handleLikeBtn };
 export { handleAddFavouriteBtn };
+// export { handleLikeBtnOnFavorites };
 
