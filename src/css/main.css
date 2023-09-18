@@ -2,14 +2,35 @@
 
 .main-recipe {
 	display: flex;
+	flex-direction: column;
+}
+
+.main-elements {
+	display: flex;
+	flex-direction: column;
 }
 
 .main-recipe-sidebar {
 	display: flex;
 	flex-direction: column;
+	gap: 40px;
 }
 
 .main-recipe-filters-recipe {
 	display: flex;
 	flex-direction: column;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+	.main-elements {
+		gap: 64px;
+		flex-direction: row;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.main-elements {
+		gap: 64px;
+		flex-direction: row;
+	}
 }
