@@ -9,7 +9,8 @@ export async function markupRecipe(id) {
 	const index = youtube.indexOf('?v=');
 	let youtubeLink = null;
 	
-	// added by IR //
+	// added by IRyb //
+	// Додаю отримання масиву id з локалсториджа, щоб змінювати назву кнопки: якщо вже є у улюблених, то кнопка буде називатися Remove
 	const favorites = JSON.parse(localStorage.getItem('favorites')) ?? [];
 	let btnFavName = 'Add to favorite';
 	

@@ -27,33 +27,39 @@ function handleLikeBtn(evt) {
 function handleAddFavouriteBtn(evt) {
   const favorites = JSON.parse(localStorage.getItem('favorites')) ?? [];
 
-
   if (!evt.target.classList.contains('js-add-fav-btn')) {
     return;
   }
 
-  console.log('<< add fav via btn >>');
-  console.log(evt.target.closest('.js-add-fav-btn'));
-  console.log(evt.target.classList);
-
   const recipeId = evt.target.closest('.js-add-fav-btn').dataset.id;
-  console.log(recipeId);
-
   const idx = favorites.indexOf(recipeId);
-  console.log(idx);
-
-  //const svg = evt.target.closest('svg');
-
   const btn = evt.target.closest('button');
-  //console.log(btn);
+ 
+
+  // get svg from the required element by id  //
+  const selectors = {
+    list: document.querySelector('.recipe-cards')
+  };
+ 
+  let svg = null;
+  const allElements = selectors.list.querySelectorAll('.js-recipe');
+  allElements.forEach(elm => {
+      if (elm.dataset.id == recipeId && !svg) {
+        svg = elm.querySelector('svg');
+      }
+    }    
+	);
+  // **************************** //
 
   if (recipeId) {
     if (idx === -1) {
       favorites.push(recipeId);
-      btn.innerHTML=`Remove favorite`
+      btn.innerHTML = `Remove favorite`
+      if(svg) {svg.innerHTML=`<use class="js-like" href="../img/icon/icon.svg#icon-like-full"></use>`}
     } else {
       favorites.splice(idx, 1);
-      btn.innerHTML=`Add to favorite`
+      btn.innerHTML = `Add to favorite`
+      if(svg) {svg.innerHTML=`<use class="js-like" href="../img/icon/icon.svg#icon-like"></use>`}
     }
   }
  
