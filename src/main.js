@@ -10,4 +10,5 @@ import './js/order';
 import './js/mobile-menu';
 import './js/scroll-to-top';
 import './js/add_favorites';
+import './js/mobile-menu';
 import './js/theme';
