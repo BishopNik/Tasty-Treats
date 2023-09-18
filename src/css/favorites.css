@@ -3,194 +3,195 @@
 @import url('./categories.css');
 
 .favorites_categories {
-	gap: 12px;
-	width: 375px;
+  gap: 12px;
+  width: 375px;
 }
 
 @media only screen and (min-width: 375px) {
-	.favorites {
-		margin-bottom: 80px;
-		background-color: var(--color-font-background);
-	}
+  .favorites {
+    margin-bottom: 80px;
+    background-color: var(--color-font-background);
+  }
 }
 @media only screen and (min-width: 768px) {
-	.favorites {
-		margin-bottom: 100px;
-	}
+  .favorites {
+    margin-bottom: 100px;
+  }
 }
 .favorites_container {
-	margin: auto;
+  margin: auto;
 }
 
 @media only screen and (min-width: 768px) {
-	.favorites_container {
-		max-width: 768px;
-	}
+  .favorites_container {
+    max-width: 768px;
+  }
 
-	.favorites_categories {
-		gap: 15px;
-		width: 768px;
-	}
+  .favorites_categories {
+    gap: 15px;
+    width: 768px;
+  }
 }
 @media only screen and (min-width: 1280px) {
-	.favorites_container {
-		max-width: 1280px;
-	}
-	.favorites_categories {
-		width: 1280px;
-	}
+  .favorites_container {
+    max-width: 1280px;
+  }
+  .favorites_categories {
+    width: 1280px;
+  }
 }
 
 .favorites_img {
-	margin-left: auto;
-	margin-right: auto;
-	border-radius: 15px;
-	max-width: 100%;
-	/* padding-top: 97px; */
-	height: auto;
-	display: flex;
-	margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  max-width: 100%;
+  /* padding-top: 97px; */
+  height: auto;
+  display: flex;
+  margin-bottom: 40px;
 
-	/* display: none; */
+  /* display: none; */
 }
 @media only screen and (min-width: 768px) {
-	.favorites_img {
-		width: 704px;
-		height: 356px;
-		margin-bottom: 64px;
-		/* padding-top: 98px; */
-	}
+  .favorites_img {
+    width: 704px;
+    height: 356px;
+    margin-bottom: 64px;
+    /* padding-top: 98px; */
+  }
 }
 
 @media only screen and (min-width: 1280px) {
-	.favorites_img {
-		width: 1080px;
-		/* padding-top: 100px; */
-	}
+  .favorites_img {
+    width: 1080px;
+    /* padding-top: 100px; */
+  }
 }
 .hide {
-	display: none !important;
+  display: none !important;
 }
 
 @media (max-width: 767px) {
-	.hide_in_mobile {
-		display: none !important;
-	}
+  .hide_in_mobile {
+    display: none !important;
+  }
 }
 .not_favorites {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	margin: 329px auto 249px;
-	/* display: none; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 329px auto 249px;
+  /* display: none; */
 }
 @media only screen and (min-width: 768px) {
-	.not_favorites {
-		margin-top: 0;
-	}
+  .not_favorites {
+    margin-top: 0;
+  }
 }
 
 .favorites_elem_svg {
-	margin: auto;
+  margin: auto;
 }
 
 @media only screen and (min-width: 768px) {
-	.favorites_elem_svg {
-		width: 97px;
-		height: 83px;
-	}
+  .favorites_elem_svg {
+    width: 97px;
+    height: 83px;
+  }
 }
 
 .favorites_text {
-	margin-top: 24px;
-	max-width: 335px;
-	text-align: center;
-	font-family: Inter;
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 18px;
-	letter-spacing: 0em;
+  margin-top: 24px;
+  max-width: 335px;
+  text-align: center;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0em;
+  background-color: transparent;
 }
 @media only screen and (min-width: 768px) {
-	.favorites_text {
-		margin-top: 32px;
-		max-width: 481px;
-		font-size: 16px;
-		line-height: 24px;
-	}
+  .favorites_text {
+    margin-top: 32px;
+    max-width: 481px;
+    font-size: 16px;
+    line-height: 24px;
+  }
 }
 .favorites_btn {
-	font-family: Inter;
-	font-size: 14px;
-	font-weight: 500;
-	line-height: 18px;
-	letter-spacing: 0em;
-	text-align: left;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
 }
 
 .favorites_categories {
-	display: flex;
+  display: flex;
 }
 @media only screen and (max-width: 767px) {
-	.list_cards_favorites {
-		display: flex;
-		/* display: none; */
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
-	.list_cards_favorites li {
-		margin-top: 24px;
-	}
+  .list_cards_favorites {
+    display: flex;
+    /* display: none; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .list_cards_favorites li {
+    margin-top: 24px;
+  }
 }
 @media only screen and (min-width: 768px) {
-	.list_cards_favorites {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 16px;
-		padding: 0;
-		max-width: 768px;
-		margin: 32px auto 0;
-	}
-	.list_cards_favorites li {
-		min-width: calc(33.33% - 16px);
-	}
+  .list_cards_favorites {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 0;
+    max-width: 768px;
+    margin: 32px auto 0;
+  }
+  .list_cards_favorites li {
+    min-width: calc(33.33% - 16px);
+  }
 }
 @media only screen and (min-width: 1280px) {
-	.list_cards_favorites {
-		row-gap: 32px;
-		max-width: 1280px;
-	}
-	.list_cards_favorites li {
-		min-width: calc(25% - 16px);
-	}
+  .list_cards_favorites {
+    row-gap: 32px;
+    max-width: 1280px;
+  }
+  .list_cards_favorites li {
+    min-width: calc(25% - 16px);
+  }
 }
 
 .main-button.category-btn {
-	color: var(--color-font-select);
-	font-family: Inter;
-	font-size: 16px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 1.25;
-	padding: 14px 18px;
-	border-radius: 15px;
-	border: 1px solid var(--color-border-select);
+  color: var(--color-font-select);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.25;
+  padding: 14px 18px;
+  border-radius: 15px;
+  border: 1px solid var(--color-border-select);
 }
 
 .favorites_categories {
-	list-style: none;
-	overflow-x: scroll;
-	overflow-y: hidden;
-	background-color: transparent;
+  list-style: none;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  background-color: transparent;
 }
 
 .favorites_categories::-webkit-scrollbar,
 .favorites_categories::-webkit-scrollbar-thumb,
 .favorites_categories::-webkit-scrollbar-track {
-	width: 0;
-	height: 0;
-	color: transparent;
-	background-color: transparent;
+  width: 0;
+  height: 0;
+  color: transparent;
+  background-color: transparent;
 }
