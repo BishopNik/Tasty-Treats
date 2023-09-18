@@ -2,6 +2,7 @@
 
 import { markupRecipe } from './markup-recipe';
 import { createListeners } from './rating';
+import { handleAddFavouriteBtn } from './add_favorites';
 
 const id = '6462a8f74c3d0ddd28897fb8';
 
@@ -11,6 +12,7 @@ const ref = {
 	closeModalWindowRecipe: null,
 	recipeImg: null,
 	youtubeFrame: null,
+	favoriteBtn: null,
 };
 
 export async function onOpenWindow(id) {
@@ -26,6 +28,9 @@ export async function onOpenWindow(id) {
 	ref.youtubeFrame = document.querySelector('.recipe-adv-youtube');
 	ref.iconPlay = document.querySelector('.recipe-youtube');
 	ref.recipeImg.addEventListener('click', viewYoutube);
+	
+	ref.favoriteBtn = document.querySelector('.js-add-fav-btn');
+	ref.favoriteBtn.addEventListener('click', handleAddFavouriteBtn);
 
 	document.addEventListener('keydown', onCloseModal);
 	document.addEventListener('click', onCloseModal);
@@ -37,6 +42,7 @@ function onCloseWindow() {
 	document.removeEventListener('keydown', onCloseModal);
 	document.removeEventListener('click', onCloseModal);
 	ref.recipeImg.removeEventListener('click', viewYoutube);
+	ref.favoriteBtn.removeEventListener('click', handleAddFavouriteBtn);
 }
 
 function onCloseModal({ target, key }) {

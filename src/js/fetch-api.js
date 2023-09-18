@@ -10,10 +10,6 @@ export async function fetchGetId(id) {
 }
 
 export async function fetchPopular(popular) {
-  try {
-    const response = await axios.get(`${URL}/${popular}`);
-    return response.data;
-  } catch (err) {
-    throw err;
-  }
+  const response = await axios.get(`${URL}/${popular}`);
+  return response.data;
 }

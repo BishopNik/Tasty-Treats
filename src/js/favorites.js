@@ -23,6 +23,7 @@ const ref = {
   cardsFavorites: document.querySelector('.list_cards_favorites'),
   categoriesFavorites: document.querySelector('.favorites_categories'),
 };
+// import { markupButtons, markupCards, createCard } from './markup-favorites';
 
 function FavoritesCard() {
   let favoritesCard = [];
