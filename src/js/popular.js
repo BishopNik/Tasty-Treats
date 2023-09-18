@@ -1,13 +1,15 @@
-import { finallInitPage } from '../recipe';
+/** @format */
+
+import { onOpenWindow } from './recipe';
 import { fetchPopular } from './fetch-api';
 const refs = {
-  list: document.querySelector('.popular-list'),
-  list_mobile: document.querySelector('.popular-list.mobile'),
+	list: document.querySelector('.popular-list'),
+	list_mobile: document.querySelector('.popular-list.mobile'),
 };
 function renderPopular(arrayResp) {
-  const markup = arrayResp
-    .map(({ title, description, preview, _id }) => {
-      return `       
+	const markup = arrayResp
+		.map(({ title, description, preview, _id }) => {
+			return `       
          <li class="popular-item" data-id="${_id}">
       <div class="popular-wraper">
         <img
@@ -24,32 +26,32 @@ function renderPopular(arrayResp) {
         <p class="popular-description">${description}</p>
       </div>
     </li>`;
-    })
-    .join('');
-  refs.list.insertAdjacentHTML('beforeend', markup);
-  refs.list_mobile.insertAdjacentHTML('beforeend', markup);
+		})
+		.join('');
+	refs.list.insertAdjacentHTML('beforeend', markup);
+	refs.list_mobile.insertAdjacentHTML('beforeend', markup);
 }
 
 async function popularFetchAndRender() {
-  const data = await fetchPopular();
-  renderPopular(data);
+	const data = await fetchPopular();
+	renderPopular(data);
 }
 popularFetchAndRender();
 refs.list.addEventListener('click', e => {
-  const refLI = e.target.closest('.popular-item');
-  try {
-    let is = refLI.nodeName;
-  } catch (error) {
-    return;
-  }
-  finallInitPage(refLI.dataset.id);
+	const refLI = e.target.closest('.popular-item');
+	try {
+		let is = refLI.nodeName;
+	} catch (error) {
+		return;
+	}
+	onOpenWindow(refLI.dataset.id);
 });
 refs.list_mobile.addEventListener('click', e => {
-  const refLI = e.target.closest('.popular-item');
-  try {
-    let is = refLI.nodeName;
-  } catch (error) {
-    return;
-  }
-  finallInitPage(refLI.dataset.id);
+	const refLI = e.target.closest('.popular-item');
+	try {
+		let is = refLI.nodeName;
+	} catch (error) {
+		return;
+	}
+	onOpenWindow(refLI.dataset.id);
 });
