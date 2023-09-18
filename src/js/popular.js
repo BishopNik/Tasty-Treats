@@ -1,5 +1,5 @@
 import { finallInitPage } from '../recipe';
-import { fetchPopular } from '../API_requests/fetchPopular';
+import { fetchPopular } from './fetch-api';
 const refs = {
   list: document.querySelector('.popular-list'),
   list_mobile: document.querySelector('.popular-list.mobile'),
