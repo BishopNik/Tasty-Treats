@@ -81,10 +81,24 @@
 	margin-bottom: 64px;
 }
 
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+	.recipe-cards {
+		width: 496px;
+		min-height: 901px;
+	}
+
+	.pagination-btns {
+		gap: 16px;
+	}
+}
+
 @media screen and (min-width: 1280px) {
 	.recipe-cards {
 		width: 782px;
-		margin-left: 64px;
 		min-height: 901px;
+	}
+
+	.pagination-btns {
+		margin-left: 300px;
 	}
 }
