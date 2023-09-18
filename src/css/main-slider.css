@@ -4,12 +4,12 @@
  * @format
  */
 
-/* .hero-section {
+.hero-section {
 	padding-left: 20px;
 	padding-right: 20px;
 	margin-bottom: 62px;
 	overflow: hidden;
-} */
+}
 
 .slider-cook-img {
 	min-width: 80px;
@@ -74,9 +74,9 @@
 
 /* .hero-title {
 	max-width: 320px;
-} */
+}
 
-/* .hero-desc {
+.hero-desc {
 	max-width: 280px;
 } */
 
@@ -107,21 +107,23 @@
 }
 
 
-
-/* .hero-section {
+@media only screen and (min-width: 375px) {
+	.hero-section {
 		padding-left: 20px;
 		padding-right: 20px;
 		margin-bottom: 62px;
 	}
-	.hero-title {
+
+	/* .hero-title {
 		color: #050505;
 		font-family: Inter;
 		font-size: 26px;
 		font-style: normal;
 		font-weight: 600;
-		line-height: 1.2; 
+		line-height: 1.2;
 		text-transform: uppercase;
 	}
+
 	.hero-title-highlight {
 		color: #9bb537;
 		font-family: Inter;
@@ -130,8 +132,9 @@
 		font-weight: 400;
 		line-height: 1.2;
 		text-transform: uppercase;
-	}
-	.hero-desc {
+	} */
+
+	/* .hero-desc {
 		max-width: 335px;
 		color: #050505;
 		font-family: Inter;
@@ -140,7 +143,7 @@
 		font-weight: 400;
 		line-height: 18px;
 	} */
-@media only screen and (min-width: 375px) {
+
 	/* for slider */
 
 	.dish-slider {
@@ -170,10 +173,11 @@
 }
 
 
-/* .hero-container {
-		flex-direction: column;
-		gap: 0;
-	} */
+.hero-container {
+	flex-direction: column;
+	gap: 0;
+}
+
 @media only screen and (min-width: 768px) {
 	.slide-container {
 		max-width: 768px;
@@ -260,10 +264,10 @@
 		margin: 0 auto;
 	}
 
-	/* .hero-section {
+	.hero-section {
 		max-width: 1280px;
 		overflow: hidden;
-	} */
+	}
 
 	.dish-slider {
 		max-width: 690px;
@@ -273,8 +277,8 @@
 		flex-direction: row;
 		gap: 37px;
 	} */
-	/* 
-	.hero-title {
+
+	/* .hero-title {
 		min-width: 446px;
 	} */
 
