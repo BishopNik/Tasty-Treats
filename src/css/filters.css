@@ -290,3 +290,7 @@
 .ingr-dropdown .filter-ingr-list li {
   cursor: pointer;
 }
+
+.filter-search-field {
+  background-color: transparent;
+}
