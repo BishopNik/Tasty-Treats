@@ -4,11 +4,11 @@
   |============================
 */
 
-.left-container {
+.left-container-main {
   max-width: 446px;
 }
 
-.hero-section {
+.hero-section-main {
   width: 1280px;
   padding-top: 84.5px;
   padding-left: 100px;
@@ -16,20 +16,20 @@
   margin: 0 auto;
 }
 
-.hero-container {
+.hero-container-main {
   min-width: 320px;
   gap: 32px;
   margin-bottom: 120px;
 }
 
 @media only screen and (min-width: 375px) {
-  .hero-container {
+  .hero-container-main {
     max-width: 375px;
   }
 }
 
 @media only screen and (min-width: 768px) {
-  .hero-container {
+  .hero-container-main {
     display: flex;
     flex-direction: row;
     max-width: 768px;
@@ -38,7 +38,7 @@
 }
 
 @media only screen and (min-width: 1280px) {
-  .hero-container {
+  .hero-container-main {
     min-width: 1280px;
     gap: 32px;
   }
@@ -59,14 +59,15 @@
   /* max-width: 335px; */
 }
 
-.hero-title-highlight {
+
+.hero-title-main-highlight {
   color: var(--color-green-button);
   font-style: italic;
   font-weight: 400;
   line-height: 1.2;
 }
 
-.hero-desc {
+.hero-desc-main {
   color: var(--color-font-background);
 
   font-family: Inter;
@@ -79,7 +80,7 @@
   margin-bottom: 32px;
 }
 
-.hero-btn {
+.hero-btn-main {
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
@@ -96,8 +97,8 @@
 
 }
 
-.hero-btn:hover,
-.hero-btn:focus {
+.hero-btn-main:hover,
+.hero-btn-main:focus {
   background-color: var(--color-green-button);
   color: var(--color-font-background);
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -116,4 +117,3 @@
   display: flex;
   flex-direction: row;
 }
-
