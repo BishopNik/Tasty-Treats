@@ -4,7 +4,6 @@ import { Notify } from 'notiflix';
 import { fetchGetId } from './fetch-api';
 import { markupButtons, markupCards, createCard } from './markup-favorites';
 import { handleLikeBtn } from './add_favorites';
-import { markupButtons, markupCards, createCard } from './markup-favorites';
 
 function readFavoritesCard() {
 	let favoritesCard = [];
