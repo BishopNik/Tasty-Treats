@@ -1,47 +1,69 @@
 <!-- @format -->
 
 <div class="backdrop-modal is-hidden" id="modal-order-js">
-	<div class="modal-order-container">
-		<div class="modal-button-close" id="modal-order-closer">
-			<svg class="modal-icon-close">
-				<use href="./img/icon/icon.svg#icon-close"></use>
-			</svg>
-		</div>
-		<h1 class="modal-order-title">Order now</h1>
+  <div class="modal-order-container">
+    <div class="modal-button-close" id="modal-order-closer">
+      <svg class="modal-icon-close">
+        <use href="./img/icon/icon.svg#icon-close"></use>
+      </svg>
+    </div>
+    <h1 class="modal-order-title">Order now</h1>
 
-		<form class="modal-order-form">
-			<label class="modal-order-label" for="modal-order-name"
-				>Name
-				<div class="input-wrap">
-					<input class="modal-order-input" type="text" id="modal-order-name" />
-				</div>
-			</label>
-			<label class="modal-order-label" for="modal-order-tel"
-				>Phone number
-				<div class="input-wrap">
-					<input class="modal-order-input" type="tel" id="modal-order-tel" />
-				</div>
-			</label>
+    <form class="modal-order-form">
+      <label class="modal-order-label" for="modal-order-name"
+        >Name
+        <div class="input-wrap">
+          <input
+            required
+            class="modal-order-input"
+            type="text"
+            id="modal-order-name"
+            pattern="[a-z]{1,15}"
+            title="Username should only contain lowercase letters. e.g. john"
+          />
+        </div>
+      </label>
+      <label class="modal-order-label" for="modal-order-tel"
+        >Phone number
+        <div class="input-wrap">
+          <input
+            required
+            class="modal-order-input"
+            type="tel"
+            id="modal-order-tel"
+            pattern="[\+]\d{3}\s[\(]\d{2}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}"
+          />
+        </div>
+      </label>
 
-			<label class="modal-order-label" for="modal-order-mail"
-				>Email
-				<div class="input-wrap">
-					<input class="modal-order-input" type="mail" id="modal-order-mail" />
-				</div>
-			</label>
-			<label class="modal-order-label" for="modal-order-comment"
-				>Comment
-				<div class="modal-order-textarea">
-					<textarea class="modal-order-input" id="modal-order-comment"></textarea>
-				</div>
-			</label>
-			<!-- <button class="modal-button" type="submit">Send</button> -->
-			<load
-				="./component/button.html"
-				class="recipe-button-el modal-submit-button"
-				type="submit"
-				name-button="Send"
-			/>
-		</form>
-	</div>
+      <label class="modal-order-label" for="modal-order-mail"
+        >Email
+        <div class="input-wrap">
+          <input
+            required
+            class="modal-order-input"
+            type="mail"
+            id="modal-order-mail"
+            pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+          />
+        </div>
+      </label>
+      <label class="modal-order-label" for="modal-order-comment"
+        >Comment
+        <div class="modal-order-textarea">
+          <textarea
+            class="modal-order-input"
+            id="modal-order-comment"
+          ></textarea>
+        </div>
+      </label>
+      <!-- <button class="modal-button" type="submit">Send</button> -->
+      <load
+        src="./component/button.html"
+        class="recipe-button-el modal-submit-button green-button"
+        type="submit"
+        name-button="Send"
+      />
+    </form>
+  </div>
 </div>

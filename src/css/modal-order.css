@@ -42,12 +42,14 @@
 	line-height: 22px;
 	font-weight: 600;
 	font-size: 18px;
+  color: var(--color-black-font);
 }
 .modal-rating-title {
 	margin-bottom: 4px;
 	line-height: 18px;
 	font-weight: 600;
 	font-size: 14px;
+  color: var(--color-black-font);
 }
 
 .modal-order-label {
@@ -65,6 +67,7 @@
 	padding: 14px 18px;
 	width: 100%;
 	margin-top: 8px;
+  background-color: var(--color-font-background);
 }
 .modal-order-form {
 	width: 100%;
@@ -100,7 +103,7 @@
 .modal-order-container {
 	position: relative;
 	border-radius: 15px;
-	background: var(--color-in-favorits);
+	background-color: var(--color-font-background);
 	cursor: pointer;
 }
 .backdrop-modal {
@@ -113,7 +116,7 @@
 	align-items: center;
 	justify-content: center;
 	background: rgba(158, 156, 156, 0.3);
-	z-index: 200;
+	z-index: 999;
 }
 .modal-icon-star {
 	fill: rgba(217, 217, 217, 1);
