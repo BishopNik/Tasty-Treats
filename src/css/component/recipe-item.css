@@ -54,7 +54,7 @@
 }
 
 .recipe-item-rating-num {
-  color: var(--color-font-background);
+  color: var(--color-rating-number);
   font-family: Inter;
   font-size: 14px;
   font-style: normal;

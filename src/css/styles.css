@@ -46,6 +46,7 @@
   --color-scroll-shadow: rgba(0, 0, 0, 0.02);
   --color-black-btn: rgba(5, 5, 5, 1);
   --color-white: rgb(248, 248, 248);
+  --color-rating-number: rgb(248, 248, 248);
 
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -73,6 +74,7 @@
   --color-black-btn: rgba(5, 5, 5, 1);
   --color-border-select: rgba(255, 255, 255, 0.2);
   --color-white: rgb(255, 255, 255);
+  --color-rating-number: rgba(255, 255, 255, 0.5);
 }
 
 body {
