@@ -55,11 +55,12 @@ function markupCardArray() {
 	let markupButtonsArray = new Set();
 	createCardArray()
 		.then(cards => {
-			cards.forEach(card => {
-				markupCardsArray.push(createCard(card));
-				markupButtonsArray.add(card.category);
-			});
-			console.log(markupCardsArray);
+			cards
+				? cards.forEach(card => {
+						markupCardsArray.push(createCard(card));
+						markupButtonsArray.add(card.category);
+				  })
+				: null;
 			markupButtons(Array.from(markupButtonsArray));
 			markupCards(markupCardsArray);
 		})
@@ -94,6 +95,9 @@ function createCard(card) {
 }
 
 function markupButtons(cards) {
+	if (cards.length === 0) {
+		return;
+	}
 	const buttons = cards.map(
 		card =>
 			`<li><button class="main-button recipe-item-see category-btn" type="button">${card}</button></li>`
@@ -105,7 +109,18 @@ function markupButtons(cards) {
 }
 
 function markupCards(cards) {
-	ref.cardsFavorites.innerHTML = cards.join('');
+	cards.length
+		? (ref.cardsFavorites.innerHTML = cards.join(''))
+		: (ref.cardsFavorites.innerHTML = `<div class="not_favorites">
+						<svg class="favorites_elem_svg" width="68" height="58">
+							<use href="./img/icon/icon.svg#icon-elements"></use>
+						</svg>
+						<p class="favorites_text">
+							It appears that you haven't added any recipes to your favorites yet. To
+							get started, you can add recipes that you like to your favorites for
+							easier access in the future.
+						</p>
+					</div>`);
 }
 
 markupCardArray();
