@@ -86,21 +86,9 @@
 	right: 16px;
 }
 
-/* .recipe-item-see {
-	display: flex;
-	flex-wrap: nowrap;
-	justify-content: center;
-	align-items: center;
-	height: 31px;
-	border-radius: 8px;
-	background: #9bb537;
-	color: var(--color-font-background);
-	font-family: Inter;
-	font-size: 12px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: normal;
-} */
+.recipe-item.is-hidden {
+	display: none;
+}
 
 @media screen and (max-width: 767px) {
 	.recipe-item.mainblock,
