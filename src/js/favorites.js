@@ -20,56 +20,58 @@ import { ratingRecipe } from './rating-markup';
 // });
 
 const ref = {
-	cardsFavorites: document.querySelector('.list_cards_favorites'),
-	categoriesFavorites: document.querySelector('.favorites_categories'),
+  cardsFavorites: document.querySelector('.list_cards_favorites'),
+  categoriesFavorites: document.querySelector('.favorites_categories'),
 };
 
-function readFavoritesCard() {
-	let favoritesCard = [];
-	try {
-		favoritesCard = JSON.parse(localStorage.getItem('favorites'));
-	} catch (error) {
-		Notify.failure('Unable to load favorites. ' + error);
-	}
-	return favoritesCard;
+function FavoritesCard() {
+  let favoritesCard = [];
+  try {
+    favoritesCard = JSON.parse(localStorage.getItem('favorites'));
+  } catch (error) {
+    Notify.failure('Unable to load favorites. ' + error);
+  }
+  return favoritesCard;
 }
 
 async function createCardArray() {
-	const favoritesIdArray = readFavoritesCard();
-	let favoritesArray = [];
+  const favoritesIdArray = readFavoritesCard();
+  let favoritesArray = [];
 
-	if (favoritesIdArray.length) {
-		const promiseArray = favoritesIdArray.map(async card => {
-			const cardData = await fetchGetId(card);
-			return cardData;
-		});
+  if (favoritesIdArray.length) {
+    const promiseArray = favoritesIdArray.map(async card => {
+      const cardData = await fetchGetId(card);
+      return cardData;
+    });
 
-		favoritesArray = await Promise.all(promiseArray);
-	}
+    favoritesArray = await Promise.all(promiseArray);
+  }
 
-	return favoritesArray;
+  return favoritesArray;
 }
 
 function markupCardArray() {
-	let markupCardsArray = [];
-	let markupButtonsArray = new Set();
-	createCardArray()
-		.then(cards => {
-			cards
-				? cards.forEach(card => {
-						markupCardsArray.push(createCard(card));
-						markupButtonsArray.add(card.category);
-				  })
-				: null;
-			markupButtons(Array.from(markupButtonsArray));
-			markupCards(markupCardsArray);
-		})
-		.catch(error => Notify.failure('Unable to load favorites. ' + error.message));
+  let markupCardsArray = [];
+  let markupButtonsArray = new Set();
+  createCardArray()
+    .then(cards => {
+      cards
+        ? cards.forEach(card => {
+            markupCardsArray.push(createCard(card));
+            markupButtonsArray.add(card.category);
+          })
+        : null;
+      markupButtons(Array.from(markupButtonsArray));
+      markupCards(markupCardsArray);
+    })
+    .catch(error =>
+      Notify.failure('Unable to load favorites. ' + error.message)
+    );
 }
 
 function createCard(card) {
-	const { _id, thumb, title, instructions, rating } = card;
-	return `<li 
+  const { _id, thumb, title, instructions, rating } = card;
+  return `<li 
 		data-id="${_id}"
 		class="recipe-item mainblock js-recipe"
 	
@@ -95,23 +97,23 @@ function createCard(card) {
 }
 
 function markupButtons(cards) {
-	if (cards.length === 0) {
-		return;
-	}
-	const buttons = cards.map(
-		card =>
-			`<li><button class="main-button recipe-item-see category-btn" type="button">${card}</button></li>`
-	);
-	buttons.unshift(
-		`<li><button class="main-button recipe-item-see category-btn" type="button">All categories</button></li>`
-	);
-	ref.categoriesFavorites.innerHTML = buttons.join('');
+  if (cards.length === 0) {
+    return;
+  }
+  const buttons = cards.map(
+    card =>
+      `<li><button class="main-button recipe-item-see category-btn" type="button">${card}</button></li>`
+  );
+  buttons.unshift(
+    `<li><button class="main-button recipe-item-see category-btn" type="button">All categories</button></li>`
+  );
+  ref.categoriesFavorites.innerHTML = buttons.join('');
 }
 
 function markupCards(cards) {
-	cards.length
-		? (ref.cardsFavorites.innerHTML = cards.join(''))
-		: (ref.cardsFavorites.innerHTML = `<div class="not_favorites">
+  cards.length
+    ? (ref.cardsFavorites.innerHTML = cards.join(''))
+    : (ref.cardsFavorites.innerHTML = `<div class="not_favorites">
 						<svg class="favorites_elem_svg" width="68" height="58">
 							<use href="./img/icon/icon.svg#icon-elements"></use>
 						</svg>
