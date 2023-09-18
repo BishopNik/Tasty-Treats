@@ -155,12 +155,12 @@
   left: 0;
   width: 100%;
   cursor: pointer;
-  background: var(--color-in-favorits);
+  background: transparent;
   font-size: 16px;
   outline: none;
   padding: 14px 36px 14px 18px;
   border-radius: 15px;
-  border: 1px solid --color-border-select;
+  border: 1px solid var(--color-border-select);
 
   color: var(--color-font-select-text);
   font-family: Inter;
