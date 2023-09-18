@@ -25,15 +25,15 @@ async function fetchRecipeCards(api, options) {
 
 function renderCards(results, div, cardStyle) {
 	let htmlCards = '';
-	let likeIconUrl = '../img/icon/icon.svg#icon-like';
+	let likeIconUrl = '..//img/icon/icon.svg#icon-like';
 	const favorites = JSON.parse(localStorage.getItem('favorites')) ?? [];
 
 
 	results.forEach(elm => {
 		if (favorites.indexOf(elm._id) === -1) {
-			likeIconUrl = '../img/icon/icon.svg#icon-like';
+			likeIconUrl = '..//img/icon/icon.svg#icon-like';
 		} else {
-			likeIconUrl = '../img/icon/icon.svg#icon-like-full';
+			likeIconUrl = '..//img/icon/icon.svg#icon-like-full';
 		}
 		
 		htmlCards += `<li 

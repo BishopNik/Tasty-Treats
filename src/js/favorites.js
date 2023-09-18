@@ -3,6 +3,8 @@
 import { Notify } from 'notiflix';
 import { fetchGetId } from './fetch-api';
 import { markupButtons, markupCards, createCard } from './markup-favorites';
+import { handleLikeBtn } from './add_favorites';
+
 
 function readFavoritesCard() {
 	let favoritesCard = [];
@@ -37,14 +39,27 @@ function markupCardArray() {
 		.then(cards => {
 			cards
 				? cards.forEach(card => {
-						markupCardsArray.push(createCard(card));
-						markupButtonsArray.add(card.category);
-				  })
+					markupCardsArray.push(createCard(card));
+					markupButtonsArray.add(card.category);
+				})
 				: null;
 			markupButtons(Array.from(markupButtonsArray));
 			markupCards(markupCardsArray);
+			
+			// handle like buttons
+			const allRecipes = document.querySelectorAll('.js-recipe');
+			allRecipes.forEach(elm => {
+				elm.addEventListener('click', handleLikeBtn);				
+			});
 		})
 		.catch(error => Notify.failure('Unable to load favorites. ' + error.message));
 }
 
 markupCardArray();
+
+// export { markupCardArray };
+	
+	
+	
+
+
