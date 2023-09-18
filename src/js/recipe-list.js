@@ -1,42 +1,41 @@
-
 import { handleLikeBtn } from './add_favorites';
 
 import axios from 'axios';
 import Notiflix from 'notiflix';
 import { onOpenWindow } from './recipe';
-import { ratingRecipe } from "./rating-markup"
+import { ratingRecipe } from './rating-markup';
 
 const pagination = document.querySelector('.pagination-btns');
 const recipeCards = document.querySelector('.recipe-cards');
-const recipesApi = 'https://tasty-treats-backend.p.goit.global/api/recipes';
+export const recipesApi =
+  'https://tasty-treats-backend.p.goit.global/api/recipes';
 
-async function fetchRecipeCards(api, options) {
-	let fetchResult = {};
-	await axios
-		.get(api, options)
-		.then(resp => {
-			(fetchResult.results = resp.data.results),
-				(fetchResult.currentPage = resp.data.page),
-				(fetchResult.totalPages = resp.data.totalPages);
-		})
-		.catch(err => console.log(err));
-	return fetchResult;
+export async function fetchRecipeCards(api, options) {
+  let fetchResult = {};
+  await axios
+    .get(api, options)
+    .then(resp => {
+      (fetchResult.results = resp.data.results),
+        (fetchResult.currentPage = resp.data.page),
+        (fetchResult.totalPages = resp.data.totalPages);
+    })
+    .catch(err => console.log(err));
+  return fetchResult;
 }
 
 function renderCards(results, div, cardStyle) {
-	let htmlCards = '';
-	let likeIconUrl = '..//img/icon/icon.svg#icon-like';
-	const favorites = JSON.parse(localStorage.getItem('favorites')) ?? [];
+  let htmlCards = '';
+  let likeIconUrl = '../img/icon/icon.svg#icon-like';
+  const favorites = JSON.parse(localStorage.getItem('favorites')) ?? [];
 
+  results.forEach(elm => {
+    if (favorites.indexOf(elm._id) === -1) {
+      likeIconUrl = '../img/icon/icon.svg#icon-like';
+    } else {
+      likeIconUrl = '../img/icon/icon.svg#icon-like-full';
+    }
 
-	results.forEach(elm => {
-		if (favorites.indexOf(elm._id) === -1) {
-			likeIconUrl = '..//img/icon/icon.svg#icon-like';
-		} else {
-			likeIconUrl = '..//img/icon/icon.svg#icon-like-full';
-		}
-		
-		htmlCards += `<li 
+    htmlCards += `<li 
 		data-id="${elm._id}"
 		class="recipe-item ${cardStyle} js-recipe"
 	
@@ -57,26 +56,26 @@ function renderCards(results, div, cardStyle) {
 				${ratingRecipe(elm.rating)}
 			</ul>
 		</div>
-		<button class="main-button green-button recipe-item-see" type="button" data-id="${elm._id}">See recipe</button>
+		<button class="main-button green-button recipe-item-see" type="button" data-id="${
+      elm._id
+    }">See recipe</button>
 	</div>
     </li>`;
-	});
-	div.innerHTML = htmlCards;
-	const seeButtons = document.querySelectorAll('.recipe-item-see');
-	seeButtons.forEach(elm =>
-		elm.addEventListener('click', evt => onOpenWindow(evt.target.dataset.id))
-	);
+  });
+  div.innerHTML = htmlCards;
+  const seeButtons = document.querySelectorAll('.recipe-item-see');
+  seeButtons.forEach(elm =>
+    elm.addEventListener('click', evt => onOpenWindow(evt.target.dataset.id))
+  );
 }
 
 const selectors = {
-  list: document.querySelector('.recipe-cards')
+  list: document.querySelector('.recipe-cards'),
 };
 
 selectors.list.addEventListener('click', handleLikeBtn);
 
-
-
-function setPaginationButtons(div,page,total,option) {
+function setPaginationButtons(div, page, total, option) {
   let arrowButtons = ` <div class="back-btns">
       <button class="pagination-btn arrow-btn back-arrow-btn-js">
          <div class="left-arrow-icon double-arrow">
@@ -111,80 +110,82 @@ function setPaginationButtons(div,page,total,option) {
         </div>
       </button>
     </div>`;
-	div.innerHTML = arrowButtons;
-	let rangeButtons = '';
-	const forwardButtons = document.querySelectorAll('.forward-arrow-btn-js');
-	const backButtons = document.querySelectorAll('.back-arrow-btn-js');
-	const rangeButtonsElm = document.querySelector('.range-btns');
-	if (page === 1) {
-		backButtons.forEach(elm => (elm.disabled = true));
-		rangeButtons += `<button class="pagination-btn current-number-btn">1</button>`;
-	} else if (page === 2) {
-		rangeButtons += `<button class="pagination-btn number-btn">1</button><button class="pagination-btn current-number-btn">2</button>`;
-	} else if (page >= 3) {
-		rangeButtons += `<button class="pagination-btn dot-btn number-btn" disabled>...</button><button class="pagination-btn number-btn">${
-			page - 1
-		}</button><button class="pagination-btn current-number-btn">${page}</button>`;
-	}
-	if (total - page === 0) {
-		forwardButtons.forEach(elm => (elm.disabled = true));
-	} else if (total - page === 1) {
-		rangeButtons += `<button class="pagination-btn number-btn">${page + 1}</button>`;
-	} else if (total - page >= 2) {
-		rangeButtons += `<button class="pagination-btn number-btn">${
-			page + 1
-		}</button><button class="pagination-btn dot-btn number-btn" disabled>...</button>`;
-	}
+  div.innerHTML = arrowButtons;
+  let rangeButtons = '';
+  const forwardButtons = document.querySelectorAll('.forward-arrow-btn-js');
+  const backButtons = document.querySelectorAll('.back-arrow-btn-js');
+  const rangeButtonsElm = document.querySelector('.range-btns');
+  if (page === 1) {
+    backButtons.forEach(elm => (elm.disabled = true));
+    rangeButtons += `<button class="pagination-btn current-number-btn">1</button>`;
+  } else if (page === 2) {
+    rangeButtons += `<button class="pagination-btn number-btn">1</button><button class="pagination-btn current-number-btn">2</button>`;
+  } else if (page >= 3) {
+    rangeButtons += `<button class="pagination-btn dot-btn number-btn" disabled>...</button><button class="pagination-btn number-btn">${
+      page - 1
+    }</button><button class="pagination-btn current-number-btn">${page}</button>`;
+  }
+  if (total - page === 0) {
+    forwardButtons.forEach(elm => (elm.disabled = true));
+  } else if (total - page === 1) {
+    rangeButtons += `<button class="pagination-btn number-btn">${
+      page + 1
+    }</button>`;
+  } else if (total - page >= 2) {
+    rangeButtons += `<button class="pagination-btn number-btn">${
+      page + 1
+    }</button><button class="pagination-btn dot-btn number-btn" disabled>...</button>`;
+  }
 
-	rangeButtonsElm.innerHTML = rangeButtons;
-	const pagButtons = document.querySelectorAll('.pagination-btn');
-	pagButtons.forEach(elm => {
-		elm.addEventListener('click', evn => {
-			if (
-				elm.classList.contains('number-btn') ||
-				elm.classList.contains('current-number-btn')
-			) {
-				option.params.page = Number(elm.textContent);
-			} else if (
-				elm.firstElementChild.classList.contains('left-arrow-icon') &&
-				elm.firstElementChild.classList.contains('double-arrow')
-			) {
-				option.params.page = 1;
-			} else if (elm.firstElementChild.classList.contains('left-arrow-icon')) {
-				option.params.page -= 1;
-			} else if (
-				elm.firstElementChild.classList.contains('right-arrow-icon') &&
-				elm.firstElementChild.classList.contains('double-arrow')
-			) {
-				option.params.page = total;
-			} else if (elm.firstElementChild.classList.contains('right-arrow-icon')) {
-				option.params.page += 1;
-			} else {
-			}
-			renderMain(renderCardsOptions);
-		});
-	});
+  rangeButtonsElm.innerHTML = rangeButtons;
+  const pagButtons = document.querySelectorAll('.pagination-btn');
+  pagButtons.forEach(elm => {
+    elm.addEventListener('click', evn => {
+      if (
+        elm.classList.contains('number-btn') ||
+        elm.classList.contains('current-number-btn')
+      ) {
+        option.params.page = Number(elm.textContent);
+      } else if (
+        elm.firstElementChild.classList.contains('left-arrow-icon') &&
+        elm.firstElementChild.classList.contains('double-arrow')
+      ) {
+        option.params.page = 1;
+      } else if (elm.firstElementChild.classList.contains('left-arrow-icon')) {
+        option.params.page -= 1;
+      } else if (
+        elm.firstElementChild.classList.contains('right-arrow-icon') &&
+        elm.firstElementChild.classList.contains('double-arrow')
+      ) {
+        option.params.page = total;
+      } else if (elm.firstElementChild.classList.contains('right-arrow-icon')) {
+        option.params.page += 1;
+      } else {
+      }
+      renderMain(renderCardsOptions);
+    });
+  });
 }
 
 export async function renderMain(options) {
-	let responseData;
-	await fetchRecipeCards(recipesApi, options).then(data => {
-		responseData = data;
-	});
-	renderCards(responseData.results, recipeCards, 'mainblock');
-	setPaginationButtons(
-		pagination,
-		Number(responseData.currentPage),
-		Number(responseData.totalPages),
-		options
-	);
+  let responseData;
+  await fetchRecipeCards(recipesApi, options).then(data => {
+    responseData = data;
+  });
+  renderCards(responseData.results, recipeCards, 'mainblock');
+  setPaginationButtons(
+    pagination,
+    Number(responseData.currentPage),
+    Number(responseData.totalPages),
+    options
+  );
 }
 
 export let renderCardsOptions = {
-	params: {
-		page: 1,
-		limit: 9,
-	},
+  params: {
+    page: 1,
+    limit: 9,
+  },
 };
 
 // renderMain(renderCardsOptions);

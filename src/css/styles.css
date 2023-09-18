@@ -44,6 +44,8 @@
   --color-font-hero-location: rgba(248, 248, 248, 0.2);
   --color-scroll-filters: rgba(5, 5, 5, 0.1);
   --color-scroll-shadow: rgba(0, 0, 0, 0.02);
+  --color-black-btn: rgba(5, 5, 5, 1);
+  --color-white: rgb(248, 248, 248);
 
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -68,6 +70,9 @@
   --color-scroll-categories: rgba(255, 255, 255, 0.18);
   --color-green-button: rgba(155, 181, 55, 1);
   --color-font-popular-recipe: rgba(255, 255, 255, 0.8);
+  --color-black-btn: rgba(5, 5, 5, 1);
+  --color-border-select: rgba(255, 255, 255, 0.2);
+  --color-white: rgb(255, 255, 255);
 }
 
 body {
@@ -81,8 +86,7 @@ body {
 
   position: relative;
 }
-
-.container {
+padd .container {
   margin-left: auto;
   margin-right: auto;
 }
