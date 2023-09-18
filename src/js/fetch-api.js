@@ -8,3 +8,11 @@ export async function fetchGetId(id) {
 	const response = await axios.get(`${URL}/${id}`);
 	return response.data;
 }
+
+export async function updateRating(id, rate, email) {
+	const response = await axios.patch(`${URL}/${id}/rating`, {
+		rate,
+		email
+	});
+	return response.data;
+}
