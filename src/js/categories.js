@@ -53,6 +53,7 @@ function onAllCategoriesBtnClick() {
 	allCategoriesBtn.classList.add('all-categories-btn-aktiv')
 	
 	renderCardsOptions.params.page = 1;
+	renderCardsOptions.params.title = "";
 	renderCardsOptions.params.category = "";
 	renderCardsOptions.params.time = "";
 	renderCardsOptions.params.area = "";
@@ -76,6 +77,10 @@ function onListClick(evt) {
 	
 	renderCardsOptions.params.page = 1;
 	renderCardsOptions.params.category = evt.target.textContent;
+	renderCardsOptions.params.title = "";
+	renderCardsOptions.params.time = "";
+	renderCardsOptions.params.area = "";
+	renderCardsOptions.params.ingredient = "";
 	renderMain(renderCardsOptions)
 
 	return currentCategory;
