@@ -84,6 +84,14 @@ function cardFavoritsFilter() {
 			cards[i].classList.add('is-hidden');
 		} else cards[i].classList.remove('is-hidden');
 	}
+	const allButtonsActive = ref.categoriesFavorites.querySelectorAll('.green-button');
+	const AllButton = ref.categoriesFavorites.children;
+	if (AllButton.length - 1 === allButtonsActive.length) {
+		ref.allCategories.classList.add('green-button');
+		for (const card of allButtonsActive) {
+			card.classList.remove('green-button');
+		}
+	}
 }
 
 function onOpenModalWindow({ target }) {
