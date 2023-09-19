@@ -15,12 +15,29 @@ const elements = {
   ingrDropdown: document.querySelector('.ingr-dropdown'),
   form: document.querySelector('#search-form'),
   input: document.querySelector('#input-search-field'),
+  resetBtn: document.querySelector('.filter-reset-btn'),
 };
 
 elements.timeDropdown.addEventListener('click', onTimeOptionsClick);
 elements.countryOptions.addEventListener('click', onCountryOptionsClick);
 elements.ingrOptions.addEventListener('click', onIngrOptionsClick);
 elements.input.addEventListener('input', onHendlerPress);
+
+elements.resetBtn.addEventListener('click', onResetBtnClick);
+function onResetBtnClick(evt) {
+  elements.timeInput.value = '';
+  elements.countryInput.value = '';
+  elements.ingrInput.value = '';
+  elements.input.value = '';
+
+  renderCardsOptions.params.page = 1;
+  renderCardsOptions.params.title = '';
+  renderCardsOptions.params.category = '';
+  renderCardsOptions.params.time = ``;
+  renderCardsOptions.params.area = '';
+  renderCardsOptions.params.ingredient = '';
+  renderMain(renderCardsOptions);
+}
 
 // <render gallery by search value
 function onHendlerPress(evt) {
@@ -201,7 +218,6 @@ async function fetchIngred() {
 fetchIngred()
   .then(data => {
     let arrIngred = [...data];
-    console.log(arrIngred);
 
     elements.ingrOptions.insertAdjacentHTML(
       'beforeend',
