@@ -148,6 +148,11 @@
 	.recipe-item-rating {
 		gap: 2px;
 	}
+
+	.recipe-item.mainblock.in-favorites {
+		width: 224px;
+		height: 244px;
+	}
 }
 
 @media screen and (min-width: 1280px) {
@@ -176,5 +181,10 @@
 	}
 	.recipe-item-rating {
 		gap: 4px;
+	}
+
+	.recipe-item.mainblock.in-favorites {
+		width: 258px;
+		height: 287px;
 	}
 }

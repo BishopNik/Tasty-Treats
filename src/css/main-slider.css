@@ -166,8 +166,8 @@
 	}
 
 	.slider-dish-container img {
-		max-width: 304px;
-		max-height: 271px;
+		width: 150px;
+		height: 150px;
 	}
 }
 
@@ -221,9 +221,8 @@
 	}
 
 	.slider-dish-container img {
-		min-width: 304px;
-		min-height: 271px;
-		margin-bottom: 32px;
+		min-width: 262px;
+		min-height: 262px;
 	}
 
 	.slider-dish-container h2 {
