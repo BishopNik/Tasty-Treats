@@ -2,7 +2,7 @@
 
 import { handleLikeBtn } from './add_favorites';
 
-import axios from 'axios';
+// import axios from 'axios';
 import Notiflix from 'notiflix';
 import { onOpenWindow } from './recipe';
 import { ratingRecipe } from './rating-markup';
