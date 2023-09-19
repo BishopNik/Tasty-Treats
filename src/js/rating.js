@@ -4,7 +4,7 @@ import { updateRating } from './fetch-api';
 import Notiflix from 'notiflix';
 
 function toggleModal(refs) {
-	refs.modal.classList.toggle('is-hidden');
+  refs.modal.classList.toggle('is-hidden');
 }
 
 export function createListeners(id) {
@@ -20,8 +20,6 @@ export function createListeners(id) {
 
   refs.openModalBtn.addEventListener('click', () => toggleModal(refs));
   refs.closeModalBtn.addEventListener('click', () => toggleModal(refs));
-
-  console.log(refs);
 
   const handler = e => {
     const value = Number(e.target.value);
@@ -45,12 +43,11 @@ export function createListeners(id) {
     el.children[1].addEventListener('change', handler);
   });
 
-	refs.form.addEventListener('submit', async e => {
-		e.preventDefault();
+  refs.form.addEventListener('submit', async e => {
+    e.preventDefault();
 
-		const form = new FormData(e.target);
-
-		const data = Object.fromEntries(form);
+    const form = new FormData(e.target);
+    const data = Object.fromEntries(form);
 
     try {
       const responseData = await updateRating(
@@ -59,10 +56,16 @@ export function createListeners(id) {
         data.email
       );
       toggleModal(refs);
+      refs.form.reset();
+
+      refs.inputs.forEach((el, index) => {
+        el.children[0].classList.remove('active');
+      });
+      refs.span.innerHTML = '0.0';
     } catch (error) {
       Notiflix.Notify.failure(error.response.data.message);
     }
 
-		console.log(responseData);
-	});
+    console.log(responseData);
+  });
 }
