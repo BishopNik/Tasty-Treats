@@ -1,33 +1,37 @@
+/** @format */
 
 import { handleLikeBtn } from './add_favorites';
 
-import axios from 'axios';
+// import axios from 'axios';
 import Notiflix from 'notiflix';
 import { onOpenWindow } from './recipe';
-import { ratingRecipe } from "./rating-markup"
+import { ratingRecipe } from './rating-markup';
+import { fetchRecipeCards } from './fetch-api';
 
 const pagination = document.querySelector('.pagination-btns');
 const recipeCards = document.querySelector('.recipe-cards');
-const recipesApi = 'https://tasty-treats-backend.p.goit.global/api/recipes';
+export const recipesApi = 'https://tasty-treats-backend.p.goit.global/api/recipes';
 
-async function fetchRecipeCards(api, options) {
-	let fetchResult = {};
-	await axios
-		.get(api, options)
-		.then(resp => {
-			(fetchResult.results = resp.data.results),
-				(fetchResult.currentPage = resp.data.page),
-				(fetchResult.totalPages = resp.data.totalPages);
-		})
-		.catch(err => console.log(err));
-	return fetchResult;
-}
+const cadrsContainer = document.querySelector('.recipe-cards');
+cadrsContainer.addEventListener('click', onOpenModalWindow);
+
+// export async function fetchRecipeCards(api, options) {
+// 	let fetchResult = {};
+// 	await axios
+// 		.get(api, options)
+// 		.then(resp => {
+// 			(fetchResult.results = resp.data.results),
+// 				(fetchResult.currentPage = resp.data.page),
+// 				(fetchResult.totalPages = resp.data.totalPages);
+// 		})
+// 		.catch(err => console.log(err));
+// 	return fetchResult;
+// }
 
 function renderCards(results, div, cardStyle) {
 	let htmlCards = '';
 	let likeIconUrl = '../img/icon/icon.svg#icon-like';
 	const favorites = JSON.parse(localStorage.getItem('favorites')) ?? [];
-
 
 	results.forEach(elm => {
 		if (favorites.indexOf(elm._id) === -1) {
@@ -35,7 +39,7 @@ function renderCards(results, div, cardStyle) {
 		} else {
 			likeIconUrl = '../img/icon/icon.svg#icon-like-full';
 		}
-		
+
 		htmlCards += `<li 
 		data-id="${elm._id}"
 		class="recipe-item ${cardStyle} js-recipe"
@@ -52,45 +56,47 @@ function renderCards(results, div, cardStyle) {
 	<p class="recipe-item-about">${elm.instructions}</p>
 	<div class="recipe-item-option">
 		<div class="recipe-item-rating">
-			<span class="recipe-item-rating-num">${elm.rating}</span>
+			<span class="recipe-item-rating-num">${elm.rating.toFixed(2)}</span>
 			<ul class="recipe-item-rating-stars">
 				${ratingRecipe(elm.rating)}
 			</ul>
 		</div>
-		<button class="main-button green-button recipe-item-see" type="button" data-id="${elm._id}">See recipe</button>
+		<button class="main-button green-button recipe-item-see" type="button" data-id="${
+			elm._id
+		}">See recipe</button>
 	</div>
     </li>`;
 	});
 	div.innerHTML = htmlCards;
-	const seeButtons = document.querySelectorAll('.recipe-item-see');
-	seeButtons.forEach(elm =>
-		elm.addEventListener('click', evt => onOpenWindow(evt.target.dataset.id))
-	);
+	// const seeButtons = document.querySelectorAll('.recipe-item-see');
+	// seeButtons.forEach(elm =>
+	// 	elm.addEventListener('click', evt => onOpenWindow(evt.target.dataset.id))
+	// );
 }
 
 const selectors = {
-  list: document.querySelector('.recipe-cards')
+	list: document.querySelector('.recipe-cards'),
 };
 
 selectors.list.addEventListener('click', handleLikeBtn);
 
-
-
-function setPaginationButtons(div,page,total,option) {
-  let arrowButtons = ` <div class="back-btns">
+function setPaginationButtons(div, page, total, option) {
+	const iconRightPath = './img/icon/icon.svg#icon-small-right';
+	const iconLeftPath = './img/icon/icon.svg#icon-small-left';
+	let arrowButtons = ` <div class="back-btns">
       <button class="pagination-btn arrow-btn back-arrow-btn-js">
          <div class="left-arrow-icon double-arrow">
            <svg class="icon-double-arrow-one" width="24" height="24">
-          <use href="./img/icon/icon.svg#icon-small-left"></use>
+          <use href="${iconLeftPath}"></use>
         </svg>
         <svg class="icon-double-arrow-two" width="24" height="24">
-          <use href="./img/icon/icon.svg#icon-small-left"></use>
+          <use href="${iconLeftPath}"></use>
         </svg>
          </div>
         </svg></button
       ><button class="pagination-btn arrow-btn back-arrow-btn-js">
         <svg class="left-arrow-icon" width="24" height="24">
-          <use href="./img/icon/icon.svg#icon-small-left"></use>
+          <use href="${iconLeftPath}"></use>
         </svg>
       </button>
     </div>
@@ -98,15 +104,15 @@ function setPaginationButtons(div,page,total,option) {
     <div class="forward-btns">
       <button class="pagination-btn arrow-btn forward-arrow-btn-js">
        <svg class="right-arrow-icon" width="24" height="24">
-          <use href="./img/icon/icon.svg#icon-small-right"></use>
+          <use href="${iconRightPath}"></use>
         </svg>
        </button
       ><button class="pagination-btn arrow-btn forward-arrow-btn-js">
         <div class="right-arrow-icon double-arrow">
           <svg class="icon-double-arrow-one" width="24" height="24">
-            <use href="./img/icon/icon.svg#icon-small-right"></use></svg
+            <use href="${iconRightPath}"></use></svg
           ><svg class="icon-double-arrow-two" width="24" height="24">
-            <use href="./img/icon/icon.svg#icon-small-right"></use>
+            <use href="${iconRightPath}"></use>
           </svg>
         </div>
       </button>
@@ -186,5 +192,12 @@ export let renderCardsOptions = {
 		limit: 9,
 	},
 };
+
+function onOpenModalWindow({ target }) {
+	if (!target.classList.contains('recipe-item-see')) {
+		return;
+	}
+	onOpenWindow(target.dataset.id);
+}
 
 // renderMain(renderCardsOptions);

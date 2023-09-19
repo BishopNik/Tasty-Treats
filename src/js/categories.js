@@ -8,7 +8,7 @@ import Notiflix from 'notiflix';
 
 const list = document.querySelector('.categories-list');
 const allCategoriesBtn = document.querySelector('.all-categories-btn');
-allCategoriesBtn.classList.add('all-categories-btn-aktiv')
+allCategoriesBtn.classList.add('all-categories-btn-aktiv');
 let itemArr;
 
 renderMain(renderCardsOptions);
@@ -22,65 +22,77 @@ async function fetchCategories() {
 
 // Обработка данных, создание списка категорий в HTML
 fetchCategories()
-.then(data => {
-	
-	let arrCategories = [...data];
-	list.insertAdjacentHTML('beforeend', createCategoriesList(arrCategories));
-	itemArr = [...list.children];
-	return itemArr;
-})
+	.then(data => {
+		let arrCategories = [...data];
+		list.insertAdjacentHTML('beforeend', createCategoriesList(arrCategories));
+		itemArr = [...list.children];
+		return itemArr;
+	})
 
-.catch(() => {
-	Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page!')
-});
-
+	.catch(() => {
+		Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page!');
+	});
 
 // // Функция для создания списка
 
 function createCategoriesList(arr) {
-    return arr.map(({ name, _id }) => `<li><button type="button" class="categories-btn "id="${_id}">${name}</button></li>`).join('');
+	return arr
+		.map(
+			({ name, _id }) =>
+				`<li><button type="button" class="categories-btn "id="${_id}">${name}</button></li>`
+		)
+		.join('');
 }
 
 // Ставлю прослушиватели на кнопку и список
 allCategoriesBtn.addEventListener('click', onAllCategoriesBtnClick);
 list.addEventListener('click', onListClick);
 
-
 // Функция для отображения всех категорий
 
 function onAllCategoriesBtnClick() {
 	clearCurrentCategory(itemArr);
-	allCategoriesBtn.classList.add('all-categories-btn-aktiv')
-	
+	allCategoriesBtn.classList.add('all-categories-btn-aktiv');
+
 	renderCardsOptions.params.page = 1;
-	renderCardsOptions.params.category = "";
-	renderCardsOptions.params.time = "";
-	renderCardsOptions.params.area = "";
-	renderCardsOptions.params.ingredient = "";
+	renderCardsOptions.params.title = '';
+	renderCardsOptions.params.category = '';
+	renderCardsOptions.params.time = '';
+	renderCardsOptions.params.area = '';
+	renderCardsOptions.params.ingredient = '';
 	renderMain(renderCardsOptions);
 }
-
 
 // Функция для отображения одной категории
 
 function onListClick(evt) {
-	allCategoriesBtn.classList.remove('all-categories-btn-aktiv')
+	allCategoriesBtn.classList.remove('all-categories-btn-aktiv');
 	clearCurrentCategory(itemArr);
-	
-	if (!evt.target.classList.contains("categories-btn")) {
-        return;
-    }
 
-    evt.target.classList.add("curent-category")
-	let currentCategory = { id: evt.target.id, name: evt.target.textContent }
-	
+	evt.target.classList.add('curent-category');
+	let currentCategory = { id: evt.target.id, name: evt.target.textContent };
+
 	renderCardsOptions.params.page = 1;
 	renderCardsOptions.params.category = evt.target.textContent;
-	renderMain(renderCardsOptions)
+	renderCardsOptions.params.title = '';
+	renderCardsOptions.params.time = '';
+	renderCardsOptions.params.area = '';
+	renderCardsOptions.params.ingredient = '';
+	renderMain(renderCardsOptions);
+
+	//   if (!evt.target.classList.contains('categories-btn')) {
+	//     return;
+	//   }
+
+	// evt.target.classList.add('curent-category');
+	// let currentCategory = { id: evt.target.id, name: evt.target.textContent };
+
+	// renderCardsOptions.params.page = 1;
+	// renderCardsOptions.params.category = evt.target.textContent;
+	// renderMain(renderCardsOptions);
 
 	return currentCategory;
 }
-
 
 // Функция для снятия выделения текущей категории
 function clearCurrentCategory(arr) {

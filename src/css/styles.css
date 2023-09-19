@@ -46,6 +46,12 @@
   --color-scroll-shadow: rgba(0, 0, 0, 0.02);
   --color-black-btn: rgba(5, 5, 5, 1);
   --color-white: rgb(248, 248, 248);
+  --color-rating-number: rgb(248, 248, 248);
+  --color-filters-text: rgba(5, 5, 5, 1);
+  --filters-color-table: rgba(255, 255, 255, 1);
+  --color-star: rgba(60, 59, 59, 1);
+  --color-menu-burger: rgba(155, 181, 55, 1);
+  --color-btn-modal: rgba(206, 205, 205);
 
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -73,6 +79,11 @@
   --color-black-btn: rgba(5, 5, 5, 1);
   --color-border-select: rgba(255, 255, 255, 0.2);
   --color-white: rgb(255, 255, 255);
+  --color-rating-number: rgba(255, 255, 255, 0.5);
+  --color-filters-text: rgba(255, 255, 255, 1);
+  --filters-color-table: rgba(5, 5, 5, 1);
+  --color-menu-burger: rgba(5, 5, 5, 1);
+  --color-btn-modal: rgba(155, 181, 55, 1);
 }
 
 body {
@@ -81,12 +92,11 @@ body {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
-
   background-color: var(--color-font-background);
-
   position: relative;
 }
-padd .container {
+
+.container {
   margin-left: auto;
   margin-right: auto;
 }

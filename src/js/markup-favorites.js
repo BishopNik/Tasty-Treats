@@ -1,6 +1,6 @@
 /** @format */
 
-import { ratingRecipe } from './rating-markup';
+import { onOpenWindow } from './recipe';
 
 let activeCatigories = new Set();
 
@@ -10,8 +10,11 @@ const ref = {
 	allCategories: null,
 };
 
+ref.cardsFavorites.addEventListener('click', onOpenModalWindow);
+
 export function markupButtons(cards) {
 	if (cards.length === 0) {
+		ref.categoriesFavorites.innerHTML = '';
 		return;
 	}
 	const buttons = cards.map(
@@ -40,33 +43,6 @@ export function markupCards(cards) {
 							easier access in the future.
 						</p>
 					</div>`);
-}
-
-export function createCard(card) {
-	const { _id, thumb, title, instructions, rating, category } = card;
-	return `<li 
-		data-id="${_id}" data-category="${category}"
-		class="recipe-item mainblock js-recipe"
-	
-	    style="
-		background: linear-gradient(1deg, rgba(5, 5, 5, 0.6) 4.82%, rgba(5, 5, 5, 0) 108.72%),
-			url(${thumb}), lightgray 50%; background-size: cover;"
-        >
-			<svg class="like js-like" width="22" height="22">
-				<use class="js-like" href="../img/icon/icon.svg#icon-like-full"></use> 
-			</svg>
-	    <h3 class="recipe-item-name">${title}</h3>
-	    <p class="recipe-item-about">${instructions}</p>
-	    <div class="recipe-item-option">
-		<div class="recipe-item-rating">
-			<span class="recipe-item-rating-num">${rating}</span>
-			<ul class="recipe-item-rating-stars">
-				${ratingRecipe(rating)}
-			</ul>
-		</div>
-		    <button class="main-button green-button recipe-item-see" type="button" data-id="${_id}">See recipe</button>
-	    </div>
-        </li>`;
 }
 
 function addFilter({ target }) {
@@ -108,4 +84,19 @@ function cardFavoritsFilter() {
 			cards[i].classList.add('is-hidden');
 		} else cards[i].classList.remove('is-hidden');
 	}
+	const allButtonsActive = ref.categoriesFavorites.querySelectorAll('.green-button');
+	const AllButton = ref.categoriesFavorites.children;
+	if (AllButton.length - 1 === allButtonsActive.length) {
+		ref.allCategories.classList.add('green-button');
+		for (const card of allButtonsActive) {
+			card.classList.remove('green-button');
+		}
+	}
+}
+
+function onOpenModalWindow({ target }) {
+	if (!target.classList.contains('recipe-item-see')) {
+		return;
+	}
+	onOpenWindow(target.dataset.id);
 }

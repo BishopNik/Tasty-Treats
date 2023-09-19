@@ -1,8 +1,10 @@
+/** @format */
+
 import { updateRating } from './fetch-api';
 import Notiflix from 'notiflix';
 
 function toggleModal(refs) {
-  refs.modal.classList.toggle('is-hidden');
+	refs.modal.classList.toggle('is-hidden');
 }
 
 export function createListeners(id) {
@@ -43,14 +45,12 @@ export function createListeners(id) {
     el.children[1].addEventListener('change', handler);
   });
 
-  refs.form.addEventListener('submit', async e => {
-    e.preventDefault();
+	refs.form.addEventListener('submit', async e => {
+		e.preventDefault();
 
-    const form = new FormData(e.target);
+		const form = new FormData(e.target);
 
-    const data = Object.fromEntries(form);
-
-    console.log(Object.fromEntries(form));
+		const data = Object.fromEntries(form);
 
     try {
       const responseData = await updateRating(
@@ -63,6 +63,6 @@ export function createListeners(id) {
       Notiflix.Notify.failure(error.response.data.message);
     }
 
-    console.log(responseData);
-  });
+		console.log(responseData);
+	});
 }

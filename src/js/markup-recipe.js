@@ -5,15 +5,20 @@ import { ratingRecipe } from './rating-markup';
 
 export async function markupRecipe(id) {
 	const recipeData = await fetchGetId(id);
-	const { _id, title, instructions, thumb, youtube, time, tags, ingredients, rating } = recipeData;
-	const index = youtube.indexOf('?v=');
-	let youtubeLink = null;
-	
+	const { _id, title, instructions, thumb, youtube, time, tags, ingredients, rating } =
+		recipeData;
+	let index = 0;
+	if (youtube) {
+		index = youtube.indexOf('?v=');
+	}
+
+	let youtubeLink = '';
+
 	// added by IRyb //
 	// Додаю отримання масиву id з локалсториджа, щоб змінювати назву кнопки: якщо вже є у улюблених, то кнопка буде називатися Remove
 	const favorites = JSON.parse(localStorage.getItem('favorites')) ?? [];
 	let btnFavName = 'Add to favorite';
-	
+
 	if (favorites.indexOf(_id) === -1) {
 		btnFavName = 'Add to favorite';
 	} else {
@@ -21,17 +26,18 @@ export async function markupRecipe(id) {
 	}
 	// --- //
 
-	if (index !== -1) {
+	if (index > 0) {
 		const idVideo = youtube.substring(index + 3);
 		youtubeLink = `<svg class="recipe-youtube">
 			<use href="../img/icon/icon.svg#icon-youtube" style="width: 38px; height: 38px;"></use>
 		</svg>	
 		<iframe
 			class='recipe-adv-youtube'
-			src='https://www.youtube.com/embed/${idVideo}??autoplay=1&mute=1'
+			src='https://www.youtube.com/embed/${idVideo}'
 			frameborder='0'
+			allow="autoplay; gyroscope; picture-in-picture; clipboard-write"
 			allowfullscreen
-			style="display: none;"
+			style="cursor: pointer;"
 		></iframe>`;
 	}
 	const tagsRecipe = tags
@@ -65,7 +71,7 @@ export async function markupRecipe(id) {
 				${tagsRecipe}
 			</ul>
 			<div class="recipe-adv-item-rating">
-				<span class="recipe-adv-item-rating-num">${rating}</span>
+				<span class="recipe-adv-item-rating-num">${rating.toFixed(2)}</span>
 				<ul class="recipe-item-rating-stars">
 					${ratingBlock}
 				</ul>
