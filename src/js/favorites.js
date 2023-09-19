@@ -6,6 +6,9 @@ import { markupButtons, markupCards } from './markup-favorites';
 import { handleLikeBtn } from './add_favorites';
 import { createCard } from './recipe-card';
 
+const cardsFavorites = document.querySelector('.list_cards_favorites');
+cardsFavorites.addEventListener('click', delFromFavorites);
+
 function readFavoritesCard() {
 	let favoritesCard = [];
 	try {
@@ -47,15 +50,18 @@ function markupCardArray() {
 			markupCards(markupCardsArray);
 
 			// handle like buttons
-			const allRecipes = document.querySelectorAll('.js-recipe');
-			allRecipes.forEach(elm => {
-				elm.addEventListener('click', delFromFavorites);
-			});
+			// const allRecipes = document.querySelectorAll('.js-recipe');
+			// allRecipes.forEach(elm => {
+			// 	elm.addEventListener('click', delFromFavorites);
+			// });
 		})
 		.catch(error => Notify.failure('Unable to load favorites. ' + error.message));
 }
 
 const delFromFavorites = e => {
+	if (!target.classList.contains('js-recipe')) {
+		return;
+	}
 	handleLikeBtn(e);
 	markupCardArray();
 };

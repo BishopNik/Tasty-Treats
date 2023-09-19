@@ -4,8 +4,6 @@ import { markupRecipe } from './markup-recipe';
 import { createListeners } from './rating';
 import { handleAddFavouriteBtn } from './add_favorites';
 
-const id = '6462a8f74c3d0ddd28897fb8';
-
 const ref = {
 	modalWindowRecipe: document.querySelector('.backdrop'),
 	iconPlay: null,
@@ -28,7 +26,7 @@ export async function onOpenWindow(id) {
 	ref.youtubeFrame = document.querySelector('.recipe-adv-youtube');
 	ref.iconPlay = document.querySelector('.recipe-youtube');
 	ref.recipeImg.addEventListener('click', viewYoutube);
-	
+
 	ref.favoriteBtn = document.querySelector('.js-add-fav-btn');
 	ref.favoriteBtn.addEventListener('click', handleAddFavouriteBtn);
 

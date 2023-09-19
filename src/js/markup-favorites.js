@@ -1,5 +1,7 @@
 /** @format */
 
+import { onOpenWindow } from './recipe';
+
 let activeCatigories = new Set();
 
 const ref = {
@@ -7,6 +9,8 @@ const ref = {
 	categoriesFavorites: document.querySelector('.favorites_categories'),
 	allCategories: null,
 };
+
+ref.cardsFavorites.addEventListener('click', onOpenModalWindow);
 
 export function markupButtons(cards) {
 	if (cards.length === 0) {
@@ -80,4 +84,11 @@ function cardFavoritsFilter() {
 			cards[i].classList.add('is-hidden');
 		} else cards[i].classList.remove('is-hidden');
 	}
+}
+
+function onOpenModalWindow({ target }) {
+	if (!target.classList.contains('recipe-item-see')) {
+		return;
+	}
+	onOpenWindow(target.dataset.id);
 }
