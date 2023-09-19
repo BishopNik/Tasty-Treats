@@ -76,20 +76,22 @@ const selectors = {
 selectors.list.addEventListener('click', handleLikeBtn);
 
 function setPaginationButtons(div, page, total, option) {
+  const iconRightPath = './img/icon/icon.svg#icon-small-right';
+  const iconLeftPath = './img/icon/icon.svg#icon-small-left';
   let arrowButtons = ` <div class="back-btns">
       <button class="pagination-btn arrow-btn back-arrow-btn-js">
          <div class="left-arrow-icon double-arrow">
            <svg class="icon-double-arrow-one" width="24" height="24">
-          <use href="./img/icon/icon.svg#icon-small-left"></use>
+          <use href="${iconLeftPath}"></use>
         </svg>
         <svg class="icon-double-arrow-two" width="24" height="24">
-          <use href="./img/icon/icon.svg#icon-small-left"></use>
+          <use href="${iconLeftPath}"></use>
         </svg>
          </div>
         </svg></button
       ><button class="pagination-btn arrow-btn back-arrow-btn-js">
         <svg class="left-arrow-icon" width="24" height="24">
-          <use href="./img/icon/icon.svg#icon-small-left"></use>
+          <use href="${iconLeftPath}"></use>
         </svg>
       </button>
     </div>
@@ -97,15 +99,15 @@ function setPaginationButtons(div, page, total, option) {
     <div class="forward-btns">
       <button class="pagination-btn arrow-btn forward-arrow-btn-js">
        <svg class="right-arrow-icon" width="24" height="24">
-          <use href="./img/icon/icon.svg#icon-small-right"></use>
+          <use href="${iconRightPath}"></use>
         </svg>
        </button
       ><button class="pagination-btn arrow-btn forward-arrow-btn-js">
         <div class="right-arrow-icon double-arrow">
           <svg class="icon-double-arrow-one" width="24" height="24">
-            <use href="./img/icon/icon.svg#icon-small-right"></use></svg
+            <use href="${iconRightPath}"></use></svg
           ><svg class="icon-double-arrow-two" width="24" height="24">
-            <use href="./img/icon/icon.svg#icon-small-right"></use>
+            <use href="${iconRightPath}"></use>
           </svg>
         </div>
       </button>
