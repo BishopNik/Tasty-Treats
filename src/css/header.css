@@ -417,6 +417,7 @@
 }
 
 /* Стили для слайдера переключателя бургера */
+
 .burger-switch-slider {
   position: absolute;
   cursor: pointer;
@@ -440,7 +441,7 @@
 
 /* Стили при включенном переключателе бургера */
 .burger-switch-input:checked + .burger-switch-slider {
-  background-color: var(--accent-color);
+  background-color: var(--color-green-button);
 }
 
 .burger-switch-input:checked + .burger-switch-slider::before {
@@ -448,6 +449,7 @@
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
 }
+
 .burger-switch-slider::before {
   content: '';
   position: absolute;
