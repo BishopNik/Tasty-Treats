@@ -106,7 +106,6 @@
 	--swiper-theme-color: #9bb537;
 }
 
-
 @media only screen and (min-width: 375px) {
 	.hero-section {
 		padding-left: 20px;
@@ -170,12 +169,6 @@
 		max-width: 304px;
 		max-height: 271px;
 	}
-}
-
-
-.hero-container {
-	flex-direction: column;
-	gap: 0;
 }
 
 @media only screen and (min-width: 768px) {

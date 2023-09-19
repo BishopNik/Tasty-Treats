@@ -15,35 +15,33 @@ renderMain(renderCardsOptions);
 
 // Делаю запрос на получение данных
 async function fetchCategories() {
-  axios.defaults.baseURL = 'https://tasty-treats-backend.p.goit.global/api';
-  const response = await axios.get(`/categories`);
-  return response.data;
+	axios.defaults.baseURL = 'https://tasty-treats-backend.p.goit.global/api';
+	const response = await axios.get(`/categories`);
+	return response.data;
 }
 
 // Обработка данных, создание списка категорий в HTML
 fetchCategories()
-  .then(data => {
-    let arrCategories = [...data];
-    list.insertAdjacentHTML('beforeend', createCategoriesList(arrCategories));
-    itemArr = [...list.children];
-    return itemArr;
-  })
+	.then(data => {
+		let arrCategories = [...data];
+		list.insertAdjacentHTML('beforeend', createCategoriesList(arrCategories));
+		itemArr = [...list.children];
+		return itemArr;
+	})
 
-  .catch(() => {
-    Notiflix.Notify.failure(
-      'Oops! Something went wrong! Try reloading the page!'
-    );
-  });
+	.catch(() => {
+		Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page!');
+	});
 
 // // Функция для создания списка
 
 function createCategoriesList(arr) {
-  return arr
-    .map(
-      ({ name, _id }) =>
-        `<li><button type="button" class="categories-btn "id="${_id}">${name}</button></li>`
-    )
-    .join('');
+	return arr
+		.map(
+			({ name, _id }) =>
+				`<li><button type="button" class="categories-btn "id="${_id}">${name}</button></li>`
+		)
+		.join('');
 }
 
 // Ставлю прослушиватели на кнопку и список
@@ -54,56 +52,53 @@ list.addEventListener('click', onListClick);
 
 function onAllCategoriesBtnClick() {
 	clearCurrentCategory(itemArr);
-	allCategoriesBtn.classList.add('all-categories-btn-aktiv')
-	
-	renderCardsOptions.params.page = 1;
-	renderCardsOptions.params.title = "";
-	renderCardsOptions.params.category = "";
-	renderCardsOptions.params.time = "";
-	renderCardsOptions.params.area = "";
-	renderCardsOptions.params.ingredient = "";
-	renderMain(renderCardsOptions);
+	allCategoriesBtn.classList.add('all-categories-btn-aktiv');
 
+	renderCardsOptions.params.page = 1;
+	renderCardsOptions.params.title = '';
+	renderCardsOptions.params.category = '';
+	renderCardsOptions.params.time = '';
+	renderCardsOptions.params.area = '';
+	renderCardsOptions.params.ingredient = '';
+	renderMain(renderCardsOptions);
 }
 
 // Функция для отображения одной категории
 
 function onListClick(evt) {
-  allCategoriesBtn.classList.remove('all-categories-btn-aktiv');
-  clearCurrentCategory(itemArr);
+	allCategoriesBtn.classList.remove('all-categories-btn-aktiv');
+	clearCurrentCategory(itemArr);
 
+	evt.target.classList.add('curent-category');
+	let currentCategory = { id: evt.target.id, name: evt.target.textContent };
 
-    evt.target.classList.add("curent-category")
-	let currentCategory = { id: evt.target.id, name: evt.target.textContent }
-	
 	renderCardsOptions.params.page = 1;
 	renderCardsOptions.params.category = evt.target.textContent;
-	renderCardsOptions.params.title = "";
-	renderCardsOptions.params.time = "";
-	renderCardsOptions.params.area = "";
-	renderCardsOptions.params.ingredient = "";
-	renderMain(renderCardsOptions)
+	renderCardsOptions.params.title = '';
+	renderCardsOptions.params.time = '';
+	renderCardsOptions.params.area = '';
+	renderCardsOptions.params.ingredient = '';
+	renderMain(renderCardsOptions);
 
-//   if (!evt.target.classList.contains('categories-btn')) {
-//     return;
-//   }
+	//   if (!evt.target.classList.contains('categories-btn')) {
+	//     return;
+	//   }
 
+	// evt.target.classList.add('curent-category');
+	// let currentCategory = { id: evt.target.id, name: evt.target.textContent };
 
-  evt.target.classList.add('curent-category');
-  let currentCategory = { id: evt.target.id, name: evt.target.textContent };
+	// renderCardsOptions.params.page = 1;
+	// renderCardsOptions.params.category = evt.target.textContent;
+	// renderMain(renderCardsOptions);
 
-  renderCardsOptions.params.page = 1;
-  renderCardsOptions.params.category = evt.target.textContent;
-  renderMain(renderCardsOptions);
-
-  return currentCategory;
+	return currentCategory;
 }
 
 // Функция для снятия выделения текущей категории
 function clearCurrentCategory(arr) {
-  for (let i = 0; i < arr.length; i += 1) {
-    if (arr[i].children[0].classList.contains('curent-category')) {
-      arr[i].children[0].classList.remove('curent-category');
-    }
-  }
+	for (let i = 0; i < arr.length; i += 1) {
+		if (arr[i].children[0].classList.contains('curent-category')) {
+			arr[i].children[0].classList.remove('curent-category');
+		}
+	}
 }
