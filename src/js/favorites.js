@@ -2,8 +2,9 @@
 
 import { Notify } from 'notiflix';
 import { fetchGetId } from './fetch-api';
-import { markupButtons, markupCards, createCard } from './markup-favorites';
+import { markupButtons, markupCards } from './markup-favorites';
 import { handleLikeBtn } from './add_favorites';
+import { createCard } from './recipe-card';
 
 function readFavoritesCard() {
 	let favoritesCard = [];
