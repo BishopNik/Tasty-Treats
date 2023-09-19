@@ -6,23 +6,27 @@ import axios from 'axios';
 import Notiflix from 'notiflix';
 import { onOpenWindow } from './recipe';
 import { ratingRecipe } from './rating-markup';
+import { fetchRecipeCards } from './fetch-api';
 
 const pagination = document.querySelector('.pagination-btns');
 const recipeCards = document.querySelector('.recipe-cards');
 export const recipesApi = 'https://tasty-treats-backend.p.goit.global/api/recipes';
 
-export async function fetchRecipeCards(api, options) {
-	let fetchResult = {};
-	await axios
-		.get(api, options)
-		.then(resp => {
-			(fetchResult.results = resp.data.results),
-				(fetchResult.currentPage = resp.data.page),
-				(fetchResult.totalPages = resp.data.totalPages);
-		})
-		.catch(err => console.log(err));
-	return fetchResult;
-}
+const cadrsContainer = document.querySelector('.recipe-cards');
+cadrsContainer.addEventListener('click', onOpenModalWindow);
+
+// export async function fetchRecipeCards(api, options) {
+// 	let fetchResult = {};
+// 	await axios
+// 		.get(api, options)
+// 		.then(resp => {
+// 			(fetchResult.results = resp.data.results),
+// 				(fetchResult.currentPage = resp.data.page),
+// 				(fetchResult.totalPages = resp.data.totalPages);
+// 		})
+// 		.catch(err => console.log(err));
+// 	return fetchResult;
+// }
 
 function renderCards(results, div, cardStyle) {
 	let htmlCards = '';
@@ -64,10 +68,10 @@ function renderCards(results, div, cardStyle) {
     </li>`;
 	});
 	div.innerHTML = htmlCards;
-	const seeButtons = document.querySelectorAll('.recipe-item-see');
-	seeButtons.forEach(elm =>
-		elm.addEventListener('click', evt => onOpenWindow(evt.target.dataset.id))
-	);
+	// const seeButtons = document.querySelectorAll('.recipe-item-see');
+	// seeButtons.forEach(elm =>
+	// 	elm.addEventListener('click', evt => onOpenWindow(evt.target.dataset.id))
+	// );
 }
 
 const selectors = {
@@ -188,5 +192,12 @@ export let renderCardsOptions = {
 		limit: 9,
 	},
 };
+
+function onOpenModalWindow({ target }) {
+	if (!target.classList.contains('recipe-item-see')) {
+		return;
+	}
+	onOpenWindow(target.dataset.id);
+}
 
 // renderMain(renderCardsOptions);
