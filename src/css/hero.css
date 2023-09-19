@@ -80,7 +80,7 @@
 	margin-bottom: 48px;
 
 	border-radius: 15px;
-	border: 1px solid #var(--color-green-button);
+	border: 1px solid var(--color-green-button);
 	cursor: pointer;
 }
 
@@ -210,6 +210,12 @@
 .swiper-wrapper {
 	display: flex;
 	flex-direction: row;
+}
+
+@media only screen and (min-width: 768px) {
+	.hero-btn {
+		padding: 14px 28px;
+	}
 }
 
 @media only screen and (min-width: 1280px) {
