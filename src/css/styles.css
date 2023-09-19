@@ -50,6 +50,7 @@
   --color-filters-text: rgba(5, 5, 5, 1);
   --filters-color-table: rgba(255, 255, 255, 1);
   --color-star: rgba(60, 59, 59, 1);
+  --color-menu-burger: rgba(155, 181, 55, 1);
 
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -80,6 +81,7 @@
   --color-rating-number: rgba(255, 255, 255, 0.5);
   --color-filters-text: rgba(255, 255, 255, 1);
   --filters-color-table: rgba(5, 5, 5, 1);
+  --color-menu-burger: rgba(5, 5, 5, 1);
 }
 
 body {
