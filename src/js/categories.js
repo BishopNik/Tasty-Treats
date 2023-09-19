@@ -53,15 +53,17 @@ list.addEventListener('click', onListClick);
 // Функция для отображения всех категорий
 
 function onAllCategoriesBtnClick() {
-  clearCurrentCategory(itemArr);
-  allCategoriesBtn.classList.add('all-categories-btn-aktiv');
+	clearCurrentCategory(itemArr);
+	allCategoriesBtn.classList.add('all-categories-btn-aktiv')
+	
+	renderCardsOptions.params.page = 1;
+	renderCardsOptions.params.title = "";
+	renderCardsOptions.params.category = "";
+	renderCardsOptions.params.time = "";
+	renderCardsOptions.params.area = "";
+	renderCardsOptions.params.ingredient = "";
+	renderMain(renderCardsOptions);
 
-  renderCardsOptions.params.page = 1;
-  renderCardsOptions.params.category = '';
-  renderCardsOptions.params.time = '';
-  renderCardsOptions.params.area = '';
-  renderCardsOptions.params.ingredient = '';
-  renderMain(renderCardsOptions);
 }
 
 // Функция для отображения одной категории
@@ -70,9 +72,22 @@ function onListClick(evt) {
   allCategoriesBtn.classList.remove('all-categories-btn-aktiv');
   clearCurrentCategory(itemArr);
 
-  if (!evt.target.classList.contains('categories-btn')) {
-    return;
-  }
+
+    evt.target.classList.add("curent-category")
+	let currentCategory = { id: evt.target.id, name: evt.target.textContent }
+	
+	renderCardsOptions.params.page = 1;
+	renderCardsOptions.params.category = evt.target.textContent;
+	renderCardsOptions.params.title = "";
+	renderCardsOptions.params.time = "";
+	renderCardsOptions.params.area = "";
+	renderCardsOptions.params.ingredient = "";
+	renderMain(renderCardsOptions)
+
+//   if (!evt.target.classList.contains('categories-btn')) {
+//     return;
+//   }
+
 
   evt.target.classList.add('curent-category');
   let currentCategory = { id: evt.target.id, name: evt.target.textContent };
