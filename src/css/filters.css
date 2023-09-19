@@ -6,6 +6,7 @@
 
 .filters-search-form {
   display: flex;
+  margin-bottom: 14px;
 }
 
 @media screen and (max-width: 767px) {
@@ -17,7 +18,7 @@
 
 @media screen and (min-width: 768px) {
   .filters-search-form {
-    gap: 14px;
+    gap: 16px;
     flex-wrap: wrap;
   }
 }
@@ -80,19 +81,19 @@
 .time-dropdown {
   position: relative;
   width: 125px;
-  height: 74px;
+  height: 48px;
   border: none;
 }
 .country-dropdown {
   position: relative;
   width: 141px;
-  height: 74px;
+  height: 48px;
 }
 
 .ingr-dropdown {
   position: relative;
   width: 188px;
-  height: 74px;
+  height: 48px;
   border: transparent;
 }
 
@@ -174,7 +175,7 @@
   border-radius: 15px;
   border: 1px solid var(--color-border-select);
 
-  color: var(--color-font-select-text);
+  color: black;
   font-family: Inter;
   font-size: 16px;
   font-style: normal;
@@ -186,12 +187,14 @@
 .filter-country-dropbox,
 .filter-ingr-dropbox {
   position: absolute;
-  top: 67%;
+  top: calc(100% + 4px);
   width: 100%;
   height: 128px;
   overflow: hidden;
   border-radius: 15px;
-  z-index: 1000;
+  transform: scaleY(0);
+  opacity: 0;
+  visibility: hidden;
 }
 
 .filter-country-dropbox,
@@ -209,7 +212,7 @@
   box-shadow: 0 5px 20px var(--color-scroll-shadow);
   border-radius: 15px;
   border: 1px solid var(--color-scroll-shadow);
-  display: none;
+
   overflow: auto;
   margin: 0;
 
@@ -222,6 +225,7 @@
 }
 
 .list-item {
+  cursor: pointer;
   padding-left: 18px;
   padding-bottom: 8px;
 }
@@ -294,25 +298,52 @@
   background-color: var(--color-scroll-filters);
 }
 
-.time-dropdown.active .filter-time-list {
-  display: block;
+.time-dropdown.active .filter-time-dropbox {
+  opacity: 1;
+  visibility: visible;
+  transform: scaleY(1);
+  z-index: 150;
 }
 
-.country-dropdown.active .filter-country-list {
-  display: block;
+.country-dropdown.active .filter-country-dropbox {
+  opacity: 1;
+  visibility: visible;
+  transform: scaleY(1);
+  z-index: 150;
 }
 
-.ingr-dropdown.active .filter-ingr-list {
-  display: block;
+.ingr-dropdown.active .filter-ingr-dropbox {
+  opacity: 1;
+  visibility: visible;
+  transform: scaleY(1);
+  z-index: 150;
 }
 
-.time-dropdown .filter-time-list li {
+.filter-reset-btn {
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+
+  color: var(--color-black-btn);
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.33;
+  margin-left: auto;
+
+  margin-bottom: 14px;
 }
 
-.country-dropdown .filter-country-list li {
-  cursor: pointer;
+@media screen and (max-width: 767px) {
+  .filter-reset-btn {
+    display: none;
+  }
 }
-.ingr-dropdown .filter-ingr-list li {
-  cursor: pointer;
+
+.filter-reset {
+  stroke: rgba(155, 181, 55, 1);
+  width: 16px;
+  height: 16px;
 }
