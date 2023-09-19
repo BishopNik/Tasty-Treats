@@ -17,7 +17,20 @@ export async function fetchPopular(popular) {
 export async function updateRating(id, rate, email) {
 	const response = await axios.patch(`${URL}/${id}/rating`, {
 		rate,
-		email
+		email,
 	});
 	return response.data;
 }
+export async function makeOrder(name, phone, email,comment) {
+	const response = await axios.post(`https://tasty-treats-backend.p.goit.global/api/orders/add`, {
+		name,
+		phone,
+		email,
+		comment,
+	});
+	return response.data;
+}
+
+
+
+
