@@ -15,9 +15,21 @@ export async function fetchPopular(popular) {
 }
 
 export async function updateRating(id, rate, email) {
-	const response = await axios.patch(`${URL}/${id}/rating`, {
-		rate,
-		email
-	});
-	return response.data;
+  const response = await axios.patch(`${URL}/${id}/rating`, {
+    rate,
+    email,
+  });
+  return response.data;
+}
+
+export async function fetchAreas() {
+  axios.defaults.baseURL = 'https://tasty-treats-backend.p.goit.global/api';
+  const response = await axios.get(`/areas`);
+  return response.data;
+}
+
+export async function fetchIngred() {
+  axios.defaults.baseURL = 'https://tasty-treats-backend.p.goit.global/api';
+  const response = await axios.get(`/ingredients`);
+  return response.data;
 }

@@ -1,7 +1,9 @@
 import axios from 'axios';
+import { debounce } from 'debounce';
 
 import { renderMain } from './recipe-list';
 import { renderCardsOptions } from './recipe-list';
+import { fetchAreas, fetchIngred } from './fetch-api';
 
 const elements = {
   timeInput: document.querySelector('.time-text-box'),
@@ -21,28 +23,11 @@ const elements = {
 elements.timeDropdown.addEventListener('click', onTimeOptionsClick);
 elements.countryOptions.addEventListener('click', onCountryOptionsClick);
 elements.ingrOptions.addEventListener('click', onIngrOptionsClick);
-elements.input.addEventListener('input', onHendlerPress);
-
-elements.resetBtn.addEventListener('click', onResetBtnClick);
-function onResetBtnClick(evt) {
-  elements.timeInput.value = '';
-  elements.countryInput.value = '';
-  elements.ingrInput.value = '';
-  elements.input.value = '';
-
-  renderCardsOptions.params.page = 1;
-  renderCardsOptions.params.title = '';
-  renderCardsOptions.params.category = '';
-  renderCardsOptions.params.time = ``;
-  renderCardsOptions.params.area = '';
-  renderCardsOptions.params.ingredient = '';
-  renderMain(renderCardsOptions);
-}
+elements.input.addEventListener('input', debounce(onHendlerPress, 300));
 
 // <render gallery by search value
 function onHendlerPress(evt) {
-  let searchValue = evt.currentTarget.value.trim().toLowerCase();
-  console.log(searchValue);
+  let searchValue = evt.target.value.trim().toLowerCase();
 
   if (searchValue === '') {
   }
@@ -181,11 +166,6 @@ function onCloseIngrFilter(evt) {
 // FILTERS API
 
 // Country api and create markup=====>>>>>
-async function fetchAreas() {
-  axios.defaults.baseURL = 'https://tasty-treats-backend.p.goit.global/api';
-  const response = await axios.get(`/areas`);
-  return response.data;
-}
 
 fetchAreas()
   .then(data => {
@@ -209,11 +189,6 @@ function createAreasList(arr) {
 // Country api and create markup<<<<<=====
 
 // Ingredients api and create markup=====>>>>>
-async function fetchIngred() {
-  axios.defaults.baseURL = 'https://tasty-treats-backend.p.goit.global/api';
-  const response = await axios.get(`/ingredients`);
-  return response.data;
-}
 
 fetchIngred()
   .then(data => {
@@ -235,3 +210,20 @@ function createIngreedList(arr) {
     .join('');
 }
 // Ingredients api and create markup<<<<<=====
+
+// Button reset
+elements.resetBtn.addEventListener('click', onResetBtnClick);
+function onResetBtnClick(evt) {
+  elements.timeInput.value = '';
+  elements.countryInput.value = '';
+  elements.ingrInput.value = '';
+  elements.input.value = '';
+
+  renderCardsOptions.params.page = 1;
+  renderCardsOptions.params.title = '';
+  renderCardsOptions.params.category = '';
+  renderCardsOptions.params.time = ``;
+  renderCardsOptions.params.area = '';
+  renderCardsOptions.params.ingredient = '';
+  renderMain(renderCardsOptions);
+}

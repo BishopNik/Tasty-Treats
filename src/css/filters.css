@@ -100,7 +100,7 @@
 .time-dropdown::before {
   content: '';
   position: absolute;
-  top: 15px;
+  top: 18px;
   right: 18px;
   z-index: 200;
   width: 8px;
@@ -116,7 +116,7 @@
 .country-dropdown::before {
   content: '';
   position: absolute;
-  top: 15px;
+  top: 18px;
   right: 18px;
   z-index: 200;
   width: 8px;
@@ -132,7 +132,7 @@
 .ingr-dropdown::before {
   content: '';
   position: absolute;
-  top: 15px;
+  top: 18px;
   right: 18px;
   z-index: 200;
   width: 8px;
