@@ -48,10 +48,15 @@ function markupCardArray() {
 			// handle like buttons
 			const allRecipes = document.querySelectorAll('.js-recipe');
 			allRecipes.forEach(elm => {
-				elm.addEventListener('click', handleLikeBtn);
+				elm.addEventListener('click', delFromFavorites);
 			});
 		})
 		.catch(error => Notify.failure('Unable to load favorites. ' + error.message));
 }
+
+const delFromFavorites = e => {
+	handleLikeBtn(e);
+	markupCardArray();
+};
 
 markupCardArray();

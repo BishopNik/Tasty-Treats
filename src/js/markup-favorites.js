@@ -12,6 +12,7 @@ const ref = {
 
 export function markupButtons(cards) {
 	if (cards.length === 0) {
+		ref.categoriesFavorites.innerHTML = '';
 		return;
 	}
 	const buttons = cards.map(
