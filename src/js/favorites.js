@@ -58,12 +58,13 @@ function markupCardArray() {
 		.catch(error => Notify.failure('Unable to load favorites. ' + error.message));
 }
 
-const delFromFavorites = e => {
-	if (!target.classList.contains('js-recipe')) {
+function delFromFavorites(e) {
+	console.log(e.target);
+	if (!e.target.classList.contains('js-like')) {
 		return;
 	}
 	handleLikeBtn(e);
 	markupCardArray();
-};
+}
 
 markupCardArray();
