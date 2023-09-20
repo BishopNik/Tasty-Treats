@@ -42,7 +42,7 @@ function markupCardArray() {
 		.then(cards => {
 			cards
 				? cards.forEach(card => {
-						markupCardsArray.push(createCard(card));
+						markupCardsArray.push(createCard(card, `in-favorites`));
 						markupButtonsArray.add(card.category);
 				  })
 				: null;
