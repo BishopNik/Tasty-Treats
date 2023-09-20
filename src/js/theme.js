@@ -20,23 +20,35 @@ function theme() {
 		}
 	}
 
-	if (localStorage.getItem('theme') !== null) {
-		el.setAttribute('data-theme', 'dark');
-		checkbox.checked = true;
-	} else {
-		setThemeFromMediaQuery();
-	}
+  if (localStorage.getItem('theme') !== null) {
+    el.setAttribute('data-theme', 'dark');
+    checkbox.checked = true;
+  } else {
+    setThemeFromMediaQuery();
+    updateThemeByTime();
+  }
+
+  function updateThemeByTime() {
+    const currentHour = new Date().getHours();
+    if (currentHour >= 23 || currentHour < 1) {
+      el.setAttribute('data-theme', 'dark');
+      checkbox.checked = true;
+    } else {
+      el.removeAttribute('data-theme');
+      checkbox.checked = false;
+    }
+  }
 }
 theme();
 
-// const currentPageName = document.querySelector('[meta-page-name]').getAttribute('meta-page-name');
-// const navigationLinksArray = Array.from(document.querySelectorAll('.nav-link'));
+ const currentPageName = document.querySelector('[meta-page-name]').getAttribute('meta-page-name');
+ const navigationLinksArray = Array.from(document.querySelectorAll('.nav-link'));
 
-// navigationLinksArray.forEach(linkElement => {
-// 	const name = linkElement.getAttribute('link-name');
-// 	if (name === currentPageName) {
-// 		linkElement.classList.add('current');
-// 	} else {
-// 		linkElement.classList.remove('current');
-// 	}
-// });
+navigationLinksArray.forEach(linkElement => {
+  const name = linkElement.getAttribute('link-name');
+  if (name === currentPageName) {
+ 		linkElement.classList.add('current');
+	} else {
+ 		linkElement.classList.remove('current');
+	}
+});
