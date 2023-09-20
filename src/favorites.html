@@ -6,6 +6,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta meta-page-name="favorites" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>Tasty Treats Favorites</title>
 		<meta name="description" content="Goit-command project" />
@@ -28,8 +29,8 @@
 		<load ="partials/header.html" />
 		<section class="favorites container">
 			<div class="favorites_container">
-				<img
-					class="favorites_img hide_in_mobile"
+				<!-- <img	class="favorites_img"
+
 					srcset="
 						./img/favorites/mobile/card.jpg      335w,
 						./img/favorites/tablet/card.jpg      704w,
@@ -41,7 +42,7 @@
 					sizes="(min-width: 1280px) 1080px, (min-width: 768px) 704px, (min-width: 320px) 335px, 100vw"
 					src="./img/fav/favorites-mob.jpg"
 					alt="favorites-img"
-				/>
+				/> -->
 			</div>
 			<div class="cards_favorites">
 				<ul class="favorites_categories"></ul>
@@ -60,8 +61,12 @@
 			</div>
 		</section>
 		<load ="partials/add_favorites.html" />
+		<load ="partials/component/scroll-to-top.html" />
+
+		<!-- Modal Window -->
 		<load ="partials/order.html" />
 		<load ="partials/rating.html" />
+
 		<script
 			defer
 			src="https://cdnjs.cloudflare.com/ajax/libs/body-scroll-lock/3.1.5/bodyScrollLock.min.js"

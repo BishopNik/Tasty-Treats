@@ -42,7 +42,9 @@ function markupCardArray() {
 		.then(cards => {
 			cards
 				? cards.forEach(card => {
-						markupCardsArray.push(createCard(card));
+						markupCardsArray.push(
+							createCard(card, `in-favorites`, '../img/icon/icon.svg#icon-like-full')
+						);
 						markupButtonsArray.add(card.category);
 				  })
 				: null;
@@ -59,7 +61,6 @@ function markupCardArray() {
 }
 
 function delFromFavorites(e) {
-	console.log(e.target);
 	if (!e.target.classList.contains('js-like')) {
 		return;
 	}
