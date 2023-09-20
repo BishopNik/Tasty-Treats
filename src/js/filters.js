@@ -18,87 +18,74 @@ const elements = {
   form: document.querySelector('#search-form'),
   input: document.querySelector('#input-search-field'),
   resetBtn: document.querySelector('.filter-reset-btn'),
+  searchBtn: document.querySelector('#filter-icon-s'),
+  searchResetBtn: document.querySelector('.filter-search-close-btn'),
 };
 
-elements.timeDropdown.addEventListener('click', onTimeOptionsClick);
-elements.countryOptions.addEventListener('click', onCountryOptionsClick);
-elements.ingrOptions.addEventListener('click', onIngrOptionsClick);
 elements.input.addEventListener('input', debounce(onHendlerPress, 300));
 
-// <render gallery by search value
+elements.timeOptions.addEventListener('click', onTimeOptionsClick);
+elements.countryOptions.addEventListener('click', onCountryOptionsClick);
+elements.ingrOptions.addEventListener('click', onIngrOptionsClick);
+
+// <<<render gallery by search value>>>
 function onHendlerPress(evt) {
   let searchValue = evt.target.value.trim().toLowerCase();
 
-  if (searchValue === '') {
+  if (searchValue.length > 0) {
+    elements.searchBtn.classList.add('active-icon-serach');
+    elements.searchResetBtn.classList.remove('is-hidden');
+    elements.searchResetBtn.addEventListener('click', onSearchResetClick);
+  } else {
+    elements.searchBtn.classList.remove('active-icon-serach');
+    elements.searchResetBtn.classList.add('is-hidden');
   }
 
   renderCardsOptions.params.page = 1;
   renderCardsOptions.params.title = `${searchValue}`;
-  renderCardsOptions.params.category = '';
-  renderCardsOptions.params.time = '';
-  renderCardsOptions.params.area = '';
-  renderCardsOptions.params.ingredient = '';
   renderMain(renderCardsOptions);
 }
-// render gallery by search value/>
 
-// render gallery by time
+function onSearchResetClick() {
+  elements.input.value = '';
+  elements.searchBtn.classList.remove('active-icon-serach');
+  elements.searchResetBtn.classList.add('is-hidden');
+}
+
+// <<<<render gallery by time>>>>
 function onTimeOptionsClick(evt) {
   const currentOpt = evt.target.textContent;
   elements.timeInput.value = currentOpt;
   const currentValue = Number.parseInt(elements.timeInput.value);
 
-  if (currentOpt === '') {
-    renderMain(renderCardsOptions);
-  } else {
-    renderCardsOptions.params.page = 1;
-    renderCardsOptions.params.title = '';
-    renderCardsOptions.params.category = '';
-    renderCardsOptions.params.time = `${currentValue}`;
-    renderCardsOptions.params.area = '';
-    renderCardsOptions.params.ingredient = '';
-    renderMain(renderCardsOptions);
-  }
+  console.log(evt.target);
+  // if (evt.target.textContent === elements.timeInput.value) {
+  //   return;
+  // }
+  renderCardsOptions.params.page = 1;
+  renderCardsOptions.params.time = `${currentValue}`;
+  renderMain(renderCardsOptions);
 }
-// render gallery by time/>
 
 // render gallery by country
 function onCountryOptionsClick(evt) {
   const currentOpt = evt.target.textContent;
   elements.countryInput.value = currentOpt;
 
-  if (currentOpt === '') {
-  }
-
   renderCardsOptions.params.page = 1;
-  renderCardsOptions.params.title = '';
-  renderCardsOptions.params.category = '';
-  renderCardsOptions.params.time = '';
   renderCardsOptions.params.area = `${currentOpt}`;
-  renderCardsOptions.params.ingredient = '';
   renderMain(renderCardsOptions);
 }
-// render gallery by country/>
 
 // render gallery by ingr
 function onIngrOptionsClick(evt) {
   const currentOpt = evt.target.textContent;
   elements.ingrInput.value = currentOpt;
-  console.log(currentOpt);
-
-  if (currentOpt === '') {
-  }
 
   renderCardsOptions.params.page = 1;
-  renderCardsOptions.params.title = '';
-  renderCardsOptions.params.category = '';
-  renderCardsOptions.params.time = '';
-  renderCardsOptions.params.area = '';
   renderCardsOptions.params.ingredient = `${currentOpt}`;
   renderMain(renderCardsOptions);
 }
-
-// render gallery by ingr/>
 
 // <close list settings
 elements.timeDropdown.onclick = function () {
@@ -213,11 +200,18 @@ function createIngreedList(arr) {
 
 // Button reset
 elements.resetBtn.addEventListener('click', onResetBtnClick);
-function onResetBtnClick(evt) {
+
+export function resetFilters() {
   elements.timeInput.value = '';
   elements.countryInput.value = '';
   elements.ingrInput.value = '';
   elements.input.value = '';
+}
+
+function onResetBtnClick(evt) {
+  resetFilters();
+
+  elements.searchBtn.classList.remove('active-icon-serach');
 
   renderCardsOptions.params.page = 1;
   renderCardsOptions.params.title = '';
