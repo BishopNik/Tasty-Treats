@@ -20,13 +20,15 @@ function theme() {
 	function setThemeFromMediaQuery() {
 		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 			el.setAttribute('data-theme', 'dark');
-			checkbox.checked = true;
+			checkbox[0].checked = true;
+			checkbox[1].checked = true;
 		}
 	}
 
 	if (localStorage.getItem('theme') !== null) {
 		el.setAttribute('data-theme', 'dark');
-		checkbox.checked = true;
+		checkbox[0].checked = true;
+		checkbox[1].checked = true;
 	} else {
 		setThemeFromMediaQuery();
 		updateThemeByTime();
@@ -36,10 +38,12 @@ function theme() {
 		const currentHour = new Date().getHours();
 		if (currentHour >= 18 || currentHour < 6) {
 			el.setAttribute('data-theme', 'dark');
-			checkbox.checked = true;
+			checkbox[0].checked = true;
+			checkbox[1].checked = true;
 		} else {
 			el.removeAttribute('data-theme');
-			checkbox.checked = false;
+			checkbox[0].checked = false;
+			checkbox[1].checked = false;
 		}
 	}
 }
