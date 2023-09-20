@@ -53,11 +53,26 @@
   color: var(--color-filters-text);
 }
 
-.search-btn {
-  cursor: pointer;
+.filter-icon-search {
+  border: none;
+  padding: 0;
+  line-height: 0;
   display: block;
   top: 15px;
   left: 18px;
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  fill: var(--color-filters-text);
+}
+
+.active-icon-serach {
+  fill: var(--color-green-button);
+}
+
+.filter-search-close-btn {
+  top: 15px;
+  right: 18px;
   position: absolute;
   background-color: transparent;
   border: none;
@@ -65,10 +80,14 @@
   line-height: 0;
 }
 
-.filter-icon-search {
-  width: 18px;
-  height: 18px;
-  fill: var(--color-filters-text);
+.icon-close-search {
+  stroke: var(--color-font-popular-recipe);
+  width: 16px;
+  height: 16px;
+}
+
+.is-hidden {
+  display: none;
 }
 
 /* time conteiner, country container, ingr container */
