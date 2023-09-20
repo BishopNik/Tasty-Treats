@@ -251,6 +251,11 @@
   color: var(--color-in-favorits);
 }
 
+.current-mob:hover,
+.current-mob:focus {
+  color: var(--color-hover);
+}
+
 .theme-switcher.burger {
   position: absolute;
   bottom: 20px;
@@ -414,7 +419,7 @@
 }
 
 .burger-switch-input:checked + .burger-switch-slider {
-  background-color: var(--color-green-button);
+  background-color: var(--color-btn-modal);
 }
 
 .burger-switch-input:checked + .burger-switch-slider::before {
