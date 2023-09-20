@@ -1,37 +1,71 @@
 /** @format */
 
 import { updateRating } from './fetch-api';
+import Notiflix from 'notiflix';
 
 function toggleModal(refs) {
-	refs.modal.classList.toggle('is-hidden');
+  refs.modal.classList.toggle('is-hidden');
 }
 
 export function createListeners(id) {
-	const refs = {
-		openModalBtn: document.querySelector('#modal-rating-opener'),
-		closeModalBtn: document.querySelector('#modal-rating-closer'),
-		modal: document.querySelector('#modal-rating-js'),
-		submit: document.querySelector('.modal-submit-button-rating'),
-		form: document.querySelector('.rating-form'),
-	};
+  const refs = {
+    openModalBtn: document.querySelector('#modal-rating-opener'),
+    closeModalBtn: document.querySelector('#modal-rating-closer'),
+    modal: document.querySelector('#modal-rating-js'),
+    submit: document.querySelector('.modal-submit-button-rating'),
+    form: document.querySelector('.rating-form'),
+    inputs: document.querySelectorAll('.star-input'),
+    span: document.querySelector('.count-rating'),
+  };
 
-	refs.openModalBtn.addEventListener('click', () => toggleModal(refs));
-	refs.closeModalBtn.addEventListener('click', () => toggleModal(refs));
+  refs.openModalBtn.addEventListener('click', () => toggleModal(refs));
+  refs.closeModalBtn.addEventListener('click', () => toggleModal(refs));
 
-	refs.form.addEventListener('submit', async e => {
-		e.preventDefault();
+  const handler = e => {
+    const value = Number(e.target.value);
 
-		const form = new FormData(e.target);
+    refs.span.innerHTML = value.toFixed(1);
 
-		const data = Object.fromEntries(form);
+    refs.inputs.forEach((el, index) => {
+      console.log(el.classList);
 
-		try {
-			const responseData = await updateRating(id, Number(data.rate), data.email);
-			toggleModal(refs);
-		} catch (error) {
-			// notifix;
-		}
+      if (index <= value - 1) {
+        el.children[0].classList.add('active');
+      } else {
+        el.children[0].classList.remove('active');
+      }
+    });
 
-		console.log(responseData);
-	});
+    console.log(value);
+  };
+
+  refs.inputs.forEach(el => {
+    el.children[1].addEventListener('change', handler);
+  });
+
+  refs.form.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const form = new FormData(e.target);
+    const data = Object.fromEntries(form);
+
+    try {
+      const responseData = await updateRating(
+        id,
+        Number(data.rate),
+        data.email
+      );
+      toggleModal(refs);
+      refs.form.reset();
+
+      refs.inputs.forEach((el, index) => {
+        el.children[0].classList.remove('active');
+      });
+      refs.span.innerHTML = '0.0';
+    } catch (error) {
+      Notiflix.Notify.failure(error.response.data.message);
+    }
+
+    console.log(responseData);
+  });
 }

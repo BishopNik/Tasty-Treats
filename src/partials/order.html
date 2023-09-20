@@ -15,10 +15,11 @@
         <div class="input-wrap">
           <input
             required
+            name="name"
             class="modal-order-input"
             type="text"
             id="modal-order-name"
-            pattern="[a-z]{1,15}"
+            pattern="^[a-zA-Z]+$"
             title="Username should only contain lowercase letters. e.g. john"
           />
         </div>
@@ -28,10 +29,10 @@
         <div class="input-wrap">
           <input
             required
+            name="phone"
             class="modal-order-input"
             type="tel"
             id="modal-order-tel"
-            pattern="[\+]\d{3}\s[\(]\d{2}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}"
           />
         </div>
       </label>
@@ -41,6 +42,7 @@
         <div class="input-wrap">
           <input
             required
+            name="email"
             class="modal-order-input"
             type="mail"
             id="modal-order-mail"
@@ -52,6 +54,7 @@
         >Comment
         <div class="modal-order-textarea">
           <textarea
+            name="comment"
             class="modal-order-input"
             id="modal-order-comment"
           ></textarea>
@@ -60,7 +63,7 @@
       <!-- <button class="modal-button" type="submit">Send</button> -->
       <load
         src="./component/button.html"
-        class="recipe-button-el modal-submit-button green-button"
+        class="recipe-button-el modal-submit-button-order green-button"
         type="submit"
         name-button="Send"
       />
