@@ -167,10 +167,14 @@ fetchAreas()
 
 function createAreasList(arr) {
   return arr
+    .sort((firstCountry, secondCountry) =>
+      firstCountry.name.localeCompare(secondCountry.name)
+    )
     .map(
       ({ name, _id }) =>
         `<li class="list-item js-item" id="${_id}">${name}</li>`
     )
+
     .join('');
 }
 // Country api and create markup<<<<<=====
@@ -190,6 +194,9 @@ fetchIngred()
 
 function createIngreedList(arr) {
   return arr
+    .sort((firstIngr, secondIngr) =>
+      firstIngr.name.localeCompare(secondIngr.name)
+    )
     .map(
       ({ name, _id }) =>
         `<li class="list-item js-item" id="${_id}">${name}</li>`
