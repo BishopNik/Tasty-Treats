@@ -36,6 +36,7 @@ export async function onOpenWindow(id) {
 
 function onCloseWindow() {
 	ref.modalWindowRecipe.classList.add('is-hidden');
+	ref.recipeImg.innerHTML = '';
 	ref.closeModalWindowRecipe.removeEventListener('click', onCloseWindow);
 	document.removeEventListener('keydown', onCloseModal);
 	document.removeEventListener('click', onCloseModal);
@@ -49,11 +50,14 @@ function onCloseModal({ target, key }) {
 	}
 }
 
-function viewYoutube() {
-	ref.youtubeFrame.style.display = 'block';
+function viewYoutube({ currentTarget }) {
+	const idVideo = currentTarget.dataset.youtubeid;
+	ref.recipeImg.innerHTML = `<iframe
+			class='recipe-adv-youtube'
+			src='https://www.youtube.com/embed/${idVideo}?autoplay=1'
+			frameborder='0'
+			allow="autoplay; gyroscope; picture-in-picture; clipboard-write"
+			allowfullscreen
+		></iframe>`;
 	ref.iconPlay.style.display = 'none';
-	ref.youtubeFrame.contentWindow.postMessage(
-		'{"event":"command","func":"playVideo","args":""}',
-		'*'
-	);
 }
