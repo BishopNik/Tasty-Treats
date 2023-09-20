@@ -49,6 +49,8 @@
   padding: 14px 14px 14px 48px;
   border-radius: 15px;
   border: 1px solid var(--color-border-select);
+  background-color: transparent;
+  color: var(--color-filters-text);
 }
 
 .search-btn {
