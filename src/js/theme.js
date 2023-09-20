@@ -48,3 +48,20 @@ function theme() {
 	}
 }
 theme();
+
+const currentPageName = document
+    .querySelector('[meta-page-name]')
+    .getAttribute('meta-page-name');
+const navigationLinksArray = Array.from(
+    document.querySelectorAll('.nav-link')
+);
+
+navigationLinksArray.forEach(linkElement => {
+    const name = linkElement.getAttribute('link-name');
+    if (name === currentPageName) {
+        linkElement.classList.add('current');
+    } else {
+        linkElement.classList.remove('current');
+    }
+});
+
