@@ -393,9 +393,9 @@
 	}
 
 	.switch-input:checked + .switch-slider::before {
-		transform: translateX(26px);
 		-webkit-transform: translateX(26px);
 		-ms-transform: translateX(26px);
+		transform: translateX(26px);
 	}
 }
 @media screen and (max-width: 320px) {
@@ -456,9 +456,9 @@
 }
 
 .burger-switch-input:checked + .burger-switch-slider::before {
-	transform: translateX(26px);
 	-webkit-transform: translateX(26px);
 	-ms-transform: translateX(26px);
+	transform: translateX(26px);
 }
 
 .burger-switch-slider::before {
