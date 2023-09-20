@@ -19,6 +19,17 @@ export async function updateRating(id, rate, email) {
 		rate,
 		email,
 	});
+
+	return response.data;
+}
+
+export async function makeOrder(name, phone, email,comment) {
+	const response = await axios.post(`https://tasty-treats-backend.p.goit.global/api/orders/add`, {
+		name,
+		phone,
+		email,
+		comment,
+	})
 	return response.data;
 }
 
@@ -46,3 +57,7 @@ export async function fetchRecipeCards(api, options) {
 		.catch(err => console.log(err));
 	return fetchResult;
 }
+
+
+
+
