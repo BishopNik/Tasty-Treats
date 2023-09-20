@@ -68,7 +68,7 @@
 .filter-icon-search {
   width: 18px;
   height: 18px;
-  fill: --color-font-select-text;
+  fill: var(--color-filters-text);
 }
 
 /* time conteiner, country container, ingr container */
