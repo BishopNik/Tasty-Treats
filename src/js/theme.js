@@ -30,17 +30,6 @@ function theme() {
     setThemeFromMediaQuery();
     updateThemeByTime();
   }
-
-  function updateThemeByTime() {
-    const currentHour = new Date().getHours();
-    if (currentHour >= 18 || currentHour < 6) {
-      el.setAttribute('data-theme', 'dark');
-      checkbox.checked = true;
-    } else {
-      el.removeAttribute('data-theme');
-      checkbox.checked = false;
-    }
-  }
 }
 theme();
 
