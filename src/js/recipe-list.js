@@ -41,7 +41,7 @@ function renderCards(results, div, cardStyle) {
 			likeIconUrl = '../img/icon/icon.svg#icon-like-full';
 		}
 
-		htmlCards += createCard(elm, cardStyle);
+		htmlCards += createCard(elm, cardStyle, likeIconUrl);
 		// 		`<li
 		// 		data-id="${elm._id}"
 		// 		class="recipe-item ${cardStyle} js-recipe"

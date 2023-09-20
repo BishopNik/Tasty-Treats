@@ -2,7 +2,7 @@
 
 import { ratingRecipe } from './rating-markup';
 
-export function createCard(card, className) {
+export function createCard(card, className, status) {
 	const { _id, thumb, title, instructions, rating, category } = card;
 	return `<li 
 		data-id="${_id}" data-category="${category}"
@@ -13,7 +13,7 @@ export function createCard(card, className) {
 			url(${thumb}), lightgray 50%; background-size: cover;"
         >
 			<svg class="like js-like" width="22" height="22">
-				<use class="js-like" href="../img/icon/icon.svg#icon-like-full"></use> 
+				<use class="js-like" href="${status}"></use> 
 			</svg>
 	    <h3 class="recipe-item-name">${title}</h3>
 	    <p class="recipe-item-about">${instructions}</p>
