@@ -327,7 +327,7 @@
   align-items: center;
   background-color: transparent;
 
-  color: var(--color-black-btn);
+  color: var(--color-font-select-text);
   font-family: Inter;
   font-size: 12px;
   font-style: normal;
