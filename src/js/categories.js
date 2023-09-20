@@ -1,9 +1,9 @@
 /** @format */
 import { renderMain } from './recipe-list';
 import { renderCardsOptions } from './recipe-list';
+import { fetchCategories } from './fetch-api.js';
 
 // Подключаю axios, notiflix
-import axios from 'axios';
 import Notiflix from 'notiflix';
 
 const list = document.querySelector('.categories-list');
@@ -12,13 +12,6 @@ allCategoriesBtn.classList.add('all-categories-btn-aktiv');
 let itemArr;
 
 renderMain(renderCardsOptions);
-
-// Делаю запрос на получение данных
-async function fetchCategories() {
-	axios.defaults.baseURL = 'https://tasty-treats-backend.p.goit.global/api';
-	const response = await axios.get(`/categories`);
-	return response.data;
-}
 
 // Обработка данных, создание списка категорий в HTML
 fetchCategories()
