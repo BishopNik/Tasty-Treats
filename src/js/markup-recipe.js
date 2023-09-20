@@ -13,6 +13,7 @@ export async function markupRecipe(id) {
 	}
 
 	let youtubeLink = '';
+	let idVideo = '';
 	let cursor = 'auto';
 
 	// added by IRyb //
@@ -29,17 +30,10 @@ export async function markupRecipe(id) {
 
 	if (index > 0) {
 		cursor = 'pointer';
-		const idVideo = youtube.substring(index + 3);
+		idVideo = youtube.substring(index + 3);
 		youtubeLink = `<svg class="recipe-youtube">
 			<use href="../img/icon/icon.svg#icon-youtube" style="width: 38px; height: 38px;"></use>
-		</svg>	
-		<iframe
-			class='recipe-adv-youtube'
-			src='https://www.youtube.com/embed/${idVideo}?autoplay=1'
-			frameborder='0'
-			allow="autoplay; gyroscope; picture-in-picture; clipboard-write"
-			allowfullscreen
-		></iframe>`;
+		</svg>`;
 	}
 	const tagsRecipe = tags
 		? tags.map(item => `<li class="recipe-tag">#${item}</li>`).join('')
@@ -63,7 +57,8 @@ export async function markupRecipe(id) {
 		<h2 class="recipe-adv-name">${title}</h2>
 		<div
 			class="recipe-adv-img" style="background: linear-gradient(0deg, rgba(5, 5, 5, 0.4) 0%, rgba(5, 5, 5, 0.4) 100%),
-		lightgray -34.64px -20px / 109.993% 120% no-repeat url(${thumb}); background-size: cover; background-position: center; cursor: ${cursor}"		
+		lightgray -34.64px -20px / 109.993% 120% no-repeat url(${thumb}); background-size: cover; background-position: center; cursor: ${cursor}"
+		data-youtubeid="${idVideo}"	
 		>
 		${youtubeLink}
 		</div>
