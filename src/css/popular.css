@@ -124,6 +124,7 @@
     overflow: hidden;
     padding-top: 8px;
     width: 120px;
+    color: var(--color-font-popular-recipe);
   }
   .popular-containet-description {
     height: 100%;
