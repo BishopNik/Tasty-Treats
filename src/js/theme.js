@@ -20,14 +20,6 @@ function theme() {
 		}
 	}
 
-<<<<<<< Updated upstream
-	if (localStorage.getItem('theme') !== null) {
-		el.setAttribute('data-theme', 'dark');
-		checkbox.checked = true;
-	} else {
-		setThemeFromMediaQuery();
-	}
-=======
   if (localStorage.getItem('theme') !== null) {
     el.setAttribute('data-theme', 'dark');
     checkbox.checked = true;
@@ -46,18 +38,17 @@ function theme() {
       checkbox.checked = false;
     }
   }
->>>>>>> Stashed changes
 }
 theme();
 
-// const currentPageName = document.querySelector('[meta-page-name]').getAttribute('meta-page-name');
-// const navigationLinksArray = Array.from(document.querySelectorAll('.nav-link'));
+ const currentPageName = document.querySelector('[meta-page-name]').getAttribute('meta-page-name');
+ const navigationLinksArray = Array.from(document.querySelectorAll('.nav-link'));
 
-// navigationLinksArray.forEach(linkElement => {
-// 	const name = linkElement.getAttribute('link-name');
-// 	if (name === currentPageName) {
-// 		linkElement.classList.add('current');
-// 	} else {
-// 		linkElement.classList.remove('current');
-// 	}
-// });
+navigationLinksArray.forEach(linkElement => {
+  const name = linkElement.getAttribute('link-name');
+  if (name === currentPageName) {
+ 		linkElement.classList.add('current');
+	} else {
+ 		linkElement.classList.remove('current');
+	}
+});
