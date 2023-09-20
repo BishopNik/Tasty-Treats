@@ -33,7 +33,7 @@ fetchCategories()
 		Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page!');
 	});
 
-// // Функция для создания списка
+// Функция для создания списка
 
 function createCategoriesList(arr) {
 	return arr
@@ -66,6 +66,9 @@ function onAllCategoriesBtnClick() {
 // Функция для отображения одной категории
 
 function onListClick(evt) {
+	if (evt.target === evt.currentTarget) {
+         return;
+   	}
 	allCategoriesBtn.classList.remove('all-categories-btn-aktiv');
 	clearCurrentCategory(itemArr);
 
@@ -79,17 +82,6 @@ function onListClick(evt) {
 	renderCardsOptions.params.area = '';
 	renderCardsOptions.params.ingredient = '';
 	renderMain(renderCardsOptions);
-
-	//   if (!evt.target.classList.contains('categories-btn')) {
-	//     return;
-	//   }
-
-	// evt.target.classList.add('curent-category');
-	// let currentCategory = { id: evt.target.id, name: evt.target.textContent };
-
-	// renderCardsOptions.params.page = 1;
-	// renderCardsOptions.params.category = evt.target.textContent;
-	// renderMain(renderCardsOptions);
 
 	return currentCategory;
 }
