@@ -41,7 +41,7 @@ function theme() {
 }
 theme();
 
- const currentPageName = document.querySelector('[meta-page-name]').getAttribute('meta-page-name');
+ const currentPageName = document.querySelector('[name]').getAttribute('name');
  const navigationLinksArray = Array.from(document.querySelectorAll('.nav-link'));
 
 navigationLinksArray.forEach(linkElement => {
