@@ -2,11 +2,11 @@
 
 import { ratingRecipe } from './rating-markup';
 
-export function createCard(card) {
+export function createCard(card, className) {
 	const { _id, thumb, title, instructions, rating, category } = card;
 	return `<li 
 		data-id="${_id}" data-category="${category}"
-		class="recipe-item mainblock in-favorites js-recipe"
+		class="recipe-item mainblock ${className} js-recipe"
 	
 	    style="
 		background: linear-gradient(1deg, rgba(5, 5, 5, 0.6) 4.82%, rgba(5, 5, 5, 0) 108.72%),
