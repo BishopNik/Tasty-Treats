@@ -17,7 +17,7 @@
 }
 
 @media screen and (max-width: 767px) {
-  .popular.main {
+  /* .popular.main {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -28,6 +28,10 @@
     clip-path: inset(100%);
     clip: rect(0 0 0 0);
     overflow: hidden;
+  } */
+
+  .mobile-hidden {
+    display: none;
   }
 
   .visually-hidden {
@@ -91,7 +95,12 @@
     padding-top: 8px;
     width: 252px;
   }
+
+  .mobile-hidden {
+    display: none;
+  }
 }
+
 @media screen and (min-width: 768px) {
   .popular-img {
     width: 48px;
