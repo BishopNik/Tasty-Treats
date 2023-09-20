@@ -20,12 +20,33 @@ function theme() {
 		}
 	}
 
+<<<<<<< Updated upstream
 	if (localStorage.getItem('theme') !== null) {
 		el.setAttribute('data-theme', 'dark');
 		checkbox.checked = true;
 	} else {
 		setThemeFromMediaQuery();
 	}
+=======
+  if (localStorage.getItem('theme') !== null) {
+    el.setAttribute('data-theme', 'dark');
+    checkbox.checked = true;
+  } else {
+    setThemeFromMediaQuery();
+    updateThemeByTime();
+  }
+
+  function updateThemeByTime() {
+    const currentHour = new Date().getHours();
+    if (currentHour >= 23 || currentHour < 1) {
+      el.setAttribute('data-theme', 'dark');
+      checkbox.checked = true;
+    } else {
+      el.removeAttribute('data-theme');
+      checkbox.checked = false;
+    }
+  }
+>>>>>>> Stashed changes
 }
 theme();
 
