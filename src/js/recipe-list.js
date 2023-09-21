@@ -81,7 +81,7 @@ function setPaginationButtons(div, page, total, option) {
 		rangeButtons += `<button class="pagination-btn current-number-btn">1</button>`;
 	} else if (page === 2) {
 		if (window.screen.width < 768) {
-			rangeButtons += `<button class="pagination-btn number-btn">1</button>`;
+			rangeButtons += `<button class="pagination-btn current-number-btn">2</button>`;
 		} else {
 			rangeButtons += `<button class="pagination-btn number-btn">1</button><button class="pagination-btn current-number-btn">2</button>`;
 		}
