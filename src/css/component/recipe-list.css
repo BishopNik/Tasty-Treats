@@ -2,8 +2,13 @@
 
 .pagination-btns {
   display: flex;
-  gap: 24px;
+  gap: 14px;
   justify-content: center;
+}
+@media screen and (min-width: 768px) {
+  .pagination-btns {
+    gap: 24px;
+  }
 }
 
 .pagination-btn {
@@ -54,12 +59,31 @@
   transform: translate(-35%, -50%);
 }
 .forward-btns,
-.back-btns,
+.back-btns {
+  display: flex;
+  gap: 4px;
+}
+
+@media screen and (min-width: 768px) {
+  .forward-btns,
+  .back-btns,
+  .range-btns {
+    display: flex;
+    gap: 8px;
+  }
+}
 .range-btns {
   display: flex;
   gap: 8px;
 }
+@media screen and (min-width: 768px) {
+  .range-btns {
+    display: flex;
+    gap: 10px;
+  }
+}
 .number-btn {
+  color: var(--color-black-font);
   border: 1px solid var(--color-font-select);
   background-color: transparent;
 }
@@ -76,7 +100,7 @@
   display: flex;
   flex-wrap: wrap;
   align-content: start;
-  row-gap: 20px;
+  row-gap: 24px;
   column-gap: 16px;
   margin-bottom: 64px;
 }
@@ -85,6 +109,7 @@
   .recipe-cards {
     width: 496px;
     min-height: 901px;
+    row-gap: 16px;
   }
 
   .pagination-btns {
@@ -96,6 +121,7 @@
   .recipe-cards {
     width: 782px;
     min-height: 901px;
+    row-gap: 20px;
   }
 
   .pagination-btns {
