@@ -1,6 +1,6 @@
 /** @format */
 
-// import { markupCardArray } from "./favorites";
+
 
 function handleLikeBtn(evt) {
 	const favorites = JSON.parse(localStorage.getItem('favorites')) ?? [];
@@ -25,11 +25,6 @@ function handleLikeBtn(evt) {
 	localStorage.setItem('favorites', JSON.stringify(favorites));
 }
 
-// function handleLikeBtnOnFavorites(evt) {
-//   handleLikeBtn(evt);
-//   markupCardArray();
-// }
-
 function handleAddFavouriteBtn(evt) {
 	const favorites = JSON.parse(localStorage.getItem('favorites')) ?? [];
 
@@ -43,16 +38,19 @@ function handleAddFavouriteBtn(evt) {
 
 	// get svg from the required element by id  //
 	const selectors = {
-		list: document.querySelector('.recipe-cards'),
+		list: document.querySelector('.js-all-recipe-cards'),
 	};
 
 	let svg = null;
-	const allElements = selectors.list.querySelectorAll('.js-recipe');
-	allElements.forEach(elm => {
-		if (elm.dataset.id == recipeId && !svg) {
-			svg = elm.querySelector('svg');
-		}
-	});
+	
+	if (selectors.list) {
+		const allElements = selectors.list.querySelectorAll('.js-recipe');
+		allElements.forEach(elm => {
+			if (elm.dataset.id == recipeId && !svg) {
+				svg = elm.querySelector('svg');
+			}
+		});
+	}
 	// **************************** //
 
 	if (recipeId) {
@@ -72,8 +70,8 @@ function handleAddFavouriteBtn(evt) {
 	}
 
 	localStorage.setItem('favorites', JSON.stringify(favorites));
+
 }
 
 export { handleLikeBtn };
 export { handleAddFavouriteBtn };
-// export { handleLikeBtnOnFavorites };

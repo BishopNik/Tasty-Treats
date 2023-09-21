@@ -6,147 +6,147 @@
  * @format
  */
 @media only screen and (min-width: 1280px) {
-  .container {
-    padding-right: 0px;
-  }
+	.container {
+		padding-right: 0px;
+	}
 }
 
 .hero-container {
-  display: flex;
-  flex-direction: column;
-  padding-top: 40.5px;
-  padding-bottom: 40px;
+	display: flex;
+	flex-direction: column;
+	padding-top: 40.5px;
+	padding-bottom: 40px;
 }
 
 @media only screen and (min-width: 375px) {
-  .hero-container {
-    max-width: 375px;
-  }
+	.hero-container {
+		max-width: 375px;
+	}
 }
 
 @media only screen and (min-width: 768px) {
-  .hero-container {
-    padding-top: 65px;
-    padding-bottom: 80px;
-    max-width: 768px;
-  }
+	.hero-container {
+		padding-top: 65px;
+		padding-bottom: 80px;
+		max-width: 768px;
+	}
 }
 
 @media only screen and (min-width: 1280px) {
-  .hero-container {
-    padding-top: 85px;
-    padding-bottom: 97px;
-  }
+	.hero-container {
+		padding-top: 85px;
+		padding-bottom: 97px;
+	}
 }
 
 .left-container {
-  width: 375px;
+	width: 375px;
 }
 
 @media only screen and (min-width: 1280px) {
-  .left-container {
-    min-width: 446px;
-  }
+	.left-container {
+		min-width: 446px;
+	}
 }
 
 .hero-title {
-  color: var(--color-black-font);
-  font-size: 26px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 1.2;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-  text-align: left;
+	color: var(--color-black-font);
+	font-size: 26px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 1.2;
+	text-transform: uppercase;
+	margin-bottom: 16px;
+	text-align: left;
 }
 
 @media only screen and (min-width: 768px) {
-  .hero-title {
-    width: 446px;
-    font-size: 36px;
-  }
+	.hero-title {
+		width: 446px;
+		font-size: 36px;
+	}
 }
 
 .hero-title-highlight {
-  font-family: sans-serif;
-  color: var(--color-green-button);
-  font-style: italic;
-  font-weight: 400;
-  line-height: 1.2;
+	font-family: sans-serif;
+	color: var(--color-green-button);
+	font-style: italic;
+	font-weight: 400;
+	line-height: 1.2;
 }
 
 .hero-desc {
-  color: var(--color-black-font);
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 18px;
-  text-align: justify;
-  max-width: 335px;
-  margin-bottom: 28px;
+	color: var(--color-black-font);
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 18px;
+	text-align: justify;
+	max-width: 335px;
+	margin-bottom: 28px;
 }
 
 @media only screen and (min-width: 768px) {
-  .hero-desc {
-    margin-bottom: 32px;
-    min-width: 408px;
-    font-size: 16px;
-  }
+	.hero-desc {
+		margin-bottom: 32px;
+		min-width: 408px;
+		font-size: 16px;
+	}
 }
 
 .hero-btn {
-  font-family: Inter;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
+	font-family: Inter;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
 
-  padding: 10px 20px;
-  min-width: 111px;
-  min-height: 37px;
-  margin-bottom: 48px;
+	padding: 10px 20px;
+	min-width: 111px;
+	min-height: 37px;
+	margin-bottom: 48px;
 
-  border-radius: 15px;
-  border: 1px solid var(--color-green-button);
-  cursor: pointer;
+	border-radius: 15px;
+	border: 1px solid var(--color-green-button);
+	cursor: pointer;
 }
 
 @media only screen and (min-width: 768px) {
-  .hero-btn {
-    margin-bottom: 64px;
-  }
+	.hero-btn {
+		margin-bottom: 64px;
+	}
 }
 
 .hero-btn:hover,
 .hero-btn:focus {
-  background-color: var(--color-green-button);
-  color: var(--color-font-background);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+	background-color: var(--color-green-button);
+	color: var(--color-font-background);
+	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+		background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .swiper-slide {
-  display: flex;
-  flex-direction: row;
-  /* width: 100%; */
+	display: flex;
+	flex-direction: row;
+	/* width: 100%; */
 }
 
 .swiper-wrapper {
-  display: flex;
-  flex-direction: row;
-  /* position: relative; */
+	display: flex;
+	flex-direction: row;
+	/* position: relative; */
 }
 
 @media only screen and (min-width: 768px) {
-  .hero-btn {
-    padding: 14px 28px;
-    margin-bottom: 52px;
-  }
+	.hero-btn {
+		padding: 14px 28px;
+		margin-bottom: 52px;
+	}
 }
 
 @media only screen and (min-width: 1280px) {
-  .hero-container {
-    flex-direction: row;
-    gap: 21px;
-  }
+	.hero-container {
+		flex-direction: row;
+		gap: 21px;
+	}
 }
