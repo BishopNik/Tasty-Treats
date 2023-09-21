@@ -221,5 +221,12 @@ function onResetBtnClick(evt) {
 
   elements.searchBtn.classList.remove('active-icon-serach');
 
+  renderCardsOptions.params.page = 1;
+  renderCardsOptions.params.category = '';
+  renderCardsOptions.params.title = '';
+  renderCardsOptions.params.time = '';
+  renderCardsOptions.params.area = '';
+  renderCardsOptions.params.ingredient = '';
+
   renderMain(renderCardsOptions);
 }
