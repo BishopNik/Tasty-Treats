@@ -285,6 +285,7 @@
 
   .current {
     color: var(--color-green-button);
+    font-weight: 500;
   }
 
   .shopping-icon {
