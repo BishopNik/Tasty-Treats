@@ -1,6 +1,7 @@
 /** @format */
 
 import { onOpenWindow } from './recipe';
+import { allCard, currentPage, cardInHtml, perPage } from './favorites';
 
 let activeCatigories = new Set();
 
@@ -30,9 +31,13 @@ export function markupButtons(cards) {
 	ref.allCategories = document.querySelector('#allcat');
 }
 
-export function markupCards(cards) {
-	cards.length
-		? (ref.cardsFavorites.innerHTML = cards.join(''))
+export function markupCards(cards, page, perPage) {
+	const start = (page - 1) * perPage;
+	const end = page * perPage;
+	const markupCardsArray = cardInHtml(cards);
+	const pageCardArray = markupCardsArray.slice(start, end);
+	pageCardArray.length
+		? (ref.cardsFavorites.innerHTML = pageCardArray.join(''))
 		: (ref.cardsFavorites.innerHTML = `<div class="not_favorites">
 						<svg class="favorites_elem_svg" width="68" height="58">
 							<use href="./img/icon/icon.svg#icon-elements"></use>
@@ -56,12 +61,13 @@ function addFilter({ target }) {
 			buttons[i].children[0].classList.remove('green-button');
 		}
 		for (let i = 0; i < cards.length; i++) {
-			cards[i].classList.remove('is-hidden');
-			target.classList.add('green-button');
-			activeCatigories.clear();
-			cardFavoritsFilter();
-			return;
+			// cards[i].classList.remove('is-hidden');
 		}
+		target.classList.add('green-button');
+		activeCatigories.clear();
+		cardFilterCategories(1);
+		// cardFavoritsFilter();
+		return;
 	}
 	if (!activeCatigories.has(target.textContent)) {
 		activeCatigories.add(target.textContent);
@@ -74,24 +80,33 @@ function addFilter({ target }) {
 	if (!activeCatigories.size) {
 		ref.allCategories.classList.add('green-button');
 	}
+	cardFilterCategories(1);
 	cardFavoritsFilter();
 }
 
 function cardFavoritsFilter() {
-	const cards = ref.cardsFavorites.children;
-	for (let i = 0; i < cards.length; i++) {
-		if (!activeCatigories.has(cards[i].dataset.category) && activeCatigories.size) {
-			cards[i].classList.add('is-hidden');
-		} else cards[i].classList.remove('is-hidden');
-	}
+	// const cards = ref.cardsFavorites.children;
+	// for (let i = 0; i < cards.length; i++) {
+	// 	if (!activeCatigories.has(cards[i].dataset.category) && activeCatigories.size) {
+	// 		cards[i].classList.add('is-hidden');
+	// 	} else cards[i].classList.remove('is-hidden');
+	// }
 	const allButtonsActive = ref.categoriesFavorites.querySelectorAll('.green-button');
-	const AllButton = ref.categoriesFavorites.children;
-	if (AllButton.length - 1 === allButtonsActive.length) {
+	const allButton = ref.categoriesFavorites.children;
+	if (allButton.length - 1 === allButtonsActive.length) {
 		ref.allCategories.classList.add('green-button');
+		activeCatigories.clear();
 		for (const card of allButtonsActive) {
 			card.classList.remove('green-button');
 		}
 	}
+}
+
+export function cardFilterCategories(currentPage) {
+	const filteredCard = activeCatigories.size
+		? allCard.filter(({ category }) => activeCatigories.has(category))
+		: allCard;
+	markupCards(filteredCard, currentPage, perPage);
 }
 
 function onOpenModalWindow({ target }) {

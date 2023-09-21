@@ -111,6 +111,7 @@
 		width: 14px;
 		height: 14px;
 	}
+
 	.recipe-item-rating {
 		gap: 4px;
 	}
@@ -128,7 +129,7 @@
 	}
 
 	.recipe-item-see {
-		padding: 8px 14px;
+		padding: 8px 13px;
 	}
 
 	.recipe-item-rating-star {
