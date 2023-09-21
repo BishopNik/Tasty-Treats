@@ -2,6 +2,7 @@
 import { renderMain } from './recipe-list';
 import { renderCardsOptions } from './recipe-list';
 import { fetchCategories } from './fetch-api.js';
+import { resetFilters } from './filters';
 
 // Подключаю axios, notiflix
 import Notiflix from 'notiflix';
@@ -48,6 +49,7 @@ list.addEventListener('click', onListClick);
 function onAllCategoriesBtnClick() {
   clearCurrentCategory(itemArr);
   allCategoriesBtn.classList.add('all-categories-btn-aktiv');
+  resetFilters();
 
   renderCardsOptions.params.page = 1;
   renderCardsOptions.params.title = '';
@@ -66,6 +68,7 @@ function onListClick(evt) {
   }
   allCategoriesBtn.classList.remove('all-categories-btn-aktiv');
   clearCurrentCategory(itemArr);
+  resetFilters();
 
   evt.target.classList.add('curent-category');
   let currentCategory = { id: evt.target.id, name: evt.target.textContent };

@@ -53,6 +53,12 @@
   color: var(--color-filters-text);
 }
 
+@media screen and (max-width: 767px) {
+  .filter-search-field {
+    width: 335px;
+  }
+}
+
 .filter-icon-search {
   border: none;
   padding: 0;
@@ -105,6 +111,7 @@
   height: 48px;
   border: none;
 }
+
 .country-dropdown {
   position: relative;
   width: 141px;
@@ -116,6 +123,16 @@
   width: 188px;
   height: 48px;
   border: transparent;
+}
+
+@media screen and (max-width: 767px) {
+  .time-dropdown {
+    width: 160px;
+  }
+
+  .country-dropdown {
+    width: 161px;
+  }
 }
 
 .time-dropdown::before {
@@ -355,12 +372,6 @@
   margin-left: auto;
 
   margin-bottom: 14px;
-}
-
-@media screen and (max-width: 767px) {
-  .filter-reset-btn {
-    display: none;
-  }
 }
 
 .filter-reset {
