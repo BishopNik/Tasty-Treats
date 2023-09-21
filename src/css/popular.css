@@ -1,5 +1,8 @@
 /** @format */
 
+.popular-item {
+  cursor: pointer;
+}
 
 
 @media screen and (max-width: 767px) {
