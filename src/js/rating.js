@@ -27,8 +27,6 @@ const handler = e => {
   refs.span.innerHTML = value.toFixed(1);
 
   refs.inputs.forEach((el, index) => {
-    console.log(el.classList);
-
     if (index <= value - 1) {
       el.children[0].classList.add('active');
     } else {
@@ -64,15 +62,15 @@ const handleSubmit = async (e, id) => {
 };
 
 function removeListeners() {
-  refs.openModalBtn.removeListeners('click', toggleModal);
-  refs.closeModalBtn.removeListeners('click', toggleModal);
-  document.removeListeners('keydown', onCloseModal);
+  refs.openModalBtn.removeEventListener('click', toggleModal);
+  refs.closeModalBtn.removeEventListener('click', toggleModal);
+  document.removeEventListener('keydown', onCloseModal);
 
   refs.inputs.forEach(el => {
-    el.children[1].removeListeners('change', handler);
+    el.children[1].removeEventListener('change', handler);
   });
 
-  refs.form.removeListeners('submit', handleSubmit);
+  refs.form.removeEventListener('submit', handleSubmit);
 }
 
 export function createListeners(id) {
