@@ -258,7 +258,7 @@
 
 .filter-time-list li:hover,
 .filter-time-list li:focus {
-  color: #050505;
+  color: var(--color-filters-text);
   font-family: Inter;
   font-size: 16px;
   font-style: normal;
@@ -268,7 +268,7 @@
 
 .filter-country-list li:hover,
 .filter-country-list li:focus {
-  color: #050505;
+  color: var(--color-filters-text);
   font-family: Inter;
   font-size: 16px;
   font-style: normal;
@@ -278,7 +278,7 @@
 
 .filter-ingr-list li:hover,
 .filter-ingr-list li:focus {
-  color: #050505;
+  color: var(--color-filters-text);
   font-family: Inter;
   font-size: 16px;
   font-style: normal;
