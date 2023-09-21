@@ -27,7 +27,7 @@ const handler = e => {
   refs.span.innerHTML = value.toFixed(1);
 
   refs.inputs.forEach((el, index) => {
-    console.log(el.classList);
+   
 
     if (index <= value - 1) {
       el.children[0].classList.add('active');
