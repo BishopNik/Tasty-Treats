@@ -81,9 +81,10 @@ function onCountryOptionsClick(evt) {
 function onIngrOptionsClick(evt) {
   const currentOpt = evt.target.textContent;
   elements.ingrInput.value = currentOpt;
+  const currentIngreed = evt.target.id;
 
   renderCardsOptions.params.page = 1;
-  renderCardsOptions.params.ingredient = `${currentOpt}`;
+  renderCardsOptions.params.ingredient = `${currentIngreed}`;
   renderMain(renderCardsOptions);
 }
 
@@ -221,10 +222,11 @@ function onResetBtnClick(evt) {
   elements.searchBtn.classList.remove('active-icon-serach');
 
   renderCardsOptions.params.page = 1;
-  renderCardsOptions.params.title = '';
   renderCardsOptions.params.category = '';
-  renderCardsOptions.params.time = ``;
+  renderCardsOptions.params.title = '';
+  renderCardsOptions.params.time = '';
   renderCardsOptions.params.area = '';
   renderCardsOptions.params.ingredient = '';
+
   renderMain(renderCardsOptions);
 }

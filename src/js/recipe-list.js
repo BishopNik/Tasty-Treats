@@ -2,32 +2,15 @@
 
 import { handleLikeBtn } from './add_favorites';
 import { createCard } from './recipe-card';
-
-// import axios from 'axios';
-// import Notiflix from 'notiflix';
 import { onOpenWindow } from './recipe';
-// import { ratingRecipe } from './rating-markup';
 import { fetchRecipeCards } from './fetch-api';
 
 const pagination = document.querySelector('.pagination-btns');
 const recipeCards = document.querySelector('.recipe-cards');
 export const recipesApi = 'https://tasty-treats-backend.p.goit.global/api/recipes';
-
 const cadrsContainer = document.querySelector('.recipe-cards');
 cadrsContainer.addEventListener('click', onOpenModalWindow);
 
-// export async function fetchRecipeCards(api, options) {
-// 	let fetchResult = {};
-// 	await axios
-// 		.get(api, options)
-// 		.then(resp => {
-// 			(fetchResult.results = resp.data.results),
-// 				(fetchResult.currentPage = resp.data.page),
-// 				(fetchResult.totalPages = resp.data.totalPages);
-// 		})
-// 		.catch(err => console.log(err));
-// 	return fetchResult;
-// }
 
 function renderCards(results, div, cardStyle) {
 	let htmlCards = '';
@@ -40,40 +23,9 @@ function renderCards(results, div, cardStyle) {
 		} else {
 			likeIconUrl = '../img/icon/icon.svg#icon-like-full';
 		}
-
 		htmlCards += createCard(elm, cardStyle, likeIconUrl);
-		// 		`<li
-		// 		data-id="${elm._id}"
-		// 		class="recipe-item ${cardStyle} js-recipe"
-
-		// 	style="
-		// 		background: linear-gradient(1deg, rgba(5, 5, 5, 0.6) 4.82%, rgba(5, 5, 5, 0) 108.72%),
-		// 			url(${elm.thumb}), lightgray 50%; background-size: cover;
-		// 	"
-		// >
-		// 			<svg class="like js-like" width="22" height="22">
-		// 				<use class="js-like" href="${likeIconUrl}"></use>
-		// 			</svg>
-		// 	<h3 class="recipe-item-name">${elm.title}</h3>
-		// 	<p class="recipe-item-about">${elm.instructions}</p>
-		// 	<div class="recipe-item-option">
-		// 		<div class="recipe-item-rating">
-		// 			<span class="recipe-item-rating-num">${elm.rating.toFixed(2)}</span>
-		// 			<ul class="recipe-item-rating-stars">
-		// 				${ratingRecipe(elm.rating)}
-		// 			</ul>
-		// 		</div>
-		// 		<button class="main-button green-button recipe-item-see" type="button" data-id="${
-		// 			elm._id
-		// 		}">See recipe</button>
-		// 	</div>
-		//     </li>`;
 	});
 	div.innerHTML = htmlCards;
-	// const seeButtons = document.querySelectorAll('.recipe-item-see');
-	// seeButtons.forEach(elm =>
-	// 	elm.addEventListener('click', evt => onOpenWindow(evt.target.dataset.id))
-	// );
 }
 
 const selectors = {
@@ -128,20 +80,33 @@ function setPaginationButtons(div, page, total, option) {
 		backButtons.forEach(elm => (elm.disabled = true));
 		rangeButtons += `<button class="pagination-btn current-number-btn">1</button>`;
 	} else if (page === 2) {
-		rangeButtons += `<button class="pagination-btn number-btn">1</button><button class="pagination-btn current-number-btn">2</button>`;
+		if (window.screen.width < 768) {
+			rangeButtons += `<button class="pagination-btn current-number-btn">2</button>`;
+		} else {
+			rangeButtons += `<button class="pagination-btn number-btn">1</button><button class="pagination-btn current-number-btn">2</button>`;
+		}
 	} else if (page >= 3) {
-		rangeButtons += `<button class="pagination-btn dot-btn number-btn" disabled>...</button><button class="pagination-btn number-btn">${
-			page - 1
-		}</button><button class="pagination-btn current-number-btn">${page}</button>`;
+		if (window.screen.width < 768) {
+			rangeButtons += `<button class="pagination-btn dot-btn number-btn" disabled>...</button><button class="pagination-btn current-number-btn">${page}</button>`;
+		} else {
+			rangeButtons += `<button class="pagination-btn dot-btn number-btn" disabled>...</button><button class="pagination-btn number-btn">${page - 1
+				}</button><button class="pagination-btn current-number-btn">${page}</button>`;
+		}
 	}
 	if (total - page === 0) {
 		forwardButtons.forEach(elm => (elm.disabled = true));
 	} else if (total - page === 1) {
-		rangeButtons += `<button class="pagination-btn number-btn">${page + 1}</button>`;
+		if (window.screen.width < 768) {
+		} else {
+			rangeButtons += `<button class="pagination-btn number-btn">${page + 1}</button>`;
+		}
 	} else if (total - page >= 2) {
-		rangeButtons += `<button class="pagination-btn number-btn">${
-			page + 1
-		}</button><button class="pagination-btn dot-btn number-btn" disabled>...</button>`;
+		if (window.screen.width < 768) {
+		rangeButtons += `<button class="pagination-btn dot-btn number-btn" disabled>...</button>`;	
+		} else { 
+		rangeButtons += `<button class="pagination-btn number-btn">${page + 1
+			}</button><button class="pagination-btn dot-btn number-btn" disabled>...</button>`;
+	}
 	}
 
 	rangeButtonsElm.innerHTML = rangeButtons;
@@ -202,4 +167,16 @@ function onOpenModalWindow({ target }) {
 	onOpenWindow(target.dataset.id);
 }
 
-// renderMain(renderCardsOptions);
+
+
+
+window.addEventListener('resize', () => {
+	if (window.screen.width < 768) {
+	renderCardsOptions.params.limit = 6;
+} else if (window.screen.width < 1280) {
+	renderCardsOptions.params.limit = 8;
+} else {
+	renderCardsOptions.params.limit = 9;
+	}
+	renderMain(renderCardsOptions);
+})
