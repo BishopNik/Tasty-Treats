@@ -26,11 +26,19 @@
 		gap: 32px;
 		flex-direction: row;
 	}
+
+	.main-recipe-sidebar {
+		gap: 64px;
+	}
 }
 
 @media screen and (min-width: 1280px) {
 	.main-elements {
 		gap: 64px;
 		flex-direction: row;
+	}
+
+	.main-recipe-sidebar {
+		gap: 64px;
 	}
 }

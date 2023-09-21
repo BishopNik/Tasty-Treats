@@ -1,24 +1,11 @@
 /** @format */
 
-@media screen and (min-width: 768px) {
-  .popular-mobile {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    white-space: nowrap;
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
-    display: none;
-  }
-}
+
 
 @media screen and (max-width: 767px) {
-  /* .popular.main {
-    position: absolute;
+  .popular.main {
+    padding-bottom: 35px;
+    /* position: absolute;
     width: 1px;
     height: 1px;
     margin: -1px;
@@ -27,8 +14,8 @@
     white-space: nowrap;
     clip-path: inset(100%);
     clip: rect(0 0 0 0);
-    overflow: hidden;
-  } */
+    overflow: hidden; */
+  }
 
   .mobile-hidden {
     display: none;
@@ -53,7 +40,7 @@
     text-transform: uppercase;
     font-size: 18px;
     line-height: calc(24 / 18);
-    margin-bottom: 16px;
+    margin-bottom: 20px;
   }
   .popular-list {
     display: flex;
@@ -102,6 +89,7 @@
 }
 
 @media screen and (min-width: 768px) {
+
   .popular-img {
     width: 48px;
     height: 48px;
@@ -109,24 +97,25 @@
   }
   .popular-group-title {
     color: var(--color-black-font);
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 600;
-    line-height: calc(28 / 24);
+    line-height: 24px;
     margin-bottom: 32px;
+    text-transform: uppercase;
   }
   .popular-list {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 16px;
   }
   .popular-item {
     list-style: none;
     display: flex;
-    gap: 16px;
+    gap: 8px;
   }
   .popular-description {
     font-size: 10px;
-    line-height: calc(14 / 10);
+    line-height: 14px;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
@@ -137,11 +126,10 @@
   }
   .popular-containet-description {
     height: 100%;
-    width: 155px;
+    width: 120px;
   }
   .popular-title {
     font-weight: 600;
-    line-height: calc(18 / 14);
     text-transform: uppercase;
     color: var(--color-black-font);
     overflow-wrap: normal;
@@ -149,6 +137,9 @@
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 18px;
   }
 }
 
@@ -191,5 +182,6 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    width: 100%;
   }
 }

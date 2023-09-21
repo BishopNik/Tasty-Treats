@@ -1,18 +1,12 @@
 /** @format */
 
 import { onOpenWindow } from './recipe';
+import { fetchPopulars } from './fetch-api';
 
-import axios from 'axios';
 import Notiflix from 'notiflix';
 
 const popularList = document.querySelector(".popular-list")
 
-// Делаю запрос на получение данных
-async function fetchPopulars() {
-	axios.defaults.baseURL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
-	const response = await axios.get(`/popular`);
-	return response.data;
-}
 
 // Обработка данных, создание разметки в HTML
 fetchPopulars()
