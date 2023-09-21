@@ -49,9 +49,10 @@
   --color-rating-number: rgb(248, 248, 248);
   --color-filters-text: rgba(5, 5, 5, 1);
   --filters-color-table: rgba(255, 255, 255, 1);
-  --color-star: rgba(60, 59, 59, 1);
+  --color-star: rgba(217, 217, 217);
   --color-menu-burger: rgba(155, 181, 55, 1);
   --color-btn-modal: rgba(206, 205, 205);
+  --color-hover: rgba(255, 255, 255, 1);
 
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -84,6 +85,8 @@
   --filters-color-table: rgba(5, 5, 5, 1);
   --color-menu-burger: rgba(5, 5, 5, 1);
   --color-btn-modal: rgba(155, 181, 55, 1);
+  --color-hover: rgba(155, 181, 55, 1);
+  --color-star: rgba(60, 59, 59, 1);
 }
 
 body {
@@ -99,6 +102,7 @@ body {
 .container {
   margin-left: auto;
   margin-right: auto;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 767px) {

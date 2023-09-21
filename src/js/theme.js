@@ -1,27 +1,42 @@
-function theme() {
-  const checkbox = document.querySelector(
-    '.theme-switcher input[type="checkbox"]'
-  );
+/** @format */
 
-  const el = document.documentElement;
-  checkbox.addEventListener('change', () => {
-    if (el.hasAttribute('data-theme')) {
-      el.removeAttribute('data-theme');
-      localStorage.removeItem('theme');
+const currentPageName = document
+    .querySelector('[http-equiv]')
+    .getAttribute('content');
+const navigationLinksArray = Array.from(
+    document.querySelectorAll('.nav-link')
+);
+
+navigationLinksArray.forEach(linkElement => {
+    const name = linkElement.getAttribute('link-name');
+    if (name === currentPageName) {
+        console.log('Selected page: ' + name);
+        linkElement.classList.add('current');
     } else {
-      el.setAttribute('data-theme', 'dark');
-      localStorage.setItem('theme', 'dark');
+        linkElement.classList.remove('current');
     }
-  });
-  function setThemeFromMediaQuery() {
-    if (
-      window.matchMedia &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches
-    ) {
-      el.setAttribute('data-theme', 'dark');
-      checkbox.checked = true;
-    }
-  }
+});
+
+
+function theme() {
+	const checkbox = document.querySelector('.theme-switcher input[type="checkbox"]');
+
+	const el = document.documentElement;
+	checkbox.addEventListener('change', () => {
+		if (el.hasAttribute('data-theme')) {
+			el.removeAttribute('data-theme');
+			localStorage.removeItem('theme');
+		} else {
+			el.setAttribute('data-theme', 'dark');
+			localStorage.setItem('theme', 'dark');
+		}
+	});
+	function setThemeFromMediaQuery() {
+		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			el.setAttribute('data-theme', 'dark');
+			checkbox.checked = true;
+		}
+	}
 
   if (localStorage.getItem('theme') !== null) {
     el.setAttribute('data-theme', 'dark');
@@ -33,7 +48,7 @@ function theme() {
 
   function updateThemeByTime() {
     const currentHour = new Date().getHours();
-    if (currentHour >= 18 || currentHour < 6) {
+    if (currentHour >= 23 || currentHour < 1) {
       el.setAttribute('data-theme', 'dark');
       checkbox.checked = true;
     } else {

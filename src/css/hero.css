@@ -14,7 +14,8 @@
 .hero-container {
 	display: flex;
 	flex-direction: column;
-	margin-top: 64.5px;
+	padding-top: 40.5px;
+	padding-bottom: 40px;
 }
 
 @media only screen and (min-width: 375px) {
@@ -25,15 +26,16 @@
 
 @media only screen and (min-width: 768px) {
 	.hero-container {
-		margin-top: 69.5px;
+		padding-top: 65px;
+		padding-bottom: 80px;
 		max-width: 768px;
-		/* padding-left: 32px; */
 	}
 }
 
 @media only screen and (min-width: 1280px) {
 	.hero-container {
-		margin-top: 76px;
+		padding-top: 85px;
+		padding-bottom: 97px;
 	}
 }
 
@@ -126,14 +128,13 @@
 .swiper-slide {
 	display: flex;
 	flex-direction: row;
-
-	width: 871px;
-	margin-right: 16px;
+	/* width: 100%; */
 }
 
 .swiper-wrapper {
 	display: flex;
 	flex-direction: row;
+	/* position: relative; */
 }
 
 @media only screen and (min-width: 768px) {

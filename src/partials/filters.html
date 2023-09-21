@@ -3,6 +3,9 @@
     <div class="filter-search-container">
       <label class="filters-lable" for="input-search-field">Search</label>
       <div class="filter-serarch-thumb">
+        <svg class="filter-icon-search" id="filter-icon-s">
+          <use href="./img/icon/icon.svg#icon-search"></use>
+        </svg>
         <input
           id="input-search-field"
           class="filter-search-field"
@@ -11,10 +14,9 @@
           autocomplete="off"
           placeholder="Enter Text"
         />
-
-        <button class="search-btn" type="submit" disabled>
-          <svg class="filter-icon-search">
-            <use href="./img/icon/icon.svg#icon-search"></use>
+        <button class="filter-search-close-btn is-hidden" type="button">
+          <svg class="icon-close-search">
+            <use href="./img/icon/icon.svg#icon-close"></use>
           </svg>
         </button>
       </div>
@@ -27,7 +29,7 @@
           id="time-input"
           class="time-text-box"
           type="text"
-          placeholder="Time"
+          placeholder="0 min"
           readonly
         />
         <div class="filter-time-dropbox">
@@ -36,12 +38,12 @@
             <li class="list-item js-item">10 min</li>
             <li class="list-item js-item">15 min</li>
             <li class="list-item js-item">20 min</li>
-            <li class="list-item js-item">30 min</li>
             <li class="list-item js-item">25 min</li>
+            <li class="list-item js-item">30 min</li>
             <li class="list-item js-item">35 min</li>
             <li class="list-item js-item">40 min</li>
-            <li class="list-item js-item">50 min</li>
             <li class="list-item js-item">45 min</li>
+            <li class="list-item js-item">50 min</li>
             <li class="list-item js-item">55 min</li>
             <li class="list-item js-item">60 min</li>
             <li class="list-item js-item">65 min</li>
@@ -68,7 +70,7 @@
           id="country-input"
           class="country-text-box"
           type="text"
-          placeholder="Country"
+          placeholder="Region"
           readonly
         />
         <div class="filter-country-dropbox">
@@ -84,7 +86,7 @@
           id="ingr-input"
           class="ingr-text-box"
           type="text"
-          placeholder="Ingredient"
+          placeholder="Product"
           readonly
         />
         <div class="filter-ingr-dropbox">

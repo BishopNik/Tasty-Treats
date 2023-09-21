@@ -1,30 +1,9 @@
-ol,
-ul {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-left: 0;
-}
-
-button {
-    cursor: pointer;
-}
-
-.list {
-    list-style: none;
-}
-
-.link {
-    text-decoration: none;
-}
+/** @format */
 
 .categories-section {
     display: flex;
     flex-direction: column;
-    padding-left: 5px;
-    padding-right: 5px;
     padding-top: 40px;
-    padding-bottom: 20px;
-    /* align-items: center; */
 }
 
 .all-categories-btn {
@@ -32,19 +11,17 @@ button {
     font-family: Inter;
     font-size: 18px;
     font-weight: 500;
-    line-height: normal;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 15px;
     border: 1px solid;
-    margin-left: 15px;
-    margin-bottom: 24px;
     width: 176px;
     height: 50px;
     background-color: var(--color-font-background);
     color: var(--color-font-select-text);
     border-color: var(--color-border-select);
+    margin-bottom: 24px;
 }
 
 
@@ -59,9 +36,6 @@ button {
 }
 
 .categories-container {
-    /* max-width: 326px;
-    max-height: 198px; */
-    margin-left: 15px;
     overflow-y: scroll;
 }
 
@@ -151,8 +125,6 @@ button {
     .categories-btn {
         font-size: 16px;
     }
-
-
 }
 
 @media screen and (min-width: 1280px) {

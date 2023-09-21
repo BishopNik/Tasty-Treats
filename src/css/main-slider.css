@@ -1,19 +1,12 @@
-/**
- * MOBILE FIRST
- *
- * @format
- */
-
 .hero-section {
 	padding-left: 20px;
 	padding-right: 20px;
-	margin-bottom: 62px;
 	overflow: hidden;
 }
 
 .slider-cook-img {
-	min-width: 80px;
 	min-height: 280px;
+	width: 80px;
 	background-color: black;
 
 	background-size: cover;
@@ -22,8 +15,8 @@
 }
 
 .slider-dish-fullscreen {
-	max-width: 222px;
 	max-height: 280px;
+	width: 200px;
 	border-radius: 15px;
 	background-color: black;
 	background-size: auto;
@@ -32,13 +25,25 @@
 }
 
 .dish-slider {
-	width: 300px;
+	width: 504px;
 	overflow: hidden;
 }
 
+@media only screen and (min-width: 375px) {
+	.dish-slider {
+		width: 504px;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.dish-slider {
+		width: 891px;
+	}
+}
+
 .slider-dish-container {
-	min-width: 200px;
 	min-height: 280px;
+	width: 200px;
 	background-color: black;
 	padding-top: 56px;
 	display: flex;
@@ -50,10 +55,15 @@
 	padding-bottom: 14px;
 }
 
+@media only screen and (min-width: 768px) {
+	.slider-dish-container {
+		width: 351px;
+	}
+}
+
 .slider-dish-container img {
 	margin: 0 auto;
 	margin-bottom: 20px;
-	width: 157px;
 	height: 142px;
 }
 
@@ -65,20 +75,10 @@
 	font-style: normal;
 	font-weight: 500;
 	line-height: 14px;
-	/* 140% */
 	text-transform: uppercase;
 	margin: 0 auto;
 	margin-bottom: 8px;
-	max-width: 157px;
 }
-
-/* .hero-title {
-	max-width: 320px;
-}
-
-.hero-desc {
-	max-width: 280px;
-} */
 
 .slider-dish-container p {
 	color: rgba(248, 248, 248, 0.2);
@@ -91,74 +91,58 @@
 }
 
 .slider-dish-fullscreen {
-	min-width: 222px;
 	min-height: 280px;
 	background-size: cover;
 	border-radius: 15px;
-}
-
-.swiper-pagination {
-	position: static;
-	margin-top: 20px;
 }
 
 .swiper-pagination-bullet-active {
 	--swiper-theme-color: #9bb537;
 }
 
+.swiper-pagination {
+	width: 0;
+	left: 0px;
+}
+
+@media only screen and (min-width: 375px) {
+	.swiper-pagination {
+		left: 0px;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.swiper-pagination {
+		left: -110px;
+	}
+}
+
 @media only screen and (min-width: 375px) {
 	.hero-section {
 		padding-left: 20px;
 		padding-right: 20px;
-		margin-bottom: 62px;
-	}
-
-
-	/* for slider */
-
-	.dish-slider {
-		width: 355px;
-		overflow: hidden;
 	}
 
 	.slider-cook-img {
-		min-width: 80px;
-		min-height: 280px;
-	}
-
-	.slider-dish-container {
-		min-width: 200px;
 		min-height: 280px;
 	}
 
 	.slider-dish-fullscreen {
-		max-width: 200px;
 		max-height: 280px;
 	}
 
 	.slider-dish-container img {
-		width: 150px;
 		height: 150px;
 	}
 }
 
 @media only screen and (min-width: 768px) {
-	.slide-container {
-		max-width: 768px;
-	}
-
-	.dish-slider {
-		min-width: 768px;
-	}
-
-
 	.slider-cook-img {
 		min-width: 137px;
 		min-height: 442px;
 	}
 
 	.slider-dish-container {
-		min-width: 351px;
 		min-height: 442px;
 		padding-top: 67px;
 	}
@@ -184,7 +168,7 @@
 		text-transform: uppercase;
 		margin: 0 auto;
 		margin-bottom: 8px;
-		max-width: 304px;
+		/* max-width: 304px; */
 	}
 
 	.slider-dish-container p {
@@ -206,24 +190,25 @@
 }
 
 @media only screen and (min-width: 1280px) {
-	.slide-container {
-		max-width: 1280px;
-		margin: 0 auto;
-	}
-
 	.hero-section {
 		padding-left: 0;
-		max-width: 1280px;
 		overflow: hidden;
 	}
 
-	.dish-slider {
-		max-width: 690px;
-	}
-
-
 	.slider-dish-container {
-		max-width: 351px;
+		width: 351px;
 		max-height: 442px;
+	}
+}
+
+.swiper-flex-container {
+	display: flex;
+	flex-direction: row;
+	gap: 8px;
+}
+
+@media only screen and (min-width: 768px) {
+	.swiper-flex-container {
+		gap: 16px;
 	}
 }
