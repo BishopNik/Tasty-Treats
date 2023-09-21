@@ -1,8 +1,8 @@
 /** @format */
 
 const currentPageName = document
-    .querySelector('[meta-page-name]')
-    .getAttribute('meta-page-name');
+    .querySelector('[http-equiv]')
+    .getAttribute('content');
 const navigationLinksArray = Array.from(
     document.querySelectorAll('.nav-link')
 );
