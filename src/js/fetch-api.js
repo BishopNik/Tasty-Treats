@@ -66,3 +66,9 @@ export async function fetchCategories() {
 	const response = await axios.get(`/categories`);
 	return response.data;
 }
+
+export async function fetchPopulars() {
+	axios.defaults.baseURL = URL;
+	const response = await axios.get(`/popular`);
+	return response.data;
+}
