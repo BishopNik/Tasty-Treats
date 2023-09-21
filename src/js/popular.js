@@ -13,7 +13,6 @@ fetchPopulars()
 	.then(data => {
 		let arrPopulars = [...data];
 		popularList.insertAdjacentHTML('beforeend', createPopularsMarcup(arrPopulars));
-		console.dir(popularList.children);
 		addClass(popularList.children);
 	})
 
@@ -65,7 +64,6 @@ function onPopularsListClick(evt) {
 
 function addClass(arr) {
 	for (let i = 2; i < arr.length; i += 1){
-		console.log(arr[i]);
 		arr[i].classList.add('mobile-hidden');
 	}
 }
