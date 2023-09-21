@@ -22,11 +22,20 @@ import Notiflix from 'notiflix';
 		refs.openModalBtn.addEventListener('click', toggleModal);
 	}
 
-	refs.closeModalBtn.addEventListener('click', toggleModal);
+  refs.closeModalBtn.addEventListener('click', toggleModal);
+  document.addEventListener('keydown', onCloseModal);
+	
 
-	function toggleModal() {
-		refs.modal.classList.toggle('is-hidden');
-	}
+  function toggleModal() {
+    refs.modal.classList.toggle('is-hidden');
+  }
+
+  function onCloseModal({ target, key }) {
+    if (refs.modal === target || key === 'Escape') {
+      refs.modal.classList.add('is-hidden');
+
+    }
+  };
 
 	refs.form.addEventListener('submit', async e => {
 		e.preventDefault();
