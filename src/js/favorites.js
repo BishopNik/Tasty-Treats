@@ -5,6 +5,7 @@ import { fetchGetId } from './fetch-api';
 import { markupButtons, markupCards, cardFilterCategories } from './markup-favorites';
 import { handleLikeBtn } from './add_favorites';
 import { createCard } from './recipe-card';
+import sprite from '../img/icon/icon.svg';
 
 window.addEventListener('resize', reloadPageOnResize);
 function reloadPageOnResize() {
@@ -69,9 +70,7 @@ export function cardInHtml(cards) {
 	let markupCardsArray = [];
 	cards
 		? cards.forEach(card => {
-				markupCardsArray.push(
-					createCard(card, `in-favorites`, '../img/icon/icon.svg#icon-like-full')
-				);
+				markupCardsArray.push(createCard(card, `in-favorites`, `${sprite}#icon-like-full`));
 		  })
 		: null;
 	return markupCardsArray;
@@ -109,8 +108,8 @@ function createButtonPagination(cards) {
 			? (rangeBtns += `<button class="pagination-btn btn-js btn-pg" data-id="${i}" data-value="${i}">${i}</button>`)
 			: (rangeBtns += `<button class="pagination-btn btn-js btn-pg" data-id="${i}" data-value="">...</button>`);
 	}
-	const iconRightPath = './img/icon/icon.svg#icon-small-right';
-	const iconLeftPath = './img/icon/icon.svg#icon-small-left';
+	const iconRightPath = `${sprite}#icon-small-right`;
+	const iconLeftPath = `${sprite}#icon-small-left`;
 	const arrowButtons = ` <div class="back-buttons additional">
       <button class="pagination-btn arrow-btn btn-js" data-id="5">
          <div class="left-arrow-icon double-arrow">
