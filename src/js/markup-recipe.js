@@ -1,5 +1,5 @@
 /** @format */
-
+import sprite from '../img/icon/icon.svg';
 import { fetchGetId } from './fetch-api';
 import { ratingRecipe } from './rating-markup';
 
@@ -32,7 +32,7 @@ export async function markupRecipe(id) {
 		cursor = 'pointer';
 		idVideo = youtube.substring(index + 3);
 		youtubeLink = `<svg class="recipe-youtube">
-			<use href="../img/icon/icon.svg#icon-youtube" style="width: 38px; height: 38px;"></use>
+			<use href="${sprite}#icon-youtube" style="width: 38px; height: 38px;"></use>
 		</svg>`;
 	}
 	const tagsRecipe = tags
@@ -52,7 +52,7 @@ export async function markupRecipe(id) {
 	const modWindow = `
     <div class="recipe-adv">
 		<svg class="recipe-close">
-			<use href="../img/icon/icon.svg#icon-close"></use>
+			<use href="${sprite}#icon-close"></use>
 		</svg>
 		<h2 class="recipe-adv-name">${title}</h2>
 		<div

@@ -1,4 +1,5 @@
 /** @format */
+import sprite from '../img/icon/icon.svg';
 
 import { handleLikeBtn } from './add_favorites';
 import { createCard } from './recipe-card';
@@ -14,14 +15,14 @@ cadrsContainer.addEventListener('click', onOpenModalWindow);
 
 function renderCards(results, div, cardStyle) {
 	let htmlCards = '';
-	let likeIconUrl = '../img/icon/icon.svg#icon-like';
+	let likeIconUrl = `${sprite}#icon-like`;
 	const favorites = JSON.parse(localStorage.getItem('favorites')) ?? [];
 
 	results.forEach(elm => {
 		if (favorites.indexOf(elm._id) === -1) {
-			likeIconUrl = '../img/icon/icon.svg#icon-like';
+			likeIconUrl = `${sprite}#icon-like`;
 		} else {
-			likeIconUrl = '../img/icon/icon.svg#icon-like-full';
+			likeIconUrl = `${sprite}#icon-like-full`;
 		}
 		htmlCards += createCard(elm, cardStyle, likeIconUrl);
 	});
@@ -36,8 +37,8 @@ const selectors = {
 selectors.list.addEventListener('click', handleLikeBtn);
 
 function setPaginationButtons(div, page, total, option) {
-	const iconRightPath = './img/icon/icon.svg#icon-small-right';
-	const iconLeftPath = './img/icon/icon.svg#icon-small-left';
+	const iconRightPath = `${sprite}#icon-small-right`;
+	const iconLeftPath = `${sprite}#icon-small-left`;
 	let arrowButtons = ` <div class="back-btns">
       <button class="pagination-btn arrow-btn back-arrow-btn-js">
          <div class="left-arrow-icon double-arrow">
