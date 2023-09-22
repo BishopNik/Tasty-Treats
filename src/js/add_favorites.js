@@ -66,6 +66,10 @@ function handleAddFavouriteBtn(evt) {
 			if (svg) {
 				svg.innerHTML = `<use class="js-like" href="${sprite}#icon-like"></use>`;
 			}
+
+			 const el = selectors.list.querySelector(`[data-id="${recipeId}"]`);
+      el.remove();
+
 		}
 	}
 
