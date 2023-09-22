@@ -1,5 +1,5 @@
 /** @format */
-
+import sprite from '../img/icon/icon.svg';
 
 
 function handleLikeBtn(evt) {
@@ -16,10 +16,10 @@ function handleLikeBtn(evt) {
 
 	if (idx === -1) {
 		favorites.push(recipeId);
-		svg.innerHTML = `<use class="js-like" href="../img/icon/icon.svg#icon-like-full"></use>`;
+		svg.innerHTML = `<use class="js-like" href="${sprite}#icon-like-full"></use>`;
 	} else {
 		favorites.splice(idx, 1);
-		svg.innerHTML = `<use class="js-like" href="../img/icon/icon.svg#icon-like"></use>`;
+		svg.innerHTML = `<use class="js-like" href="${sprite}#icon-like"></use>`;
 	}
 
 	localStorage.setItem('favorites', JSON.stringify(favorites));
@@ -58,13 +58,13 @@ function handleAddFavouriteBtn(evt) {
 			favorites.push(recipeId);
 			btn.innerHTML = `Remove favorite`;
 			if (svg) {
-				svg.innerHTML = `<use class="js-like" href="../img/icon/icon.svg#icon-like-full"></use>`;
+				svg.innerHTML = `<use class="js-like" href="${sprite}#icon-like-full"></use>`;
 			}
 		} else {
 			favorites.splice(idx, 1);
 			btn.innerHTML = `Add to favorite`;
 			if (svg) {
-				svg.innerHTML = `<use class="js-like" href="../img/icon/icon.svg#icon-like"></use>`;
+				svg.innerHTML = `<use class="js-like" href="${sprite}#icon-like"></use>`;
 			}
 
 			 const el = selectors.list.querySelector(`[data-id="${recipeId}"]`);

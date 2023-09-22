@@ -4,7 +4,6 @@
   cursor: pointer;
 }
 
-
 @media screen and (max-width: 767px) {
   .popular.main {
     padding-bottom: 35px;
@@ -92,7 +91,6 @@
 }
 
 @media screen and (min-width: 768px) {
-
   .popular-img {
     width: 48px;
     height: 48px;

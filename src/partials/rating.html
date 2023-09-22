@@ -2,7 +2,7 @@
   <div class="modal-order-container rating-container">
     <div class="modal-button-close" id="modal-rating-closer">
       <svg class="modal-icon-close">
-        <use href="../img/icon/icon.svg#icon-close"></use>
+        <use href="./img/icon/icon.svg#icon-close"></use>
       </svg>
     </div>
     <h2 class="modal-rating-title">Rating</h2>
@@ -12,7 +12,7 @@
         <span class="count-rating">0.0</span>
         <label class="star-input">
           <svg class="modal-icon-star" width="24" height="24">
-            <use href="../img/icon/icon.svg#icon-star"></use>
+            <use href="./img/icon/icon.svg#icon-star"></use>
           </svg>
           <input
             class="radio-button"
@@ -24,7 +24,7 @@
         </label>
         <label class="star-input">
           <svg class="modal-icon-star" width="24" height="24">
-            <use href="../img/icon/icon.svg#icon-star"></use>
+            <use href="./img/icon/icon.svg#icon-star"></use>
           </svg>
           <input
             class="radio-button"
@@ -36,7 +36,7 @@
         </label>
         <label class="star-input">
           <svg class="modal-icon-star" width="24" height="24">
-            <use href="../img/icon/icon.svg#icon-star"></use>
+            <use href="./img/icon/icon.svg#icon-star"></use>
           </svg>
           <input
             class="radio-button"
@@ -48,7 +48,7 @@
         </label>
         <label class="star-input">
           <svg class="modal-icon-star" width="24" height="24">
-            <use href="../img/icon/icon.svg#icon-star"></use>
+            <use href="./img/icon/icon.svg#icon-star"></use>
           </svg>
           <input
             class="radio-button"
@@ -60,7 +60,7 @@
         </label>
         <label class="star-input">
           <svg class="modal-icon-star" width="24" height="24">
-            <use href="../img/icon/icon.svg#icon-star"></use>
+            <use href="./img/icon/icon.svg#icon-star"></use>
           </svg>
           <input
             class="radio-button"
@@ -72,15 +72,15 @@
         </label>
       </div>
 
-      <div class="input-wrap">
-        <input
-          class="modal-order-input"
-          type="text"
-          placeholder="Enter email"
-          name="email"
-          required
-        />
-      </div>
+      <input
+        class="modal-order-input"
+        type="email"
+        placeholder="Enter email"
+        name="email"
+        required
+        pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+      />
+
       <load
         src="./component/button.html"
         class="modal-submit-button-rating"
