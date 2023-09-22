@@ -28,7 +28,6 @@
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
-  font-weight: 500;
   line-height: 1.3;
   margin-bottom: 10px;
 }
@@ -51,6 +50,10 @@
   border: 1px solid var(--color-border-select);
   background-color: transparent;
   color: var(--color-filters-text);
+}
+
+.filter-search-field:focus {
+  outline: none;
 }
 
 @media screen and (max-width: 767px) {
@@ -215,9 +218,6 @@
 
   color: var(--color-filters-text);
   font-family: Inter;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
   line-height: 1.25;
 }
 
@@ -256,9 +256,6 @@
 
   color: var(--color-font-select);
   font-family: Inter;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
   line-height: 1.25;
 }
 
@@ -277,9 +274,6 @@
 .filter-time-list li:focus {
   color: var(--color-filters-text);
   font-family: Inter;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
   line-height: 1.25;
 }
 
@@ -287,9 +281,6 @@
 .filter-country-list li:focus {
   color: var(--color-filters-text);
   font-family: Inter;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
   line-height: 1.25;
 }
 
@@ -297,9 +288,6 @@
 .filter-ingr-list li:focus {
   color: var(--color-filters-text);
   font-family: Inter;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
   line-height: 1.25;
 }
 
@@ -366,8 +354,6 @@
   color: var(--color-font-select-text);
   font-family: Inter;
   font-size: 12px;
-  font-style: normal;
-  font-weight: 500;
   line-height: 1.33;
   margin-left: auto;
 

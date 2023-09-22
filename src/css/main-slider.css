@@ -1,100 +1,101 @@
 .hero-section {
-  padding-left: 20px;
-  padding-right: 20px;
-  overflow: hidden;
+	padding-left: 20px;
+	padding-right: 20px;
+	overflow: hidden;
 }
 
 .slider-cook-img {
-  min-height: 280px;
-  width: 80px;
-  background-color: black;
+	min-height: 280px;
+	width: 80px;
+	background-color: black;
 
-  background-size: cover;
-  background-position: 50% 50%;
-  border-radius: 15px;
+	background-size: cover;
+	background-position: 50% 50%;
+	border-radius: 15px;
 }
 
 .slider-dish-fullscreen {
-  max-height: 280px;
-  width: 200px;
-  border-radius: 15px;
-  background-color: black;
-  background-size: auto;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
+	max-height: 280px;
+	width: 200px;
+	border-radius: 15px;
+	background-color: black;
+	background-size: auto;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
 }
 
 .dish-slider {
-  width: 504px;
-  overflow: hidden;
+	width: 504px;
+	overflow: hidden;
 }
 
 @media only screen and (min-width: 375px) {
-  .dish-slider {
-    width: 504px;
-  }
+	.dish-slider {
+		width: 504px;
+	}
 }
 
 @media only screen and (min-width: 768px) {
-  .dish-slider {
-    width: 891px;
-  }
+	.dish-slider {
+		width: 891px;
+	}
 }
 
 .slider-dish-container {
-  min-height: 280px;
-  width: 200px;
-  background-color: black;
-  padding-top: 56px;
-  display: flex;
-  flex-direction: column;
+	min-height: 280px;
+	width: 200px;
+	background-color: black;
+	padding-top: 56px;
+	display: flex;
+	flex-direction: column;
 
-  justify-content: center;
-  background: radial-gradient(circle at center, #9bb537 0, 5%, #000000);
-  border-radius: 15px;
-  padding-bottom: 14px;
+	justify-content: center;
+	background: radial-gradient(circle at center, #9bb537 0, 5%, #000000);
+	border-radius: 15px;
+	padding-bottom: 14px;
 }
 
 @media only screen and (min-width: 768px) {
-  .slider-dish-container {
-    width: 351px;
-  }
+	.slider-dish-container {
+		width: 351px;
+	}
 }
 
 .slider-dish-container img {
-  margin: 0 auto;
-  margin-bottom: 20px;
-  height: 142px;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	height: 142px;
 }
 
 .slider-dish-container h2 {
-  color: rgba(248, 248, 248, 0.6);
-  text-align: center;
-  font-family: Inter;
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 14px;
-  text-transform: uppercase;
-  margin: 0 auto;
-  margin-bottom: 8px;
+	color: rgba(248, 248, 248, 0.6);
+	text-align: center;
+	font-family: Inter;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 14px;
+	text-transform: uppercase;
+	margin: 0 auto;
+	margin-bottom: 8px;
 }
 
 .slider-dish-container p {
-  color: rgba(248, 248, 248, 0.2);
-  text-align: center;
-  font-family: Inter;
-  font-size: 8px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 12px;
+	color: rgba(248, 248, 248, 0.2);
+	text-align: center;
+	font-family: Inter;
+	font-size: 8px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 12px;
 }
 
 .slider-dish-fullscreen {
-  min-height: 280px;
-  background-size: cover;
-  border-radius: 15px;
+	min-height: 280px;
+	background-size: cover;
+	border-radius: 15px;
 }
+
 
 #swiper-id .swiper-pagination-bullet {
   --swiper-theme-color: #9bb537;
@@ -122,93 +123,107 @@
   #swiper-id {
     left: -120px;
   }
+
+/* .swiper-pagination {
+	width: 0;
+	left: 0px;
+} */
+
+
 }
 
 @media only screen and (min-width: 375px) {
-  .hero-section {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+	.hero-section {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
 
-  .slider-cook-img {
-    min-height: 280px;
-  }
+	.slider-cook-img {
+		min-height: 280px;
+	}
 
-  .slider-dish-fullscreen {
-    max-height: 280px;
-  }
+	.slider-dish-fullscreen {
+		max-height: 280px;
+	}
 
-  .slider-dish-container img {
-    height: 150px;
-  }
+	.slider-dish-container img {
+		height: 150px;
+	}
 }
 
 @media only screen and (min-width: 768px) {
-  .slider-cook-img {
-    min-width: 137px;
-    min-height: 442px;
-  }
+	.slider-cook-img {
+		min-width: 137px;
+		min-height: 442px;
+	}
 
-  .slider-dish-container {
-    min-height: 442px;
-    padding-top: 67px;
-  }
+	.slider-dish-container {
+		min-height: 442px;
+		padding-top: 67px;
+	}
 
-  .slider-dish-fullscreen {
-    min-width: 351px;
-    min-height: 442px;
-  }
+	.slider-dish-fullscreen {
+		min-width: 351px;
+		min-height: 442px;
+	}
 
-  .slider-dish-container img {
-    min-width: 262px;
-    min-height: 262px;
-  }
+	.slider-dish-container img {
+		min-width: 262px;
+		min-height: 262px;
+	}
 
-  .slider-dish-container h2 {
-    color: rgba(248, 248, 248, 0.6);
-    text-align: center;
-    font-family: Inter;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 18px;
-    text-transform: uppercase;
-    margin: 0 auto;
-    margin-bottom: 8px;
-    /* max-width: 304px; */
-  }
+	.slider-dish-container h2 {
+		color: rgba(248, 248, 248, 0.6);
+		text-align: center;
+		font-family: Inter;
+		font-size: 14px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 18px;
+		text-transform: uppercase;
+		margin: 0 auto;
+		margin-bottom: 8px;
+		/* max-width: 304px; */
+	}
 
-  .slider-dish-container p {
-    color: rgba(248, 248, 248, 0.2);
-    text-align: center;
-    font-family: Inter;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 14px;
-  }
+	.slider-dish-container p {
+		color: rgba(248, 248, 248, 0.2);
+		text-align: center;
+		font-family: Inter;
+		font-size: 12px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 14px;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.hero-section {
+		padding-left: 32px;
+		padding-right: 32px;
+	}
 }
 
 @media only screen and (min-width: 1280px) {
-  .hero-section {
-    padding-left: 0;
-    overflow: hidden;
-  }
+	.hero-section {
+		padding-left: 0;
+		overflow: hidden;
+	}
 
-  .slider-dish-container {
-    width: 351px;
-    max-height: 442px;
-  }
+	.slider-dish-container {
+		width: 351px;
+		max-height: 442px;
+	}
 }
 
 .swiper-flex-container {
-  display: flex;
-  flex-direction: row;
-  gap: 8px;
+	display: flex;
+	flex-direction: row;
+	gap: 8px;
 }
 
 @media only screen and (min-width: 768px) {
-  .swiper-flex-container {
-    gap: 16px;
-  }
+	.swiper-flex-container {
+		gap: 16px;
+	}
 }
