@@ -1,143 +1,125 @@
-/** @format */
-
 .categories-section {
-    display: flex;
-    flex-direction: column;
-    padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
 }
 
 .all-categories-btn {
-    
-    font-family: Inter;
-    font-size: 18px;
-    font-weight: 500;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 15px;
-    border: 1px solid;
-    width: 176px;
-    height: 50px;
-    background-color: var(--color-font-background);
-    color: var(--color-font-select-text);
-    border-color: var(--color-border-select);
-    margin-bottom: 24px;
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  border: 1px solid;
+  width: 176px;
+  height: 50px;
+  background-color: var(--color-font-background);
+  color: var(--color-font-select-text);
+  border-color: var(--color-border-select);
+  margin-bottom: 24px;
 }
-
 
 .all-categories-btn-aktiv,
 .all-categories-btn:hover,
 .all-categories-btn:focus {
-    background-color: var(--color-green-button);
-    color: var(--color-font-background);
-    border-color: var(--color-green-button);
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: var(--color-green-button);
+  color: var(--color-font-background);
+  border-color: var(--color-green-button);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .categories-container {
-    overflow-y: scroll;
+  overflow-y: scroll;
 }
 
 .list {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 .categories-list {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
 .categories-btn {
-    border: none;
-    background-color: inherit;
-    padding: 0px;
-    color:  var(--color-font-select);
-    font-family: Inter;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.25;
+  border: none;
+  background-color: inherit;
+  padding: 0px;
+  color: var(--color-font-select);
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.25;
 }
 
 .curent-category,
 .categories-btn:hover,
 .categories-btn:focus {
-    color: var(--color-green-button);
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--color-green-button);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-
-
-/* полоса прокрутки (скроллбар) */
 .categories-container::-webkit-scrollbar {
-    width: 8px;
+  width: 8px;
 }
 
-/* ползунок скроллбара */
 .categories-container::-webkit-scrollbar-thumb {
-    height: 116px;
-    background-color: var(--color-scroll-categories);
-    border-radius: 12px;
-    box-shadow: inset 1px 1px 10px var(--color-font-background);
+  height: 116px;
+  background-color: var(--color-scroll-categories);
+  border-radius: 12px;
+  box-shadow: inset 1px 1px 10px var(--color-font-background);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: var(--color-green-button);
+  background-color: var(--color-green-button);
 }
 
-
 @media screen and (max-width: 375px) {
-
-    .categories-container {
-        max-width: 326px;
-        max-height: 198px;
-    }
-
+  .categories-container {
+    max-width: 326px;
+    max-height: 198px;
+  }
 }
 
 @media screen and (min-width: 375px) {
-
-    .categories-container {
-        width: 326px;
-        height: 198px;
-        margin-right: auto;
-    }
-
-
+  .categories-container {
+    width: 326px;
+    height: 198px;
+    margin-right: auto;
+  }
 }
 
 @media screen and (min-width: 768px) {
+  .categories-container {
+    width: 176px;
+    height: 416px;
+  }
 
-    .categories-container {
-        width: 176px;
-        height: 416px;
-    }
+  .categories-list {
+    gap: 24px;
+  }
 
-    .categories-list {
-        gap: 24px;
-    }
+  .all-categories-btn {
+    margin-bottom: 30px;
+  }
 
-    .all-categories-btn {
-        margin-bottom: 30px;
-    }
-
-    .categories-btn {
-        font-size: 16px;
-    }
+  .categories-btn {
+    font-size: 16px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
+  .categories-container {
+    width: 235px;
+    height: 416px;
+  }
 
-    .categories-container {
-        width: 235px;
-        height: 416px;
-    }
-
-    .all-categories-btn {
-        margin-bottom: 42px;
-        width: 174px;
-    }
-
-
+  .all-categories-btn {
+    margin-bottom: 42px;
+    width: 174px;
+  }
 }
