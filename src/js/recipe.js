@@ -17,7 +17,6 @@ export async function onOpenWindow(id) {
 	ref.modalWindowRecipe.innerHTML = await markupRecipe(id);
 	ref.modalWindowRecipe.classList.remove('is-hidden');
 
-	// Added event listener for modal-rating-opener
 	createListeners(id);
 
 	ref.closeModalWindowRecipe = document.querySelector('.recipe-close');
