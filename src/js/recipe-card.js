@@ -5,12 +5,12 @@ import { ratingRecipe } from './rating-markup';
 export function createCard(card, className, status) {
 	const { _id, thumb, title, instructions, rating, category } = card;
 	return `<li 
-		data-id="${_id}" data-category="${category}"
+		data-id="${_id}" data-category="${category}" data-url="${thumb}" data-action="changeUrl"
 		class="recipe-item mainblock ${className} js-recipe"
 	
 	    style="
 		background: linear-gradient(1deg, rgba(5, 5, 5, 0.6) 4.82%, rgba(5, 5, 5, 0) 108.72%),
-			url(${thumb}), lightgray 50%; background-size: cover;"
+			lightgray 50%; background-size: cover;"
         >
 			<svg class="like js-like" width="22" height="22">
 				<use class="js-like" href="${status}"></use> 

@@ -4,13 +4,13 @@ import { handleLikeBtn } from './add_favorites';
 import { createCard } from './recipe-card';
 import { onOpenWindow } from './recipe';
 import { fetchRecipeCards } from './fetch-api';
+import { handleScroll } from './loading';
 
 const pagination = document.querySelector('.pagination-btns');
 const recipeCards = document.querySelector('.recipe-cards');
 export const recipesApi = 'https://tasty-treats-backend.p.goit.global/api/recipes';
 const cadrsContainer = document.querySelector('.recipe-cards');
 cadrsContainer.addEventListener('click', onOpenModalWindow);
-
 
 function renderCards(results, div, cardStyle) {
 	let htmlCards = '';
@@ -26,6 +26,7 @@ function renderCards(results, div, cardStyle) {
 		htmlCards += createCard(elm, cardStyle, likeIconUrl);
 	});
 	div.innerHTML = htmlCards;
+	handleScroll();
 }
 
 const selectors = {
@@ -89,8 +90,9 @@ function setPaginationButtons(div, page, total, option) {
 		if (window.screen.width < 768) {
 			rangeButtons += `<button class="pagination-btn dot-btn number-btn" disabled>...</button><button class="pagination-btn current-number-btn">${page}</button>`;
 		} else {
-			rangeButtons += `<button class="pagination-btn dot-btn number-btn" disabled>...</button><button class="pagination-btn number-btn">${page - 1
-				}</button><button class="pagination-btn current-number-btn">${page}</button>`;
+			rangeButtons += `<button class="pagination-btn dot-btn number-btn" disabled>...</button><button class="pagination-btn number-btn">${
+				page - 1
+			}</button><button class="pagination-btn current-number-btn">${page}</button>`;
 		}
 	}
 	if (total - page === 0) {
@@ -102,11 +104,12 @@ function setPaginationButtons(div, page, total, option) {
 		}
 	} else if (total - page >= 2) {
 		if (window.screen.width < 768) {
-		rangeButtons += `<button class="pagination-btn dot-btn number-btn" disabled>...</button>`;	
-		} else { 
-		rangeButtons += `<button class="pagination-btn number-btn">${page + 1
+			rangeButtons += `<button class="pagination-btn dot-btn number-btn" disabled>...</button>`;
+		} else {
+			rangeButtons += `<button class="pagination-btn number-btn">${
+				page + 1
 			}</button><button class="pagination-btn dot-btn number-btn" disabled>...</button>`;
-	}
+		}
 	}
 
 	rangeButtonsElm.innerHTML = rangeButtons;
@@ -167,16 +170,13 @@ function onOpenModalWindow({ target }) {
 	onOpenWindow(target.dataset.id);
 }
 
-
-
-
 window.addEventListener('resize', () => {
 	if (window.screen.width < 768) {
-	renderCardsOptions.params.limit = 6;
-} else if (window.screen.width < 1280) {
-	renderCardsOptions.params.limit = 8;
-} else {
-	renderCardsOptions.params.limit = 9;
+		renderCardsOptions.params.limit = 6;
+	} else if (window.screen.width < 1280) {
+		renderCardsOptions.params.limit = 8;
+	} else {
+		renderCardsOptions.params.limit = 9;
 	}
 	renderMain(renderCardsOptions);
-})
+});

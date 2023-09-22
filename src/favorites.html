@@ -2,77 +2,63 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="favorites" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Tasty Treats Favorites</title>
-    <meta name="description" content="Goit-command project" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
-      integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="./css/styles.css" />
-    <script src="https://kit.fontawesome.com/a54d2cbf95.js"></script>
-  </head>
-  <body>
-    <load ="partials/header.html" />
-    <section class="favorites container">
-      <div class="favorites_container">
-        <!-- <img	class="favorites_img"
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="favorites" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>Tasty Treats Favorites</title>
+		<meta name="description" content="Goit-command project" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+			integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<link rel="stylesheet" href="./css/styles.css" />
+		<script src="https://kit.fontawesome.com/a54d2cbf95.js"></script>
+	</head>
+	<body>
+		<load ="partials/header.html" />
+		<section class="favorites container">
+			<div class="favorites_container"></div>
+			<div class="cards_favorites">
+				<ul class="favorites_categories"></ul>
+				<ul class="list_cards_favorites js-all-recipe-cards">
+					<div class="not_favorites">
+						<svg class="favorites_elem_svg" width="68" height="58">
+							<use href="./img/icon/icon.svg#icon-elements"></use>
+						</svg>
+						<p class="favorites_text">
+							It appears that you haven't added any recipes to your favorites yet. To
+							get started, you can add recipes that you like to your favorites for
+							easier access in the future.
+						</p>
+					</div>
+				</ul>
+				<div class="pagination-buttons"></div>
+			</div>
+		</section>
+		<load ="partials/add_favorites.html" />
+		<load ="partials/component/scroll-to-top.html" />
 
-					srcset="
-						./img/favorites/mobile/card.jpg      335w,
-						./img/favorites/tablet/card.jpg      704w,
-						./img/favorites/desktop/card.jpg    1080w,
-						./img/favorites/mobile/card@2x.jpg   770w,
-						./img/favorites/tablet/card@2x.jpg  1408w,
-						./img/favorites/desktop/card@2x.jpg 2160w
-					"
-					sizes="(min-width: 1280px) 1080px, (min-width: 768px) 704px, (min-width: 320px) 335px, 100vw"
-					src="./img/fav/favorites-mob.jpg"
-					alt="favorites-img"
-				/> -->
-      </div>
-      <div class="cards_favorites">
-        <ul class="favorites_categories"></ul>
-        <ul class="list_cards_favorites js-all-recipe-cards">
-          <div class="not_favorites">
-            <svg class="favorites_elem_svg" width="68" height="58">
-              <use href="./img/icon/icon.svg#icon-elements"></use>
-            </svg>
-            <p class="favorites_text">
-              It appears that you haven't added any recipes to your favorites
-              yet. To get started, you can add recipes that you like to your
-              favorites for easier access in the future.
-            </p>
-          </div>
-        </ul>
-      </div>
-    </section>
-    <load ="partials/add_favorites.html" />
-    <load ="partials/component/scroll-to-top.html" />
+		<!-- Modal Window -->
+		<load ="partials/order.html" />
+		<load ="partials/rating.html" />
 
-    <!-- Modal Window -->
-    <load ="partials/order.html" />
-    <load ="partials/rating.html" />
-
-    <script
-      defer
-      src="https://cdnjs.cloudflare.com/ajax/libs/body-scroll-lock/3.1.5/bodyScrollLock.min.js"
-      integrity="sha512-HowizSDbQl7UPEAsPnvJHlQsnBmU2YMrv7KkTBulTLEGz9chfBoWYyZJL+MUO6p/yBuuMO/8jI7O29YRZ2uBlA=="
-      crossorigin="anonymous"
-    ></script>
-    <script type="module" src="/main-favorites.js"></script>
-  </body>
+		<script
+			defer
+			src="https://cdnjs.cloudflare.com/ajax/libs/body-scroll-lock/3.1.5/bodyScrollLock.min.js"
+			integrity="sha512-HowizSDbQl7UPEAsPnvJHlQsnBmU2YMrv7KkTBulTLEGz9chfBoWYyZJL+MUO6p/yBuuMO/8jI7O29YRZ2uBlA=="
+			crossorigin="anonymous"
+		></script>
+		<script type="module" src="/main-favorites.js"></script>
+	</body>
 </html>
