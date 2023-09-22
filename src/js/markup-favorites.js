@@ -1,7 +1,8 @@
 /** @format */
 
 import { onOpenWindow } from './recipe';
-import { allCard, currentPage, cardInHtml, perPage } from './favorites';
+import { allCard, changeCurrentPage, cardInHtml, perPage, changeCountPage } from './favorites';
+import { handleScroll } from './loading';
 
 let activeCatigories = new Set();
 
@@ -48,25 +49,24 @@ export function markupCards(cards, page, perPage) {
 							easier access in the future.
 						</p>
 					</div>`);
+	handleScroll();
 }
 
 function addFilter({ target }) {
 	if (!target.classList.contains('main-button')) {
 		return;
 	}
+	changeCurrentPage(1);
 	if (target === ref.allCategories) {
 		const cards = ref.cardsFavorites.children;
 		const buttons = ref.categoriesFavorites.children;
 		for (let i = 1; i < buttons.length; i++) {
 			buttons[i].children[0].classList.remove('green-button');
 		}
-		for (let i = 0; i < cards.length; i++) {
-			// cards[i].classList.remove('is-hidden');
-		}
+		for (let i = 0; i < cards.length; i++) {}
 		target.classList.add('green-button');
 		activeCatigories.clear();
 		cardFilterCategories(1);
-		// cardFavoritsFilter();
 		return;
 	}
 	if (!activeCatigories.has(target.textContent)) {
@@ -85,12 +85,6 @@ function addFilter({ target }) {
 }
 
 function cardFavoritsFilter() {
-	// const cards = ref.cardsFavorites.children;
-	// for (let i = 0; i < cards.length; i++) {
-	// 	if (!activeCatigories.has(cards[i].dataset.category) && activeCatigories.size) {
-	// 		cards[i].classList.add('is-hidden');
-	// 	} else cards[i].classList.remove('is-hidden');
-	// }
 	const allButtonsActive = ref.categoriesFavorites.querySelectorAll('.green-button');
 	const allButton = ref.categoriesFavorites.children;
 	if (allButton.length - 1 === allButtonsActive.length) {
@@ -102,11 +96,12 @@ function cardFavoritsFilter() {
 	}
 }
 
-export function cardFilterCategories(currentPage) {
+export function cardFilterCategories(page) {
 	const filteredCard = activeCatigories.size
 		? allCard.filter(({ category }) => activeCatigories.has(category))
 		: allCard;
-	markupCards(filteredCard, currentPage, perPage);
+	markupCards(filteredCard, page, perPage);
+	changeCountPage(filteredCard.length);
 }
 
 function onOpenModalWindow({ target }) {

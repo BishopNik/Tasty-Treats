@@ -13,3 +13,4 @@ import './js/add_favorites';
 import './js/mobile-menu';
 import './js/theme';
 import './js/popular';
+import './js/loading';

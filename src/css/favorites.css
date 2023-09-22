@@ -109,6 +109,10 @@
 	margin-right: 14px;
 }
 
+.pagination-btn.active {
+	background-color: var(--color-green-button);
+}
+
 @media only screen and (max-width: 767px) {
 	.list_cards_favorites {
 		display: flex;
@@ -117,6 +121,10 @@
 		align-items: center;
 		gap: 24px;
 		margin-top: 24px;
+	}
+
+	.favorites_text {
+		width: 335px;
 	}
 }
 @media only screen and (min-width: 768px) {

@@ -6,6 +6,13 @@ import { markupButtons, markupCards, cardFilterCategories } from './markup-favor
 import { handleLikeBtn } from './add_favorites';
 import { createCard } from './recipe-card';
 
+window.addEventListener('resize', reloadPageOnResize);
+function reloadPageOnResize() {
+	if (window.innerWidth < 768) {
+		location.reload();
+	}
+}
+
 export let countPage = 0;
 export let currentPage = 0;
 export let allCard = [];
@@ -47,11 +54,11 @@ function markupCardArray() {
 	Loading.dots();
 	createCardArray()
 		.then(cards => {
+			allCard = cards;
+			currentPage = 1;
 			const markupButtonsArray = buttonInHtml(cards);
 			markupButtons(Array.from(markupButtonsArray));
 			createButtonPagination(cards.length);
-			allCard = cards;
-			currentPage = 1;
 			markupCards(allCard, 1, perPage);
 		})
 		.catch(error => Notify.failure('Unable to load favorites. ' + error.message))
@@ -90,6 +97,7 @@ function delFromFavorites(e) {
 
 function createButtonPagination(cards) {
 	if (cards < perPage) {
+		buttonPagination.innerHTML = '';
 		return;
 	}
 	countPage = Math.ceil(cards / perPage);
@@ -98,8 +106,8 @@ function createButtonPagination(cards) {
 	let rangeBtns = '';
 	for (let i = 1; i <= countBtns; i++) {
 		i !== perPageBtn
-			? (rangeBtns += `<button class="pagination-btn btn-js" data-id="${i}">${i}</button>`)
-			: (rangeBtns += `<button class="pagination-btn btn-js" data-id="${i}">...</button>`);
+			? (rangeBtns += `<button class="pagination-btn btn-js btn-pg" data-id="${i}" data-value="${i}">${i}</button>`)
+			: (rangeBtns += `<button class="pagination-btn btn-js btn-pg" data-id="${i}" data-value="">...</button>`);
 	}
 	const iconRightPath = './img/icon/icon.svg#icon-small-right';
 	const iconLeftPath = './img/icon/icon.svg#icon-small-left';
@@ -144,46 +152,74 @@ function createButtonPagination(cards) {
 
 	const buttons = buttonPagination.querySelectorAll('.btn-js');
 	buttons.forEach(button => button.addEventListener('click', onClickBtn));
+	changeValueBtn(currentPage);
 }
 
 function onClickBtn({ currentTarget }) {
 	const idBtn = currentTarget.dataset.id;
+	const valueBtn = currentTarget.dataset.value;
 
 	switch (idBtn) {
 		case '1':
+			cardFilterCategories(valueBtn);
+			changeValueBtn(valueBtn);
 			break;
 		case '2':
+			cardFilterCategories(valueBtn);
+			changeValueBtn(valueBtn);
 			break;
 		case '3':
+			cardFilterCategories(valueBtn);
+			changeValueBtn(valueBtn);
 			break;
 		case '4':
+			if (countPage - currentPage >= 2) {
+				currentPage = currentPage += 2;
+				cardFilterCategories(currentPage);
+			} else {
+				currentPage = currentPage += 1;
+				cardFilterCategories(currentPage);
+			}
 			break;
 		case '5':
 			currentPage = 1;
-			cardFilterCategories(allCard, 1, perPage);
+			cardFilterCategories(1);
 			break;
 		case '6':
 			if (currentPage > 1) {
 				currentPage = currentPage -= 1;
-				cardFilterCategories(allCard, currentPage, perPage);
+				cardFilterCategories(currentPage);
 			}
 			break;
 		case '7':
 			if (currentPage < countPage) {
 				currentPage = currentPage += 1;
-				cardFilterCategories(allCard, currentPage, perPage);
+				cardFilterCategories(currentPage);
 			}
 			break;
 		case '8':
 			currentPage = countPage;
-			cardFilterCategories(allCard, currentPage, perPage);
+			cardFilterCategories(currentPage);
 			break;
 		default:
 			break;
 	}
 }
 
-// ref = {
-// 	backButtons: buttonPagination.querySelectorAll('.back-buttons'),
-// 	forwardButtons: buttonPagination.querySelectorAll('.forward-buttons'),
-// }
+export function changeCountPage(cards) {
+	countPage = Math.ceil(cards / perPage);
+	createButtonPagination(cards);
+}
+
+export function changeCurrentPage(page) {
+	currentPage = page;
+}
+
+function changeValueBtn(currentPage) {
+	const btnPg = buttonPagination.querySelectorAll('.btn-pg');
+	btnPg.forEach(btn => {
+		if (btn.dataset.value == currentPage) {
+			btn.classList.add('active');
+		} else btn.classList.remove('active');
+	});
+}
