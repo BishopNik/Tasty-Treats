@@ -42,8 +42,6 @@ import Notiflix from 'notiflix';
 
     const data = Object.fromEntries(form);
 
-    console.log(Object.fromEntries(form));
-
     const phone = `+380${Inputmask.unmask(data.phone, {
       mask: '+380(99) 999-99-99',
     })}`;
@@ -59,7 +57,5 @@ import Notiflix from 'notiflix';
     } catch (error) {
       Notiflix.Notify.failure(error.response.data.message);
     }
-
-    console.log(responseData);
   });
 })();
