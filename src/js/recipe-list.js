@@ -1,5 +1,8 @@
 /** @format */
+
+import { Notify, Loading } from 'notiflix';
 import sprite from '../img/icon/icon.svg';
+
 
 import { handleLikeBtn } from './add_favorites';
 import { createCard } from './recipe-card';
@@ -144,10 +147,14 @@ function setPaginationButtons(div, page, total, option) {
 }
 
 export async function renderMain(options) {
+	Loading.dots();
 	let responseData;
-	await fetchRecipeCards(recipesApi, options).then(data => {
-		responseData = data;
-	});
+	await fetchRecipeCards(recipesApi, options)
+	.then(data => {
+	responseData = data;
+	})
+	.catch(error => Notify.failure('Oops! Something went wrong! Try reloading the page!'))
+	.finally(Loading.remove(1000));
 	renderCards(responseData.results, recipeCards, 'mainblock');
 	setPaginationButtons(
 		pagination,
