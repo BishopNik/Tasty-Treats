@@ -12,43 +12,40 @@
     <form class="modal-order-form">
       <label class="modal-order-label" for="modal-order-name"
         >Name
-        <div class="input-wrap">
-          <input
-            required
-            name="name"
-            class="modal-order-input"
-            type="text"
-            id="modal-order-name"
-            pattern="^[a-zA-Z]+$"
-            title="Username should only contain lowercase letters. e.g. john"
-          />
-        </div>
+
+        <input
+          required
+          name="name"
+          class="modal-order-input"
+          type="text"
+          id="modal-order-name"
+          pattern="^[a-zA-Z]+$"
+          title="Username should only contain lowercase letters. e.g. john"
+        />
       </label>
       <label class="modal-order-label" for="modal-order-tel"
         >Phone number
-        <div class="input-wrap">
-          <input
-            required
-            name="phone"
-            class="modal-order-input"
-            type="tel"
-            id="modal-order-tel"
-          />
-        </div>
+
+        <input
+          required
+          name="phone"
+          class="modal-order-input"
+          type="tel"
+          id="modal-order-tel"
+        />
       </label>
 
       <label class="modal-order-label" for="modal-order-mail"
         >Email
-        <div class="input-wrap">
-          <input
-            required
-            name="email"
-            class="modal-order-input"
-            type="mail"
-            id="modal-order-mail"
-            pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
-          />
-        </div>
+
+        <input
+          required
+          name="email"
+          class="modal-order-input"
+          type="mail"
+          id="modal-order-mail"
+          pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+        />
       </label>
       <label class="modal-order-label" for="modal-order-comment"
         >Comment
@@ -66,6 +63,7 @@
         class="modal-submit-button-order"
         type="submit"
         name-button="Send"
+        id="modal-submit-button-order"
       />
     </form>
   </div>
