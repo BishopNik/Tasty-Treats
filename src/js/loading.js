@@ -8,7 +8,7 @@ function isElementInViewport(el) {
 	const rect = el.getBoundingClientRect();
 	return (
 		rect.top >= -30 &&
-		rect.bottom - 250 <= (window.innerHeight || document.documentElement.clientHeight)
+		rect.bottom - 230 <= (window.innerHeight || document.documentElement.clientHeight)
 	);
 }
 

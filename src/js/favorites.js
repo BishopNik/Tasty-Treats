@@ -106,7 +106,7 @@ function createButtonPagination(cards) {
 	for (let i = 1; i <= countBtns; i++) {
 		i !== perPageBtn
 			? (rangeBtns += `<button class="pagination-btn btn-js btn-pg" data-id="${i}" data-value="${i}">${i}</button>`)
-			: (rangeBtns += `<button class="pagination-btn btn-js btn-pg" data-id="${i}" data-value="">...</button>`);
+			: (rangeBtns += `<button class="pagination-btn btn-js btn-pg" data-id="${i}" data-value="${i}">...</button>`);
 	}
 	const iconRightPath = `${sprite}#icon-small-right`;
 	const iconLeftPath = `${sprite}#icon-small-left`;
@@ -151,7 +151,9 @@ function createButtonPagination(cards) {
 
 	const buttons = buttonPagination.querySelectorAll('.btn-js');
 	buttons.forEach(button => button.addEventListener('click', onClickBtn));
-	changeValueBtn(currentPage);
+	if (currentPage === 1) {
+		changeTextBtn(currentPage);
+	}
 }
 
 function onClickBtn({ currentTarget }) {
@@ -161,24 +163,19 @@ function onClickBtn({ currentTarget }) {
 	switch (idBtn) {
 		case '1':
 			cardFilterCategories(valueBtn);
-			changeValueBtn(valueBtn);
+			currentPage = valueBtn;
 			break;
 		case '2':
 			cardFilterCategories(valueBtn);
-			changeValueBtn(valueBtn);
+			changeTextBtn(valueBtn);
 			break;
 		case '3':
 			cardFilterCategories(valueBtn);
-			changeValueBtn(valueBtn);
+			changeTextBtn(valueBtn);
 			break;
 		case '4':
-			if (countPage - currentPage >= 2) {
-				currentPage = currentPage += 2;
-				cardFilterCategories(currentPage);
-			} else {
-				currentPage = currentPage += 1;
-				cardFilterCategories(currentPage);
-			}
+			cardFilterCategories(valueBtn);
+			changeTextBtn(valueBtn);
 			break;
 		case '5':
 			currentPage = 1;
@@ -188,17 +185,19 @@ function onClickBtn({ currentTarget }) {
 			if (currentPage > 1) {
 				currentPage = currentPage -= 1;
 				cardFilterCategories(currentPage);
+				changeTextBtn(currentPage);
 			}
 			break;
 		case '7':
 			if (currentPage < countPage) {
 				currentPage = currentPage += 1;
 				cardFilterCategories(currentPage);
+				changeTextBtn(currentPage);
 			}
 			break;
 		case '8':
-			currentPage = countPage;
-			cardFilterCategories(currentPage);
+			cardFilterCategories(countPage);
+			changeTextBtn(countPage);
 			break;
 		default:
 			break;
@@ -222,3 +221,36 @@ function changeValueBtn(currentPage) {
 		} else btn.classList.remove('active');
 	});
 }
+
+function changeTextBtn(page) {
+	const btnPg = buttonPagination.querySelectorAll('.btn-pg');
+	const pgBtn = window.innerWidth > 767 ? 4 : 3;
+	currentPage = Number(page);
+
+	console.log(currentPage);
+
+	btnPg[0].textContent = btnPg[1].dataset.value > 2 ? '...' : '1';
+	btnPg[1].textContent = btnPg[1].dataset.value;
+	if (btnPg[2]) {
+		btnPg[2].textContent =
+			pgBtn === 4
+				? btnPg[2].dataset.value
+				: currentPage !== countPage && countPage > 3
+				? '...'
+				: `${countPage}`;
+	}
+	if (btnPg[3]) {
+		btnPg[3].textContent = currentPage !== countPage && countPage > 4 ? '...' : `${countPage}`;
+	}
+
+	changeValueBtn(currentPage);
+}
+
+// function changeValue(num) {
+// 	const btnPg = buttonPagination.querySelectorAll('.btn-pg');
+// 	btnPg.forEach(btn => {
+// 		btnPg.forEach(btn => {
+// 			btn.dataset.value = Number(btn.dataset.value) + num;
+// 		});
+// 	});
+// }
