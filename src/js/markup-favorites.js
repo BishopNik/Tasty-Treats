@@ -3,6 +3,7 @@
 import { onOpenWindow } from './recipe';
 import { allCard, changeCurrentPage, cardInHtml, perPage, changeCountPage } from './favorites';
 import { handleScroll } from './loading';
+import sprite from '../img/icon/icon.svg';
 
 let activeCatigories = new Set();
 
@@ -41,7 +42,7 @@ export function markupCards(cards, page, perPage) {
 		? (ref.cardsFavorites.innerHTML = pageCardArray.join(''))
 		: (ref.cardsFavorites.innerHTML = `<div class="not_favorites">
 						<svg class="favorites_elem_svg" width="68" height="58">
-							<use href="./img/icon/icon.svg#icon-elements"></use>
+							<use href="${sprite}#icon-elements"></use>
 						</svg>
 						<p class="favorites_text">
 							It appears that you haven't added any recipes to your favorites yet. To
