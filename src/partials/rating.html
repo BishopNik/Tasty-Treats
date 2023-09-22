@@ -72,15 +72,15 @@
         </label>
       </div>
 
-      <div class="input-wrap">
-        <input
-          class="modal-order-input"
-          type="text"
-          placeholder="Enter email"
-          name="email"
-          required
-        />
-      </div>
+      <input
+        class="modal-order-input"
+        type="email"
+        placeholder="Enter email"
+        name="email"
+        required
+        pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+      />
+
       <load
         src="./component/button.html"
         class="modal-submit-button-rating"
