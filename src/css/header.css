@@ -398,8 +398,6 @@
   color: rgba(248, 248, 248);
 }
 
-/* Стили для слайдера переключателя бургера */
-
 .burger-switch-slider {
   position: absolute;
   cursor: pointer;
