@@ -40,6 +40,10 @@ const selectors = {
 selectors.list.addEventListener('click', handleLikeBtn);
 
 function setPaginationButtons(div, page, total, option) {
+		if (total === 1) {
+		div.innerHTML = "";
+		return
+	}
 	const iconRightPath = `${sprite}#icon-small-right`;
 	const iconLeftPath = `${sprite}#icon-small-left`;
 	let arrowButtons = ` <div class="back-btns">
