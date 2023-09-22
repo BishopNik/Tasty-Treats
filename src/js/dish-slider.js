@@ -13,21 +13,9 @@ const swiper = new Swiper('.dish-slider', {
   autoplay: {
     delay: 10000,
   },
-  // width: 891,
   keyboard: {
     enabled: true,
   },
-  // breakpoints: {
-  //   375: {
-  //     width: 508,
-  //   },
-  //   768: {
-  //     width: 891,
-  //   },
-  //   1280: {
-  //     width: 891,
-  //   },
-  // },
 });
 
 async function fetchDishes() {
@@ -51,16 +39,16 @@ fetchDishes();
 function createMarkup(arr) {
   return arr
     .map(
-      ({ cook: { imgUrl }, topic: { name, area, imgWebpUrl, previewUrl } }) => `
+      ({ cook, topic }) => `
       <div class="swiper-slide">
         <div class="swiper-flex-container">
-          <div style="background-image: url(${imgUrl})" class="slider-cook-img"></div>
+          <div style="background-image: url(${cook.imgWebpUrl})" class="slider-cook-img"></div>
           <div class="slider-dish-container">
-                  <img src="${previewUrl}">
-                  <h2 class="">${name}</h2>
-                  <p>${area}</p>
+                  <img src="${topic.previewWebpUrl}">
+                  <h2 class="">${topic.name}</h2>
+                  <p>${topic.area}</p>
           </div>
-          <div style="background-image: url(${imgWebpUrl});" class="slider-dish-fullscreen"></div>
+          <div style="background-image: url(${topic.imgWebpUrl});" class="slider-dish-fullscreen"></div>
         </div>
       </div>
       `
