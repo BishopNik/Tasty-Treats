@@ -14,6 +14,7 @@ function reloadPageOnResize() {
 	}
 }
 
+let favoritesCard = [];
 export let countPage = 0;
 export let currentPage = 0;
 export let allCard = [];
@@ -21,12 +22,11 @@ export const perPage = window.innerWidth > 767 ? 12 : 9;
 
 const cardsFavorites = document.querySelector('.list_cards_favorites');
 const buttonPagination = document.querySelector('.pagination-buttons');
-cardsFavorites.addEventListener('click', delFromFavorites);
+cardsFavorites ? cardsFavorites.addEventListener('click', delFromFavorites) : null;
 
 markupCardArray();
 
-function readFavoritesCard() {
-	let favoritesCard = [];
+export function readFavoritesCard() {
 	try {
 		favoritesCard = JSON.parse(localStorage.getItem('favorites'));
 	} catch (error) {
@@ -52,6 +52,9 @@ async function createCardArray() {
 }
 
 function markupCardArray() {
+	if (!cardsFavorites) {
+		return;
+	}
 	Loading.dots();
 	createCardArray()
 		.then(cards => {
@@ -94,19 +97,28 @@ function delFromFavorites(e) {
 	markupCardArray();
 }
 
+export function changeCurrentPage(page) {
+	currentPage = page;
+}
+
+function changeValueBtn() {
+	const btnPg = buttonPagination.querySelectorAll('.btn-pg');
+	btnPg.forEach(btn => {
+		if (btn.textContent == currentPage) {
+			btn.classList.add('active');
+		} else btn.classList.remove('active');
+	});
+}
+
 function createButtonPagination(cards) {
-	if (cards < perPage) {
+	countPage = Math.ceil(cards / perPage);
+	if (countPage <= 1) {
+		const buttons = buttonPagination.querySelectorAll('.btn-js');
+		if (buttons.length) {
+			buttons.forEach(button => button.removeEventListener('click', onClickBtn));
+		}
 		buttonPagination.innerHTML = '';
 		return;
-	}
-	countPage = Math.ceil(cards / perPage);
-	const perPageBtn = perPage === 9 ? 3 : 4;
-	const countBtns = countPage >= perPageBtn ? perPageBtn : countPage;
-	let rangeBtns = '';
-	for (let i = 1; i <= countBtns; i++) {
-		i !== perPageBtn
-			? (rangeBtns += `<button class="pagination-btn btn-js btn-pg" data-id="${i}" data-value="${i}">${i}</button>`)
-			: (rangeBtns += `<button class="pagination-btn btn-js btn-pg" data-id="${i}" data-value="${i}">...</button>`);
 	}
 	const iconRightPath = `${sprite}#icon-small-right`;
 	const iconLeftPath = `${sprite}#icon-small-left`;
@@ -145,112 +157,96 @@ function createButtonPagination(cards) {
       </button>
     </div>`;
 	buttonPagination.innerHTML = arrowButtons;
-
-	const rangeButtons = buttonPagination.querySelector('.range-btns');
-	rangeButtons.innerHTML = rangeBtns;
-
 	const buttons = buttonPagination.querySelectorAll('.btn-js');
 	buttons.forEach(button => button.addEventListener('click', onClickBtn));
-	if (currentPage === 1) {
-		changeTextBtn(currentPage);
-	}
+	changeTextBtn(cards);
+	changeValueBtn();
 }
 
 function onClickBtn({ currentTarget }) {
 	const idBtn = currentTarget.dataset.id;
-	const valueBtn = currentTarget.dataset.value;
 
 	switch (idBtn) {
 		case '1':
-			cardFilterCategories(valueBtn);
-			currentPage = valueBtn;
+			currentPage = Number(currentTarget.textContent);
 			break;
 		case '2':
-			cardFilterCategories(valueBtn);
-			changeTextBtn(valueBtn);
+			currentPage = Number(currentTarget.textContent);
 			break;
 		case '3':
-			cardFilterCategories(valueBtn);
-			changeTextBtn(valueBtn);
+			if (currentPage < countPage) {
+				currentPage += 1;
+			} else currentPage = Number(currentTarget.textContent);
 			break;
 		case '4':
-			cardFilterCategories(valueBtn);
-			changeTextBtn(valueBtn);
+			currentPage = Number(currentTarget.textContent);
 			break;
 		case '5':
 			currentPage = 1;
-			cardFilterCategories(1);
 			break;
 		case '6':
 			if (currentPage > 1) {
-				currentPage = currentPage -= 1;
-				cardFilterCategories(currentPage);
-				changeTextBtn(currentPage);
+				currentPage -= 1;
 			}
 			break;
 		case '7':
 			if (currentPage < countPage) {
-				currentPage = currentPage += 1;
-				cardFilterCategories(currentPage);
-				changeTextBtn(currentPage);
+				currentPage += 1;
 			}
 			break;
 		case '8':
-			cardFilterCategories(countPage);
-			changeTextBtn(countPage);
+			currentPage = countPage;
 			break;
 		default:
 			break;
 	}
+	cardFilterCategories(currentPage);
 }
 
-export function changeCountPage(cards) {
-	countPage = Math.ceil(cards / perPage);
-	createButtonPagination(cards);
-}
-
-export function changeCurrentPage(page) {
-	currentPage = page;
-}
-
-function changeValueBtn(currentPage) {
-	const btnPg = buttonPagination.querySelectorAll('.btn-pg');
-	btnPg.forEach(btn => {
-		if (btn.dataset.value == currentPage) {
-			btn.classList.add('active');
-		} else btn.classList.remove('active');
-	});
-}
-
-function changeTextBtn(page) {
-	const btnPg = buttonPagination.querySelectorAll('.btn-pg');
+export function changeTextBtn(cards) {
+	cards ? (countPage = Math.ceil(cards / perPage)) : null;
 	const pgBtn = window.innerWidth > 767 ? 4 : 3;
-	currentPage = Number(page);
-
-	console.log(currentPage);
-
-	btnPg[0].textContent = btnPg[1].dataset.value > 2 ? '...' : '1';
-	btnPg[1].textContent = btnPg[1].dataset.value;
-	if (btnPg[2]) {
-		btnPg[2].textContent =
-			pgBtn === 4
-				? btnPg[2].dataset.value
-				: currentPage !== countPage && countPage > 3
-				? '...'
-				: `${countPage}`;
+	const rangeButtons = buttonPagination.querySelector('.range-btns');
+	const buttons = buttonPagination.querySelectorAll('.btn-pg');
+	if (buttons.length) {
+		buttons.forEach(button => button.removeEventListener('click', onClickBtn));
 	}
-	if (btnPg[3]) {
-		btnPg[3].textContent = currentPage !== countPage && countPage > 4 ? '...' : `${countPage}`;
-	}
+	if (countPage <= 1) {
+		buttonPagination.style.display = 'none';
+		return;
+	} else buttonPagination.style.display = 'flex';
+	const countBtns = countPage >= pgBtn ? pgBtn : countPage;
+	let rangeBtns = '';
 
-	changeValueBtn(currentPage);
+	if (currentPage <= 2) {
+		for (let i = 1; i <= countBtns; i++) {
+			i !== pgBtn
+				? (rangeBtns += `<button class="pagination-btn btn-js btn-pg number-btn" data-id="${i}" >${i}</button>`)
+				: (rangeBtns += `<button class="pagination-btn btn-js btn-pg number-btn" data-id="${i}" >...</button>`);
+		}
+	} else if (currentPage > 2 && currentPage < countPage - 1) {
+		for (let i = currentPage - 1; i < countBtns + currentPage - 1; i++) {
+			i !== currentPage - 1 && i !== pgBtn + currentPage - 2
+				? (rangeBtns += `<button class="pagination-btn btn-js btn-pg number-btn" data-id="${
+						i - currentPage + 2
+				  }" >${i}</button>`)
+				: (rangeBtns += `<button class="pagination-btn btn-js btn-pg number-btn" data-id="${
+						i - currentPage + 2
+				  }" >...</button>`);
+		}
+	} else {
+		for (let i = countPage - pgBtn + 1; i <= countPage; i++) {
+			i === countPage - pgBtn + 1
+				? (rangeBtns += `<button class="pagination-btn btn-js btn-pg number-btn" data-id="${
+						i - countPage + pgBtn
+				  }" >...</button>`)
+				: (rangeBtns += `<button class="pagination-btn btn-js btn-pg number-btn" data-id="${
+						i - countPage + pgBtn
+				  }" >${i}</button>`);
+		}
+	}
+	rangeButtons.innerHTML = rangeBtns;
+	const newButtons = buttonPagination.querySelectorAll('.btn-pg');
+	newButtons.forEach(button => button.addEventListener('click', onClickBtn));
+	changeValueBtn();
 }
-
-// function changeValue(num) {
-// 	const btnPg = buttonPagination.querySelectorAll('.btn-pg');
-// 	btnPg.forEach(btn => {
-// 		btnPg.forEach(btn => {
-// 			btn.dataset.value = Number(btn.dataset.value) + num;
-// 		});
-// 	});
-// }

@@ -1,7 +1,7 @@
 /** @format */
 
 import { onOpenWindow } from './recipe';
-import { allCard, changeCurrentPage, cardInHtml, perPage, changeCountPage } from './favorites';
+import { allCard, changeCurrentPage, cardInHtml, perPage, changeTextBtn } from './favorites';
 import { handleScroll } from './loading';
 import sprite from '../img/icon/icon.svg';
 
@@ -13,7 +13,7 @@ const ref = {
 	allCategories: null,
 };
 
-ref.cardsFavorites.addEventListener('click', onOpenModalWindow);
+ref.cardsFavorites ? ref.cardsFavorites.addEventListener('click', onOpenModalWindow) : null;
 
 export function markupButtons(cards) {
 	if (cards.length === 0) {
@@ -102,7 +102,7 @@ export function cardFilterCategories(page) {
 		? allCard.filter(({ category }) => activeCatigories.has(category))
 		: allCard;
 	markupCards(filteredCard, page, perPage);
-	changeCountPage(filteredCard.length);
+	changeTextBtn(filteredCard.length);
 }
 
 function onOpenModalWindow({ target }) {
@@ -110,4 +110,8 @@ function onOpenModalWindow({ target }) {
 		return;
 	}
 	onOpenWindow(target.dataset.id);
+}
+
+export function changeLocalStor() {
+	cardFilterCategories(1);
 }

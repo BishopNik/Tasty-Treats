@@ -1,6 +1,6 @@
 /** @format */
 import sprite from '../img/icon/icon.svg';
-
+import { changeLocalStor } from './markup-favorites';
 
 function handleLikeBtn(evt) {
 	const favorites = JSON.parse(localStorage.getItem('favorites')) ?? [];
@@ -42,7 +42,7 @@ function handleAddFavouriteBtn(evt) {
 	};
 
 	let svg = null;
-	
+
 	if (selectors.list) {
 		const allElements = selectors.list.querySelectorAll('.js-recipe');
 		allElements.forEach(elm => {
@@ -66,15 +66,13 @@ function handleAddFavouriteBtn(evt) {
 			if (svg) {
 				svg.innerHTML = `<use class="js-like" href="${sprite}#icon-like"></use>`;
 			}
-
-			 const el = selectors.list.querySelector(`[data-id="${recipeId}"]`);
-      el.remove();
-
+			changeLocalStor();
+			const el = selectors.list.querySelector(`[data-id="${recipeId}"]`);
+			el.remove();
 		}
 	}
 
 	localStorage.setItem('favorites', JSON.stringify(favorites));
-
 }
 
 export { handleLikeBtn };
