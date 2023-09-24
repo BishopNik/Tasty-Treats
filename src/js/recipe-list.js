@@ -3,7 +3,6 @@
 import { Notify, Loading } from 'notiflix';
 import sprite from '../img/icon/icon.svg';
 
-
 import { handleLikeBtn } from './add_favorites';
 import { createCard } from './recipe-card';
 import { onOpenWindow } from './recipe';
@@ -40,13 +39,13 @@ const selectors = {
 selectors.list.addEventListener('click', handleLikeBtn);
 
 function setPaginationButtons(div, page, total, option) {
-		if (total === 1) {
-		div.innerHTML = "";
-		return
+	if (total === 1) {
+		div.innerHTML = '';
+		return;
 	}
 	const iconRightPath = `${sprite}#icon-small-right`;
 	const iconLeftPath = `${sprite}#icon-small-left`;
-	let arrowButtons = ` <div class="back-btns">
+	let arrowButtons = ` <div class="back-buttons additional">
       <button class="pagination-btn arrow-btn back-arrow-btn-js">
          <div class="left-arrow-icon double-arrow">
            <svg class="icon-double-arrow-one" width="24" height="24">
@@ -154,11 +153,11 @@ export async function renderMain(options) {
 	Loading.dots();
 	let responseData;
 	await fetchRecipeCards(recipesApi, options)
-	.then(data => {
-	responseData = data;
-	})
-	.catch(error => Notify.failure('Oops! Something went wrong! Try reloading the page!'))
-	.finally(Loading.remove(1000));
+		.then(data => {
+			responseData = data;
+		})
+		.catch(error => Notify.failure('Oops! Something went wrong! Try reloading the page!'))
+		.finally(Loading.remove(1000));
 	renderCards(responseData.results, recipeCards, 'mainblock');
 	setPaginationButtons(
 		pagination,
