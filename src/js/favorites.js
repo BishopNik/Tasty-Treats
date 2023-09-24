@@ -237,9 +237,11 @@ export function changeTextBtn(cards) {
 	} else {
 		for (let i = countPage - pgBtn + 1; i <= countPage; i++) {
 			i === countPage - pgBtn + 1
-				? (rangeBtns += `<button class="pagination-btn btn-js btn-pg number-btn" data-id="${
-						i - countPage + pgBtn
-				  }" >...</button>`)
+				? i > 0
+					? (rangeBtns += `<button class="pagination-btn btn-js btn-pg number-btn" data-id="${
+							i - countPage + pgBtn
+					  }" >...</button>`)
+					: null
 				: (rangeBtns += `<button class="pagination-btn btn-js btn-pg number-btn" data-id="${
 						i - countPage + pgBtn
 				  }" >${i}</button>`);
