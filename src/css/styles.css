@@ -23,6 +23,27 @@
 @import url('./main-slider.css');
 @import url('./component/scroll-to-top.css');
 
+@font-face {
+	font-family: 'Inter';
+	font-weight: 400;
+	font-style: normal;
+	src: url('./fonts/Inter-Regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Inter';
+	font-weight: 500;
+	font-style: normal;
+	src: url('./fonts/Inter-Medium.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Inter';
+	font-weight: 600;
+	font-style: normal;
+	src: url('./fonts/Inter-SemiBold.ttf') format('truetype');
+}
+
 :root {
 	--color-font-background: rgba(248, 248, 248, 1);
 	--color-like: rgba(238, 161, 12, 1);
