@@ -165,21 +165,31 @@ function createButtonPagination(cards) {
 
 function onClickBtn({ currentTarget }) {
 	const idBtn = currentTarget.dataset.id;
+	const pgBtn = window.innerWidth > 767 ? 4 : 3;
 
 	switch (idBtn) {
 		case '1':
-			currentPage = Number(currentTarget.textContent);
+			currentPage =
+				currentTarget.textContent !== '...'
+					? Number(currentTarget.textContent)
+					: currentPage - 2;
 			break;
 		case '2':
 			currentPage = Number(currentTarget.textContent);
 			break;
 		case '3':
-			if (currentPage < countPage) {
-				currentPage += 1;
-			} else currentPage = Number(currentTarget.textContent);
+			currentPage =
+				currentPage < countPage && pgBtn === 3
+					? currentPage + 1
+					: Number(currentTarget.textContent);
 			break;
 		case '4':
-			currentPage = Number(currentTarget.textContent);
+			console.log(currentPage);
+			currentPage =
+				currentTarget.textContent !== '...'
+					? Number(currentTarget.textContent)
+					: currentPage + 2;
+			console.log(currentPage);
 			break;
 		case '5':
 			currentPage = 1;
