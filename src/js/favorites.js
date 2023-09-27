@@ -9,11 +9,13 @@ import sprite from '../img/icon/icon.svg';
 
 window.addEventListener('resize', reloadPageOnResize);
 function reloadPageOnResize() {
-	if (window.innerWidth < 768) {
+	if (window.innerWidth < 768 && newScreenWidth !== window.innerWidth) {
+		newScreenWidth = window.innerWidth;
 		location.reload();
 	}
 }
 
+let newScreenWidth = null;
 let favoritesCard = [];
 export let countPage = 0;
 export let currentPage = 0;
@@ -28,7 +30,10 @@ markupCardArray();
 
 export function readFavoritesCard() {
 	try {
-		favoritesCard = JSON.parse(localStorage.getItem('favorites'));
+		const recipe = localStorage.getItem('favorites');
+		if (recipe) {
+			favoritesCard = JSON.parse(recipe);
+		}
 	} catch (error) {
 		Notify.failure('Unable to load favorites. ' + error);
 	}
