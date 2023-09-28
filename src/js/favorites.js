@@ -10,9 +10,8 @@ import sprite from '../img/icon/icon.svg';
 window.addEventListener('resize', reloadPageOnResize);
 function reloadPageOnResize() {
 	if (screenWidth > window.innerWidth) {
-		screenWidth = window.innerWidth - 50;
-		alert(screenWidth);
-		// location.reload();
+		screenWidth = window.innerWidth - 30;
+		location.reload();
 	}
 }
 

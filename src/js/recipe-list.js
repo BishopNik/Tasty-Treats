@@ -181,13 +181,19 @@ function onOpenModalWindow({ target }) {
 	onOpenWindow(target.dataset.id);
 }
 
-window.addEventListener('resize', () => {
-	if (window.screen.width < 768) {
-		renderCardsOptions.params.limit = 6;
-	} else if (window.screen.width < 1280) {
-		renderCardsOptions.params.limit = 8;
-	} else {
-		renderCardsOptions.params.limit = 9;
+let screenWidth = window.innerWidth;
+function reloadPageOnResize() {
+	if (screenWidth > window.innerWidth) {
+		screenWidth = window.innerWidth - 30;
+		if (window.screen.width < 768) {
+			renderCardsOptions.params.limit = 6;
+		} else if (window.screen.width < 1280) {
+			renderCardsOptions.params.limit = 8;
+		} else {
+			renderCardsOptions.params.limit = 9;
+		}
+		renderMain(renderCardsOptions);
 	}
-	renderMain(renderCardsOptions);
-});
+}
+
+window.addEventListener('resize', reloadPageOnResize);
