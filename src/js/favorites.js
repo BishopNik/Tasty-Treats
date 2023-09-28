@@ -11,7 +11,8 @@ window.addEventListener('resize', reloadPageOnResize);
 function reloadPageOnResize() {
 	if (screenWidth > window.innerWidth) {
 		screenWidth = window.innerWidth - 20;
-		location.reload();
+		alert(screenWidth);
+		// location.reload();
 	}
 }
 
