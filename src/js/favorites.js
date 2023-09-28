@@ -9,13 +9,13 @@ import sprite from '../img/icon/icon.svg';
 
 window.addEventListener('resize', reloadPageOnResize);
 function reloadPageOnResize() {
-	if (newScreenWidth !== window.innerWidth) {
-		newScreenWidth = window.innerWidth;
+	if (screenWidth > window.innerWidth) {
+		screenWidth = window.innerWidth - 20;
 		location.reload();
 	}
 }
 
-let newScreenWidth = null;
+let screenWidth = 1280;
 let favoritesCard = [];
 export let countPage = 0;
 export let currentPage = 0;
