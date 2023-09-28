@@ -9,6 +9,7 @@
 		"preview": "vite preview"
 	},
 	"devDependencies": {
+		"esbuild": "^0.19.4",
 		"glob": "^8.1.0",
 		"vite": "^4.0.5"
 	},
