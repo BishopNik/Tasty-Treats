@@ -1,134 +1,132 @@
 /** @format */
 
 .pagination-btns {
-  display: flex;
-  gap: 14px;
-  justify-content: center;
-  padding-bottom: 80px;
+	display: flex;
+	gap: 14px;
+	justify-content: center;
+	padding-bottom: 80px;
 }
 @media screen and (min-width: 768px) {
-  .pagination-btns {
-    gap: 24px;
-  }
+	.pagination-btns {
+		gap: 24px;
+	}
 }
 
 .pagination-btn {
-  font-size: 18px;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: none;
-  font-weight: 600;
+	font-size: 18px;
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	border: none;
+	font-weight: 600;
 }
 
 .arrow-btn {
-  position: relative;
-  background-color: var(--color-green-button);
-  color: var(--color-black-font);
+	position: relative;
+	background-color: var(--color-green-button);
+	color: var(--color-black-font);
 }
 
 .arrow-btn:disabled {
-  background-color: var(--color-black-btn);
-  color: var(--color-font-background);
-  fill: beige;
-  cursor: default;
+	background-color: var(--color-black-btn);
+	color: var(--color-font-background);
+	fill: beige;
+	cursor: default;
 }
 
 .right-arrow-icon,
 .left-arrow-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 .double-arrow {
-  position: relative;
-  width: 100%;
-  height: 100%;
+	position: relative;
+	width: 100%;
+	height: 100%;
 }
 .icon-double-arrow-one {
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-65%, -50%);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-65%, -50%);
 }
 .icon-double-arrow-two {
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-35%, -50%);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-35%, -50%);
 }
 .forward-btns,
 .back-btns {
-  display: flex;
-  gap: 4px;
+	display: flex;
+	gap: 4px;
 }
 
 @media screen and (min-width: 768px) {
-  .forward-btns,
-  .back-btns,
-  .range-btns {
-    display: flex;
-    gap: 8px;
-  }
+	.forward-btns,
+	.back-btns,
+	.range-btns {
+		display: flex;
+		gap: 8px;
+	}
 }
 .range-btns {
-  display: flex;
-  gap: 8px;
+	display: flex;
+	gap: 8px;
 }
 @media screen and (min-width: 768px) {
-  .range-btns {
-    display: flex;
-    gap: 10px;
-  }
+	.range-btns {
+		display: flex;
+		gap: 10px;
+	}
 }
 .number-btn {
-  color: var(--color-black-font);
-  border: 1px solid var(--color-font-select);
-  background-color: transparent;
+	color: var(--color-black-font);
+	border: 1px solid var(--color-font-select);
+	background-color: transparent;
 }
 .current-number-btn {
-  background-color: var(--color-green-button);
-  color: var(--color-black-font);
-  cursor: default;
+	background-color: var(--color-green-button);
+	color: var(--color-black-font);
+	cursor: default;
 }
 
 .dot-btn {
-  cursor: default;
+	cursor: default;
 }
 .recipe-cards {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: start;
-  row-gap: 24px;
-  column-gap: 16px;
-  margin-bottom: 64px;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: start;
+	row-gap: 24px;
+	column-gap: 16px;
+	margin-bottom: 64px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-  .recipe-cards {
-    width: 496px;
-    min-height: 901px;
-    row-gap: 16px;
-  }
+	.recipe-cards {
+		width: 496px;
+		min-height: 901px;
+		row-gap: 16px;
+	}
 
-  .pagination-btns {
-    gap: 16px;
-    padding-bottom: 100px;
-  }
+	.pagination-btns {
+		gap: 16px;
+		padding-bottom: 100px;
+	}
 }
 
 @media screen and (min-width: 1280px) {
-  .recipe-cards {
-    width: 782px;
-    min-height: 901px;
-    row-gap: 20px;
-  }
+	.recipe-cards {
+		width: 782px;
+		min-height: 901px;
+		row-gap: 20px;
+	}
 
-  .pagination-btns {
-    margin-left: 300px;
-    padding-bottom: 100px;
-  }
+	.pagination-btns {
+		margin-left: 300px;
+		padding-bottom: 100px;
+	}
 }
