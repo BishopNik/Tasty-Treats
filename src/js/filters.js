@@ -58,11 +58,6 @@ function onTimeOptionsClick(evt) {
 	const currentOpt = evt.target.textContent;
 	elements.timeInput.value = currentOpt;
 	const currentValue = Number.parseInt(elements.timeInput.value);
-
-	console.log(evt.target);
-	// if (evt.target.textContent === elements.timeInput.value) {
-	//   return;
-	// }
 	renderCardsOptions.params.page = 1;
 	renderCardsOptions.params.time = `${currentValue}`;
 	renderMain(renderCardsOptions);

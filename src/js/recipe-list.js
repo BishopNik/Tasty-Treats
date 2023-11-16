@@ -11,7 +11,6 @@ import { handleScroll } from './loading';
 
 const pagination = document.querySelector('.pagination-btns');
 const recipeCards = document.querySelector('.recipe-cards');
-export const recipesApi = 'https://tasty-treats-backend.p.goit.global/api/recipes';
 const cadrsContainer = document.querySelector('.recipe-cards');
 cadrsContainer.addEventListener('click', onOpenModalWindow);
 
@@ -152,7 +151,7 @@ function setPaginationButtons(div, page, total, option) {
 export async function renderMain(options) {
 	Loading.dots();
 	let responseData;
-	await fetchRecipeCards(recipesApi, options)
+	await fetchRecipeCards(options)
 		.then(data => {
 			responseData = data;
 		})

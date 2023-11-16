@@ -47,10 +47,10 @@ export async function fetchIngred() {
 	return response.data;
 }
 
-export async function fetchRecipeCards(api, options) {
+export async function fetchRecipeCards(options) {
 	let fetchResult = {};
 	await axios
-		.get(api, options)
+		.get(URL, options)
 		.then(resp => {
 			(fetchResult.results = resp.data.results),
 				(fetchResult.currentPage = resp.data.page),
