@@ -189,12 +189,10 @@ function onClickBtn({ currentTarget }) {
 					: Number(currentTarget.textContent);
 			break;
 		case '4':
-			console.log(currentPage);
 			currentPage =
 				currentTarget.textContent !== '...'
 					? Number(currentTarget.textContent)
 					: currentPage + 2;
-			console.log(currentPage);
 			break;
 		case '5':
 			currentPage = 1;
