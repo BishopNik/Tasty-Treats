@@ -1,21 +1,18 @@
 /** @format */
 
 import { Notify, Loading } from 'notiflix';
+import throttle from 'lodash.throttle';
 import { fetchGetId } from './fetch-api';
 import { markupButtons, markupCards, cardFilterCategories } from './markup-favorites';
 import { handleLikeBtn } from './add_favorites';
 import { createCard } from './recipe-card';
 import sprite from '../img/icon/icon.svg';
 
-window.addEventListener('resize', reloadPageOnResize);
+window.addEventListener('resize', throttle(reloadPageOnResize, 2000));
 function reloadPageOnResize() {
-	if (screenWidth > window.innerWidth) {
-		screenWidth = window.innerWidth - 30;
-		location.reload();
-	}
+	location.reload();
 }
 
-let screenWidth = window.innerWidth;
 let favoritesCard = [];
 export let countPage = 0;
 export let currentPage = 0;
